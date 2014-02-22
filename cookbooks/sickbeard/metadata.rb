@@ -5,4 +5,5 @@ description      "Installs and Configures Sickbeard"
 version          "0.1.0"
 
 depends          "python-cheetah"
+depends          "nginx"
 

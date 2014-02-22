@@ -18,11 +18,12 @@
 #
 
 include_recipe "python-cheetah"
+include_recipe "nginx"
 
 user "sickbeard" do
   supports :manage_home => true
   comment "Sickbeard User"
-  uid 65534
+  uid 1000
   gid "nogroup"
   home "/home/sickbeard"
   shell "/bin/bash"
@@ -45,7 +46,6 @@ end
 
 cookbook_file "/etc/default/sickbeard" do
   source "sickbeard.options"
-  action :create
 end
 
 git "/home/sickbeard/app" do
@@ -54,10 +54,19 @@ git "/home/sickbeard/app" do
   repository "https://github.com/skingry/Sick-Beard.git"
   reference "master"
   action :sync
-  notifies :restart, resources(:service => "sickbeard")
 end
 
 service "sickbeard" do
   action :start
+end
+
+cookbook_file "/etc/nginx/htpasswd" do
+  source "htpasswd.nginx"
+  notifies :restart, resources(:service => "nginx")
+end
+
+template "/etc/nginx/sites-enabled/sickbeard" do
+  source "sickbeard.nginx.erb"
+  notifies :restart, resources(:service => "nginx")
 end
 
