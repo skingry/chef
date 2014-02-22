@@ -20,8 +20,6 @@
 include_recipe "nfs-common"
 
 directory "/data" do
-  user "nobody"
-  group "nogroup"
   action :create
 end
 
