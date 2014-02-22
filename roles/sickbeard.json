@@ -1,0 +1,8 @@
+{
+  "name": "sickbeard",
+  "description": "Sickbeard",
+  "run_list": [
+    "role[base]",
+    "recipe[sickbeard]"
+  ]
+}
