@@ -1,0 +1,8 @@
+{
+  "id": "sabnzbd",
+  "password": "$1$3t3iilIi$XbjSD4JIYYoEDfl7J3qme1",
+  "gid": "65534",
+  "uid": "65534",
+  "shell": "/bin/bash",
+  "comment": "SabNZBd User"
+}

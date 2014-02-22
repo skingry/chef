@@ -1,0 +1,8 @@
+{
+  "id": "transmission",
+  "password": "$1$Hcjr.i3R$sd/dtsaIKHzXtqDeseYw91",
+  "gid": "65534",
+  "uid": "65534",
+  "shell": "/bin/bash",
+  "comment": "Transmission User"
+}
