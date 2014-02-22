@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "nfs-common"
+
 directory "/data" do
   user "nobody"
   group "nogroup"
@@ -26,6 +28,6 @@ end
 mount "/data" do
   device "monolith.local.pvt:/zones/filer"
   fstype "nfs"
-  options "rsize=8192,wsize=8192,timeo=14,intr"
+  options "rsize=8192,wsize=8192,timeo=14,intr,vers=3"
 end
 
