@@ -1,0 +1,8 @@
+{
+  "name": "base",
+  "description": "Drop The Bass",
+  "run_list": [
+    "recipe[git]",
+    "recipe[build-essential]"
+  ]
+}
