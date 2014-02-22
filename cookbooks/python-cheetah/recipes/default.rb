@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: git
+# Cookbook Name:: python-cheetah
 # Recipe:: default
 #
 # Copyright 2014, Seth Kingry
