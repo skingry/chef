@@ -57,3 +57,7 @@ git "/home/sickbeard/app" do
   notifies :restart, resources(:service => "sickbeard")
 end
 
+service "sickbeard" do
+  action :start
+end
+
