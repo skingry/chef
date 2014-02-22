@@ -3,6 +3,7 @@
   "description": "Drop The Bass",
   "run_list": [
     "recipe[git]",
-    "recipe[build-essential]"
+    "recipe[build-essential]",
+    "recipe[filer]"
   ]
 }
