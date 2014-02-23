@@ -35,7 +35,7 @@ user "sabnzbd" do
 end
 
 service "sabnzbd" do
-  supports :restart => true, :enable => true, :start => true
+  supports :restart => true, :start => true
 end
 
 git "/home/sabnzbd/app" do
@@ -44,6 +44,7 @@ git "/home/sabnzbd/app" do
   repository "https://github.com/skingry/sabnzbd.git"
   reference "master"
   action :sync
+  notifies :restart, resources(:service => "sabnzbd"), :delayed
 end
 
 link "/etc/init.d/sabnzbd" do
