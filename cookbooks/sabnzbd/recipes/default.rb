@@ -42,7 +42,7 @@ git "/home/sabnzbd/app" do
   user "sabnzbd"
   group "nogroup"
   repository "https://github.com/skingry/sabnzbd.git"
-  reference "master"
+  revision "master"
   action :sync
   notifies :restart, resources(:service => "sabnzbd"), :delayed
 end
