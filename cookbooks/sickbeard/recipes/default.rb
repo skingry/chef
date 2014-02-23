@@ -31,7 +31,7 @@ user "sickbeard" do
 end
 
 service "sickbeard" do
-  supports :restart => true, :enable => true, :start => true
+  supports :restart => true, :start => true
 end
 
 directory "/var/run/sickbeard" do
@@ -52,8 +52,9 @@ git "/home/sickbeard/app" do
   user "sickbeard"
   group "nogroup"
   repository "https://github.com/skingry/Sick-Beard.git"
-  reference "master"
+  revision "master"
   action :sync
+  notifies :restart, resources(:service => "sickbeard"), :delayed
 end
 
 service "sickbeard" do
