@@ -30,7 +30,7 @@ template "/etc/nginx/nginx.conf" do
 end
 
 service "nginx" do
-  supports :restart => true, :enable => true, :start => true
+  supports :restart => true, :start => true
   action :start
 end
 
