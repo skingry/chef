@@ -4,6 +4,7 @@
   "run_list": [
     "recipe[git]",
     "recipe[build-essential]",
-    "recipe[filer]"
+    "recipe[filer]",
+    "recipe[chef-client]"
   ]
 }
