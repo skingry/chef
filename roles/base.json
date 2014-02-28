@@ -2,6 +2,7 @@
   "name": "base",
   "description": "Drop The Bass",
   "run_list": [
+    "recipe[hostname]",
     "recipe[git]",
     "recipe[filer]",
     "recipe[chef-client]"
