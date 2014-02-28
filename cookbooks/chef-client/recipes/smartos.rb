@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: chef-client
-# Recipe:: default
+# Recipe:: smartos
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,10 +17,16 @@
 # limitations under the License.
 #
 
-case node["platform"]
-when 'smartos'
-    include_recipe "chef-client::smartos"
-else
-    include_recipe "chef-client::ubuntu"
+directory "/var/log/chef" do
+  action :create
+end
+
+file "/etc/chef/validation.pem" do
+  action :delete
+end
+
+cron "chef-client" do
+  minute "0,10,20,30,40,50"
+  command "chef-client -l info --splay 90 2>&1 > /var/log/chef/client.log"
 end
 
