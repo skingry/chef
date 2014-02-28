@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: git
-# Recipe:: default
+# Recipe:: smartos
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,10 +17,7 @@
 # limitations under the License.
 #
 
-case node["platform"]
-when 'smartos'
-    include_recipe "git::smartos"
-else
-    include_recipe "git::ubuntu"
+package 'scmgit' do
+  action :install
 end
 
