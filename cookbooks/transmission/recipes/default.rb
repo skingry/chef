@@ -19,7 +19,7 @@
 
 include_recipe "nginx"
 
-package "transmission-daemon" do
+package "transmission" do
   action :install
 end
 
@@ -30,29 +30,19 @@ user "transmission" do
   gid "nogroup"
   home "/home/transmission"
   shell "/bin/bash"
-  password "$1$ZjRV27GR$M1si7V7dy/TZaaz3/4teH1"
 end
 
-service "transmission-daemon" do
-  supports :restart => true, :start => true
+directory "/opt/local/etc/nginx/sites-enabled" do
+  action :create
 end
 
-template "/etc/init.d/transmission-daemon" do
-  source "transmission.init-script.erb"
-  mode "0755"
-  notifies :restart, resources(:service => "transmission-daemon"), :delayed
+directory "/var/run/transmission" do
+  owner "transmission"
+  group "nobody"
+  action :create
 end
 
-template "/etc/default/transmission-daemon" do
-  source "transmission.options.erb"
-  notifies :restart, resources(:service => "transmission-daemon"), :delayed
-end
-
-service "transmission-daemon" do
-  action :start
-end
-
-template "/etc/nginx/sites-enabled/transmission" do
+template "/opt/local/etc/nginx/sites-enabled/transmission" do
   source "transmission.nginx.erb"
   notifies :restart, resources(:service => "nginx")
 end
