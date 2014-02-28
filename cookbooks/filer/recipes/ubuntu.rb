@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: filer
-# Recipe:: default
+# Recipe:: ubuntu
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,10 +17,15 @@
 # limitations under the License.
 #
 
-case node["platform"]
-when 'smartos'
-    include_recipe "filer::smartos"
-else
-    include_recipe "filer::ubuntu"
+include_recipe "nfs-common"
+
+directory "/data" do
+  action :create
+end
+
+mount "/data" do
+  device "monolith.local.pvt:/zones/filer"
+  fstype "nfs"
+  options "rsize=8192,wsize=8192,timeo=14,intr"
 end
 

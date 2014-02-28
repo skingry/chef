@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: filer
-# Recipe:: default
+# Recipe:: smartos.rb
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,10 +17,12 @@
 # limitations under the License.
 #
 
-case node["platform"]
-when 'smartos'
-    include_recipe "filer::smartos"
-else
-    include_recipe "filer::ubuntu"
+directory "/data" do
+  action :create
+end
+
+execute "Mount data partition" do
+  command "mount -F nfs -o rsize=8192,wsize=8192,timeo=14,intr monolith.local.pvt:/zones/filer /data"
+  not_if "mount | grep data"
 end
 
