@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: nginx
-# Recipe:: default
+# Recipe:: ubuntu
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,10 +17,20 @@
 # limitations under the License.
 #
 
-case node["platform"]
-when 'smartos'
-    include_recipe "nginx::smartos"
-else
-    include_recipe "nginx::ubuntu"
+package 'nginx' do
+  action :install
+end
+
+file "/etc/nginx/sites-enabled/default" do
+  action :delete
+end
+
+template "/etc/nginx/nginx.conf" do
+  source "nginx.conf-ubuntu.erb"
+end
+
+service "nginx" do
+  supports :restart => true, :start => true
+  action :start
 end
 
