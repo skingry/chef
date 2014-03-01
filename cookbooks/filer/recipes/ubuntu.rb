@@ -26,6 +26,7 @@ end
 mount "/data" do
   device "monolith.local.pvt:/zones/filer"
   fstype "nfs"
+  action :enable
   options "rsize=8192,wsize=8192,timeo=14,intr"
 end
 
