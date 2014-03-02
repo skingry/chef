@@ -21,6 +21,11 @@ directory "/data" do
   action :create
 end
 
+execute "Add data partition to vfstab" do
+  command "echo \"monolith.local.pvt:/zones/filer - /data nfs - yes rsize=8192,wsize=8192,timeo=14,intr\" >> /etc/vfstab"
+  not_if "cat /etc/vfstab | grep data"
+end
+
 execute "Mount data partition" do
   command "mount -F nfs -o rsize=8192,wsize=8192,timeo=14,intr monolith.local.pvt:/zones/filer /data"
   not_if "mount | grep data"
