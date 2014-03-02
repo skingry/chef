@@ -42,6 +42,17 @@ directory "/var/run/transmission" do
   action :create
 end
 
+execute "Import transmission SMF" do
+  command "svccfg import /tmp/transmission.xml"
+  action :nothing
+end
+
+template "/tmp/transmission.xml" do
+  source "transmission.xml.erb"
+  notifies :run, "execute[Import transmission SMF]"
+  not_if "svcs transmission"
+end
+
 template "/opt/local/etc/nginx/sites-enabled/transmission" do
   source "transmission.nginx.erb"
   notifies :restart, resources(:service => "nginx")
