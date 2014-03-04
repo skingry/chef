@@ -1,1 +1,2 @@
-.chef
+.chef/syntax_check_cache/
+.chef/secrets/
