@@ -4,3 +4,5 @@ license          "Apache v2"
 description      "Configures hostname"
 version          "0.1.0"
 
+supports         "smartos"
+supports         "ubuntu", ">= 12.04"

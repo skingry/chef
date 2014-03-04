@@ -4,5 +4,7 @@ license          "Apache v2"
 description      "Installs and Configures Transmission"
 version          "0.1.0"
 
+supports         "smartos"
+
 depends          "nginx"
 
