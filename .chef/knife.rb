@@ -13,3 +13,4 @@ validation_key            "#{current_dir}/secrets/chef-validator.pem"
 client_key                "#{current_dir}/secrets/#{node_name}.pem"
 
 cookbook_path             "#{current_dir}/../cookbooks"
+

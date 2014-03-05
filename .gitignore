@@ -2,3 +2,4 @@
 .chef/secrets/*
 cookbooks/*
 Berksfile.lock
+Gemfile.lock
