@@ -14,3 +14,4 @@ client_key                "#{current_dir}/secrets/#{node_name}.pem"
 
 cookbook_path             "#{current_dir}/../cookbooks"
 
+eval File.read("#{current_dir}/secrets/fifo-config.rb")
