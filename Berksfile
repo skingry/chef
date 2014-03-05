@@ -3,6 +3,7 @@ cookbook "chef-client", git: "git://github.com/skingry-cookbooks/chef-client.git
 cookbook "filer", git: "git://github.com/skingry-cookbooks/filer.git"
 cookbook "git", git: "git://github.com/skingry-cookbooks/git.git"
 cookbook "hostname", git: "git://github.com/skingry-cookbooks/hostname.git"
+cookbook "netatalk", git: "git://github.com/skingry-cookbooks/netatalk.git"
 cookbook "nfs-common", git: "git://github.com/skingry-cookbooks/nfs-common.git"
 cookbook "nginx", git: "git://github.com/skingry-cookbooks/nginx.git"
 cookbook "par2", git: "git://github.com/skingry-cookbooks/par2.git"
