@@ -9,3 +9,7 @@
 
 # subversion
 */.svn/*
+
+# git
+.git*
+*/.git/*
