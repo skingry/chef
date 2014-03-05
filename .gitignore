@@ -1,4 +1,4 @@
-.chef/cache
-.chef/secrets/
-cookbooks/
+.chef/cache/*
+.chef/secrets/*
+cookbooks/*
 Berksfile.lock
