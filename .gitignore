@@ -1,2 +1,4 @@
-.chef/syntax_check_cache/
+.chef/cache
 .chef/secrets/
+cookbooks/
+Berksfile.lock
