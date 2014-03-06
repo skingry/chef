@@ -1,4 +1,5 @@
 cookbook "avahi-daemon", git: "git://github.com/skingry-cookbooks/avahi-daemon.git"
+cookbook "bind", git: "git://github.com:skingry-cookbooks/bind.git"
 cookbook "chef-client", git: "git://github.com/skingry-cookbooks/chef-client.git"
 cookbook "filer", git: "git://github.com/skingry-cookbooks/filer.git"
 cookbook "git", git: "git://github.com/skingry-cookbooks/git.git"
