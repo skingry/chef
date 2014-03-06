@@ -1,0 +1,80 @@
+{
+  "id": "records",
+  "mac_addresses": [
+    {
+      "hostname": "eniac.local.pvt",
+      "mac": "20:C9:D0:7C:7F:B5",
+      "ip": "192.168.1.30"
+    },
+    {
+      "hostname": "pasta.local.pvt",
+      "mac": "00:25:4B:91:ED:1F",
+      "ip": "192.168.1.31"
+    },
+    {
+      "hostname": "rumblebee.local.pvt",
+      "mac": "B8:E8:56:0C:99:50",
+      "ip": "192.168.1.32"
+    },
+    {
+      "hostname": "roku.local.pvt",
+      "mac": "CC:6D:A0:8E:15:05",
+      "ip": "192.168.1.50"
+    },
+    {
+      "hostname": "printer.local.pvt",
+      "mac": "A4:EE:57:65:39:FD",
+      "ip": "192.168.1.51"
+    },
+    {
+      "hostname": "kvm.local.pvt",
+      "mac": "00:25:90:00:3D:67",
+      "ip": "192.168.1.52"
+    },
+    {
+      "hostname": "wireless.local.pvt",
+      "mac": "00:02:6F:A5:FF:EC",
+      "ip": "192.168.1.53"
+    },
+    {
+      "hostname": "phablet.local.pvt",
+      "mac": "C8:BC:C8:1B:B3:BE",
+      "ip": "192.168.1.70"
+    },
+    {
+      "hostname": "tricorder.local.pvt",
+      "mac": "E0:75:7D:3B:07:9C",
+      "ip": "192.168.1.71"
+    },
+    {
+      "hostname": "nestle.local.pvt",
+      "mac": "E0:F5:C6:8C:22:FF",
+      "ip": "192.168.1.72"
+    },
+    {
+      "hostname": "ipod.local.pvt",
+      "mac": "7C:6D:62:63:7F:DE",
+      "ip": "192.168.1.73"
+    },
+    {
+      "hostname": "mcdazzler.local.pvt",
+      "mac": "AC:22:0B:42:DA:93",
+      "ip": "192.168.1.74"
+    },
+    {
+      "hostname": "wii.local.pvt",
+      "mac": "D8:6B:F7:C7:78:16",
+      "ip": "192.168.1.75"
+    },
+    {
+      "hostname": "brick.local.pvt",
+      "mac": "B8:17:C2:3E:F1:95",
+      "ip": "192.168.1.76"
+    },
+    {
+      "hostname": "monolith.local.pvt",
+      "mac": "00:25:90:00:66:18",
+      "ip": "192.168.1.80"
+    }
+  ]
+}
