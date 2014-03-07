@@ -5,6 +5,7 @@
     "recipe[hostname]",
     "recipe[git]",
     "recipe[filer]",
-    "recipe[chef-client]"
+    "recipe[chef-client]",
+    "recipe[dns::client]"
   ]
 }
