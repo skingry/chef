@@ -1,8 +1,0 @@
-{
-  "id": "sickbeard",
-  "password": "$1$ZjRV27GR$M1si7V7dy/TZaaz3/4teH1",
-  "gid": "65534",
-  "uid": "65534",
-  "shell": "/bin/bash",
-  "comment": "Sickbeard User"
-}
