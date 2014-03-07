@@ -1,0 +1,8 @@
+{
+  "name": "plex",
+  "description": "Plex",
+  "run_list": [
+    "role[base]",
+    "recipe[avahi-daemon]"
+  ]
+}
