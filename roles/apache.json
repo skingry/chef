@@ -1,0 +1,8 @@
+{
+  "name": "apache",
+  "description": "Apache",
+  "run_list": [
+    "role[base]",
+    "recipe[apache::php]"
+  ]
+}
