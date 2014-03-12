@@ -1,0 +1,28 @@
+# Install prerequisites
+yum -y groupinstall "Development Tools"
+
+# Install Chef
+curl -L https://www.opscode.com/chef/install.sh | sudo bash
+
+# Create Chef config directory
+mkdir -p /etc/chef
+
+# Install Chef validator
+awk NF > /etc/chef/validation.pem << 'EOP'
+<%= validation_key %>
+EOP
+chmod 0600 /etc/chef/validation.pem
+
+# Install Chef client config
+cat > /etc/chef/client.rb <<'EOP'
+<%= config_content %>
+EOP
+
+# Install Chef first boot file
+cat > /etc/chef/first-boot.json <<'EOP'
+<%= first_boot.to_json %>
+EOP
+
+# Run chef for the first time
+chef-client -j /etc/chef/first-boot.json
+
