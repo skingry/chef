@@ -1,3 +1,4 @@
+
 .chef/cache/*
 .chef/secrets/*
 cookbooks/*
