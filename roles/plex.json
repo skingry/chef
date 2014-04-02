@@ -4,6 +4,7 @@
   "run_list": [
     "role[base]",
     "recipe[avahi-daemon]",
-    "recipe[filer::memory]"
+    "recipe[filer::memory]",
+    "recipe[handbrake]"
   ]
 }
