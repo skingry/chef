@@ -1,0 +1,8 @@
+{
+  "name": "proxy",
+  "description": "Proxy",
+  "run_list": [
+    "role[base]",
+    "recipe[proxy]"
+  ]
+}
