@@ -2,7 +2,6 @@
   "name": "base",
   "description": "Drop The Bass",
   "run_list": [
-    "recipe[sysctl]",
     "recipe[ssh]",
     "recipe[hostname]",
     "recipe[git]",
