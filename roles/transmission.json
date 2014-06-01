@@ -3,6 +3,7 @@
   "description": "Transmission",
   "run_list": [
     "role[base]",
+    "recipe[ipv6]",
     "recipe[transmission]"
   ]
 }
