@@ -8,6 +8,7 @@
     "recipe[filer]",
     "recipe[selinux]",
     "recipe[iptables]",
+    "recipe[ntp]",
     "recipe[chef-client]",
     "recipe[dns::client]"
   ]

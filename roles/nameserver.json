@@ -1,0 +1,9 @@
+{
+  "name": "nameserver",
+  "description": "Nameserver",
+  "run_list": [
+    "role[base]",
+    "recipe[ntp::server]",
+    "recipe[dns::server]"
+  ]
+}
