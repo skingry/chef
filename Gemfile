@@ -2,6 +2,6 @@ source "https://rubygems.org"
 
 gem 'chef'
 gem 'berkshelf'
+gem 'knife-joyent'
+gem 'knife-essential'
 
-gem 'project-fifo-ruby', :git => 'git@github.com:bakins/project-fifo-ruby.git'
-gem 'knife-fifo', :git => 'git@github.com:bakins/knife-fifo.git'
