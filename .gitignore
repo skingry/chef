@@ -1,5 +1,5 @@
 
-.chef/cache/*
+.chef/checksums/*
 .chef/secrets/*
 cookbooks/*
 Berksfile.lock
