@@ -13,6 +13,7 @@ validation_key            "#{current_dir}/secrets/chef-validator.pem"
 client_key                "#{current_dir}/secrets/#{node_name}.pem"
 
 cookbook_path             "#{current_dir}/../cookbooks"
+data_bag_path             "#{current_dir}/../data_bags"
 
 knife[:secret_file]       = "#{current_dir}/secrets/encrypted_data_bag_secret"
 
