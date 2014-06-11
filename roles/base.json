@@ -1,7 +1,6 @@
 {
   "name": "base",
   "description": "Drop The Bass",
-  "tz": "US/Eastern",
   "run_list": [
     "recipe[ssh]",
     "recipe[hostname]",
@@ -11,6 +10,10 @@
     "recipe[iptables]",
     "recipe[ntp]",
     "recipe[chef-client]",
-    "recipe[dns::client]"
-  ]
+    "recipe[dns::client]",
+    "recipe[timezone-ii]"
+  ],
+  "default_attributes": {
+    "tz": "US/Eastern"
+  }
 }
