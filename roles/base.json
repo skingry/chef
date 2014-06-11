@@ -1,6 +1,7 @@
 {
   "name": "base",
   "description": "Drop The Bass",
+  "tz": "US/Eastern",
   "run_list": [
     "recipe[ssh]",
     "recipe[hostname]",
