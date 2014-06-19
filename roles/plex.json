@@ -5,7 +5,6 @@
     "role[base]",
     "recipe[avahi-daemon]",
     "recipe[filer::memory]",
-    "recipe[handbrake]",
     "recipe[plexwatch]"
   ]
 }

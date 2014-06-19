@@ -1,0 +1,9 @@
+{
+  "name": "transcoder",
+  "description": "Transcoder",
+  "run_list": [
+    "role[base]",
+    "recipe[handbrake]"
+  ]
+}
+
