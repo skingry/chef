@@ -3,7 +3,8 @@
   "description": "Transcoder",
   "run_list": [
     "role[base]",
-    "recipe[handbrake]"
+    "recipe[handbrake]",
+    "recipe[nodejs]"
   ]
 }
 
