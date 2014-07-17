@@ -4,7 +4,7 @@
   "run_list": [
     "role[base]",
     "recipe[transmission]",
-    "recipe[ipv6]"
+    "recipe[ipv6::enabled]"
   ]
 }
 

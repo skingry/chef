@@ -3,6 +3,7 @@
   "description": "Sickbeard",
   "run_list": [
     "role[base]",
-    "recipe[sickbeard]"
+    "recipe[sickbeard]",
+    "recipe[ipv6::disabled]"
   ]
 }
