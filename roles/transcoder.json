@@ -4,7 +4,8 @@
   "run_list": [
     "role[base]",
     "recipe[handbrake]",
-    "recipe[nodejs]"
+    "recipe[nodejs]",
+    "recipe[ipv6::disabled]"
   ]
 }
 

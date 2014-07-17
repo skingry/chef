@@ -3,6 +3,7 @@
   "description": "SABnzbd",
   "run_list": [
     "role[base]",
-    "recipe[sabnzbd]"
+    "recipe[sabnzbd]",
+    "recipe[ipv6::disabled]"
   ]
 }

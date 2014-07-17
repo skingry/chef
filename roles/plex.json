@@ -5,6 +5,7 @@
     "role[base]",
     "recipe[avahi-daemon]",
     "recipe[filer::memory]",
-    "recipe[plexwatch]"
+    "recipe[plexwatch]",
+    "recipe[ipv6::disabled]"
   ]
 }
