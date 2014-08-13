@@ -3,6 +3,7 @@
   "description": "Proxy",
   "run_list": [
     "role[base]",
-    "recipe[proxy]"
+    "recipe[proxy]",
+    "recipe[ipv6::disabled]"
   ]
 }
