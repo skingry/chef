@@ -6,5 +6,13 @@
     "recipe[mysql::server]",
     "recipe[dns::server]",
     "recipe[ipv6::disabled]"
-  ]
+  ],
+  "default_attributes": {
+    "ntp": {
+      "is_server": "true",
+      "servers": ["0.us.pool.ntp.org", "1.us.pool.ntp.org", "2.us.pool.ntp.org", "3.us.pool.ntp.org"],
+      "peers": ["ns0.local.pvt"],
+      "restrictions": ["192.168.0.0 mask 255.255.0.0 nomodify notrap"]
+    }
+  }
 }

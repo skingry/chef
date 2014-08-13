@@ -6,10 +6,10 @@
     "recipe[hostname]",
     "recipe[git]",
     "recipe[filer]",
+    "recipe[ntp]",
     "recipe[selinux]",
     "recipe[iptables]",
     "recipe[unzip]",
-    "recipe[ntp]",
     "recipe[chef-client]",
     "recipe[dns::client]",
     "recipe[timezone-ii]"
@@ -18,6 +18,9 @@
     "tz": "America/New_York",
     "dns": {
       "master": "192.168.15.254"
+    },
+    "ntp": {
+      "servers": ["ns0.local.pvt"]
     }
   }
 }
