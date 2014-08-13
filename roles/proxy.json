@@ -4,6 +4,7 @@
   "run_list": [
     "role[base]",
     "recipe[proxy]",
+    "recipe[speedtest]",
     "recipe[ipv6::disabled]"
   ]
 }
