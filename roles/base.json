@@ -2,18 +2,17 @@
   "name": "base",
   "description": "Drop The Bass",
   "run_list": [
-    "recipe[openssh]",
+    "recipe[chef-client]",
+    "recipe[dns::client]",
     "recipe[hostname]",
     "recipe[git]",
     "recipe[filer]",
     "recipe[ntp]",
-    "recipe[selinux]",
-    "recipe[iptables]",
-    "recipe[unzip]",
-    "recipe[chef-client]",
-    "recipe[dns::client]",
+    "recipe[openssh]",
+    "recipe[sudo]",
     "recipe[timezone-ii]",
-    "recipe[users::sysadmins]"
+    "recipe[users::sysadmins]",
+    "recipe[unzip]"
   ],
   "default_attributes": {
     "chef_client": {
