@@ -2,7 +2,7 @@
   "name": "base",
   "description": "Drop The Bass",
   "run_list": [
-    "recipe[ssh]",
+    "recipe[openssh]",
     "recipe[hostname]",
     "recipe[git]",
     "recipe[filer]",
@@ -24,6 +24,11 @@
     },
     "ntp": {
       "servers": ["ns0.local.pvt"]
+    },
+    "openssh": {
+      "server": {
+        "permit_root_login": "without-password"
+      }
     },
     "tz": "America/New_York"
   }
