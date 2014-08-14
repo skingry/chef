@@ -15,12 +15,16 @@
     "recipe[timezone-ii]"
   ],
   "default_attributes": {
-    "tz": "America/New_York",
+    "chef_client": {
+      "interval": "300",
+      "splay": "60"
+    },
     "dns": {
       "master": "192.168.15.254"
     },
     "ntp": {
       "servers": ["ns0.local.pvt"]
-    }
+    },
+    "tz": "America/New_York"
   }
 }
