@@ -15,6 +15,11 @@
     "recipe[unzip]"
   ],
   "default_attributes": {
+    "authorization": {
+      "sudo": {
+        "passwordless": "true"
+      }
+    },
     "chef_client": {
       "interval": "300",
       "splay": "60"
