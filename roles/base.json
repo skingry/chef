@@ -11,8 +11,7 @@
     "recipe[openssh]",
     "recipe[sudo]",
     "recipe[timezone-ii]",
-    "recipe[users::sysadmins]",
-    "recipe[unzip]"
+    "recipe[users::sysadmins]"
   ],
   "default_attributes": {
     "authorization": {
