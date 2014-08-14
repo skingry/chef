@@ -12,7 +12,8 @@
     "recipe[unzip]",
     "recipe[chef-client]",
     "recipe[dns::client]",
-    "recipe[timezone-ii]"
+    "recipe[timezone-ii]",
+    "recipe[users::sysadmins]"
   ],
   "default_attributes": {
     "chef_client": {

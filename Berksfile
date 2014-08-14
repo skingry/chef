@@ -38,6 +38,7 @@ cookbook "sysctl", git: "https://github.com/spheromak/sysctl-cookbook.git"
 cookbook "timezone-ii", git: "https://github.com/L2G/timezone-ii.git"
 cookbook "transmission", git: "git@github.com:skingry-cookbooks/transmission.git"
 cookbook "unrar", git: "git@github.com:skingry-cookbooks/unrar.git"
+cookbook "users", git: "https://github.com/sethvargo-cookbooks/users.git"
 cookbook "unzip", git: "git@github.com:skingry-cookbooks/unzip.git"
 cookbook "yum", git: "https://github.com/opscode-cookbooks/yum.git"
 
