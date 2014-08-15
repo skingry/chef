@@ -1,0 +1,30 @@
+[Global]
+hostname = File Server
+mimic model = RackMac
+uam list = uams_dhx2.so uams_guest.so
+log file = /var/log/netatalk.log
+log level = default:error
+guest account = netatalk
+
+[Backups]
+path = /shared/Backups
+aclinherit = passthrough
+aclmode = passthrough
+vol size limit = 512000
+time machine = yes
+
+[Media]
+path = /shared/Media
+aclinherit = passthrough
+aclmode = passthrough
+
+[Downloads]
+path = /shared/Downloads
+aclinherit = passthrough
+aclmode = passthrough
+
+[Files]
+path = /shared/Files
+aclinherit = passthrough
+aclmode = passthrough
+

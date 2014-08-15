@@ -1,0 +1,30 @@
+# Dropped off by Chef - Do not edit
+
+recursor=127.0.0.1:5300
+allow-recursion=192.168.0.0/16
+
+local-address=0.0.0.0
+local-port=53
+
+config-dir=/etc/powerdns
+module-dir=/usr/lib/pdns
+socket-dir=/var/run
+
+logging-facility=0
+
+daemon=yes
+disable-axfr=no
+allow-axfr-ips=192.168.0.0/16
+guardian=yes
+version-string=powerdns
+
+launch=gmysql
+
+gmysql-host=<%= @gmysql_host %>
+gmysql-dbname=<%= @gmysql_dbname %>
+gmysql-user=<%= @gmysql_user %>
+gmysql-password=<%= @gmysql_password %>
+
+experimental-rfc2136=yes
+allow-2136-from=192.168.0.0/16
+

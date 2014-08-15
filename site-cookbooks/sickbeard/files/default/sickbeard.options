@@ -1,0 +1,6 @@
+# Sickbeard Options
+
+SB_USER="sickbeard"
+SB_HOME="/home/sickbeard/app"
+SB_DATA="/shared/sickbeard"
+
