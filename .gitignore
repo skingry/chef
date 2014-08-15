@@ -1,5 +1,6 @@
 .chef/checksums/*
 .chef/secrets/*
 cookbooks/*
+.ruby-version
 Berksfile.lock
 Gemfile.lock
