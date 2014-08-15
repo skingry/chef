@@ -1,10 +1,9 @@
 current_dir               = File.dirname(__FILE__)
+
 eval File.read("#{current_dir}/secrets/config.rb")
 
 log_level                 :info
 log_location              STDOUT
-node_name                 "#{chef_user}"
-chef_server_url           "#{chef_url}"
 
 cache_type                "BasicFile"
 cache_options({ :path => "#{current_dir}/checksums", :skip_expires => true })
