@@ -20,7 +20,10 @@
     },
     "chef_client": {
       "interval": "300",
-      "splay": "60"
+      "splay": "60",
+      "config": {
+        "ssl_verify_mode": ":verify_peer"
+      }
     },
     "dns": {
       "master": "192.168.15.254"
