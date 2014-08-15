@@ -25,11 +25,20 @@ EOP
 
 # Install Chef encrypted data bag secret
 ( cat <<'EOP'
-<%= IO.read(Chef::Config[:knife][:secret_file]) %>
+<%= IO.read(Chef::Config[:encrypted_data_bag_secret]) %>
 EOP
 ) > /tmp/encrypted_data_bag_secret
 awk NF /tmp/encrypted_data_bag_secret > /etc/chef/encrypted_data_bag_secret
 rm /tmp/encrypted_data_bag_secret
+
+# Install Chef server ssl cert
+mkdir /etc/chef/trusted_certs
+( cat <<'EOP'
+<%= IO.read(Chef::Config[:chef_server_ssl_cert]) %>
+EOP
+) > /tmp/server.crt
+awk NF /tmp/server.crt > /etc/chef/trusted_certs/server.crt
+rm /tmp/server.crt
 
 # Install Chef first boot file
 cat > /etc/chef/first-boot.json <<'EOP'
