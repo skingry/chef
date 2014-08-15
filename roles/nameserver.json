@@ -3,7 +3,7 @@
   "description": "Nameserver",
   "run_list": [
     "role[base]",
-    "recipe[mysql::server]",
+    "role[mysql]",
     "recipe[dns::server]",
     "recipe[ipv6::disabled]"
   ],
