@@ -12,7 +12,7 @@ validation_client_name    "chef-validator"
 validation_key            "#{current_dir}/secrets/chef-validator.pem"
 client_key                "#{current_dir}/secrets/#{node_name}.pem"
 
-cookbook_path             "#{current_dir}/../cookbooks"
+cookbook_path             [ "#{current_dir}/../cookbooks" , "#{current_dir}/../site-cookbooks" ]
 data_bag_path             "#{current_dir}/../data_bags"
 
 eval File.read("#{current_dir}/secrets/joyent-config.rb")
