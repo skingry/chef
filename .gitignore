@@ -1,4 +1,3 @@
-
 .chef/checksums/*
 .chef/secrets/*
 cookbooks/*
