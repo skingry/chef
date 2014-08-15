@@ -3,6 +3,7 @@
   "description": "Drop The Bass",
   "run_list": [
     "recipe[chef-client]",
+    "recipe[chef-client::config]",
     "recipe[dns::client]",
     "recipe[hostname]",
     "recipe[filer]",
