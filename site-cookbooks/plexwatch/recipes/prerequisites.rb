@@ -26,4 +26,5 @@ package 'libdbd-sqlite3-perl'
 package 'perl-doc'
 package 'libjson-perl'
 package 'libfile-readbackwards-perl'
+package 'avahi-daemon'
 
