@@ -17,8 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe "mysql::client"
-
 secret = Chef::EncryptedDataBagItem.load_secret("/etc/chef/encrypted_data_bag_secret")
 dns_secrets = Chef::EncryptedDataBagItem.load("secrets", "dns", secret)
 

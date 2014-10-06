@@ -24,7 +24,7 @@ directory "/shared" do
 end
 
 mount "/shared" do
-  device "monolith.local.pvt:/zones/filer"
+  device "monolith.prod.robotozon.com:/zones/filer"
   fstype "nfs"
   action [:mount, :enable]
   options "rsize=8192,wsize=8192,timeo=14,intr"

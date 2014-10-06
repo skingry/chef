@@ -19,8 +19,6 @@
 
 include_recipe "apt"
 
-execute "apt-get update"
-
 package "build-essential"
 package "unzip"
 package "git-core"

@@ -5,9 +5,7 @@
     "recipe[robotozon]",
     "recipe[chef-client]",
     "recipe[chef-client::config]",
-    "recipe[dns::client]",
     "recipe[hostname]",
-    "recipe[filer]",
     "recipe[nodejs]",
     "recipe[ntp]",
     "recipe[openssh]",
@@ -25,11 +23,8 @@
       "interval": "300",
       "splay": "60"
     },
-    "dns": {
-      "master": "192.168.15.254"
-    },
     "ntp": {
-      "servers": ["ns0.local.pvt"]
+      "servers": ["192.168.15.1"]
     },
     "tz": "America/New_York"
   }

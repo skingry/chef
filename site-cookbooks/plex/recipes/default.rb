@@ -35,3 +35,14 @@ cookbook_file "/root/bin/backup-plex.sh" do
   mode "0755"
 end
 
+package 'nfs-common'
+
+directory "/var/tmp"
+
+mount "/var/tmp" do
+  device "tmpfs"
+  fstype "tmpfs"
+  action [:mount, :enable]
+  options "defaults,noatime,mode=1777,size=1024m"
+end
+
