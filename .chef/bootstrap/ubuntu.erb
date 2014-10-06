@@ -1,15 +1,7 @@
-# Disable IPv6
-sysctl net.ipv6.conf.all.disable_ipv6=1
-sysctl net.ipv6.conf.default.disable_ipv6=1
-sysctl net.ipv6.conf.lo.disable_ipv6=1
+bash -c '
 
-# Update package repositories
-apt-get update
-
-# Install prerequisites
-apt-get -y install build-essential
-apt-get -y install unzip
-apt-get -y install git-core
+# Touch bootstrapping lock file
+touch /tmp/bootstrap.lck
 
 # Install Chef
 curl -L https://www.opscode.com/chef/install.sh | sudo bash
@@ -51,5 +43,9 @@ cat > /etc/chef/first-boot.json <<'EOP'
 EOP
 
 # Run chef for the first time
-chef-client -j /etc/chef/first-boot.json
+<%= start_chef %>
 
+# Remove bootstrapping lock file
+rm /tmp/bootstrap.lck
+
+'
