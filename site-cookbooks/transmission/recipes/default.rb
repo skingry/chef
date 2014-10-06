@@ -56,7 +56,6 @@ template "/etc/default/transmission-daemon"
 template "/etc/init.d/transmission-daemon" do
   source "init-script.erb"
   mode "0755"
-  notifies :restart, "service[transmission-daemon]"
 end
 
 service "transmission-daemon" do
