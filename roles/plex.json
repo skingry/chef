@@ -3,8 +3,7 @@
   "description": "Plex",
   "run_list": [
     "role[base]",
-    "recipe[filer::memory]",
-    "recipe[plexwatch]",
-    "recipe[ipv6::disabled]"
+    "recipe[plex]",
+    "recipe[robotozon::disable-ipv6]"
   ]
 }

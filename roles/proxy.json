@@ -5,6 +5,6 @@
     "role[base]",
     "recipe[proxy]",
     "recipe[speedtest]",
-    "recipe[ipv6::disabled]"
+    "recipe[robotozon::disable-ipv6]"
   ]
 }

@@ -2,11 +2,13 @@
   "name": "base",
   "description": "Drop The Bass",
   "run_list": [
+    "recipe[robotozon]",
     "recipe[chef-client]",
     "recipe[chef-client::config]",
     "recipe[dns::client]",
     "recipe[hostname]",
     "recipe[filer]",
+    "recipe[nodejs]",
     "recipe[ntp]",
     "recipe[openssh]",
     "recipe[sudo]",
@@ -21,10 +23,7 @@
     },
     "chef_client": {
       "interval": "300",
-      "splay": "60",
-      "config": {
-        "ssl_verify_mode": ":verify_peer"
-      }
+      "splay": "60"
     },
     "dns": {
       "master": "192.168.15.254"
@@ -32,11 +31,7 @@
     "ntp": {
       "servers": ["ns0.local.pvt"]
     },
-    "openssh": {
-      "server": {
-        "permit_root_login": "without-password"
-      }
-    },
     "tz": "America/New_York"
   }
 }
+

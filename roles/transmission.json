@@ -4,7 +4,6 @@
   "run_list": [
     "role[base]",
     "recipe[transmission]",
-    "recipe[ipv6::enabled]"
+    "recipe[robotozon::enable-ipv6]"
   ]
 }
-

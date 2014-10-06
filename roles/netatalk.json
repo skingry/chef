@@ -4,6 +4,6 @@
   "run_list": [
     "role[base]",
     "recipe[netatalk]",
-    "recipe[ipv6::disabled]"
+    "recipe[robotozon::disable-ipv6]"
   ]
 }

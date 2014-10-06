@@ -5,7 +5,7 @@
     "role[base]",
     "recipe[handbrake]",
     "recipe[nodejs]",
-    "recipe[ipv6::disabled]"
+    "recipe[robotozon::disable-ipv6]"
   ]
 }
 
