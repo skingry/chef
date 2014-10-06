@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: plex
-# Recipe:: prerequisites
+# Cookbook Name:: robotozon
+# Recipe:: filer
 #
 # Copyright 2014, Seth Kingry
 #
@@ -16,15 +16,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# This is a test commit
 
-package 'libwww-perl'
-package 'libxml-simple-perl'
-package 'libtime-duration-perl'
-package 'libtime-modules-perl'
-package 'libdbd-sqlite3-perl'
-package 'perl-doc'
-package 'libjson-perl'
-package 'libfile-readbackwards-perl'
-package 'avahi-daemon'
+package 'nfs-common'
+
+directory "/shared" do
+  action :create
+end
+
+mount "/shared" do
+  device "monolith.local.pvt:/zones/filer"
+  fstype "nfs"
+  action [:mount, :enable]
+  options "rsize=8192,wsize=8192,timeo=14,intr"
+end
 

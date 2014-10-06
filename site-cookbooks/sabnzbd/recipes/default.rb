@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "python"
+
 package 'python-cheetah'
 package 'python-yenc'
 package 'unrar'

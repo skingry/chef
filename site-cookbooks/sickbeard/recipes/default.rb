@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "python"
+
 package 'python-cheetah'
 
 user "sickbeard" do

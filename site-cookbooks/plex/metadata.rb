@@ -1,11 +1,10 @@
 maintainer       "Seth Kingry"
 maintainer_email "sjkingry@gmail.com"
 license          "Apache v2"
-description      "Installs and Configures PlexWatch and PlexWatchWeb"
+description      "Installs and Configures Plex, PlexWatch, and PlexWatchWeb"
 version          "0.1.0"
 
-supports         "ubuntu", ">= 12.04"
-
+depends          "apt"
 depends          "nginx"
 depends          "php"
 

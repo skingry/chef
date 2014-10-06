@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: plexwatch
+# Cookbook Name:: plex
 # Recipe:: default
 #
 # Copyright 2014, Seth Kingry
@@ -17,40 +17,21 @@
 # limitations under the License.
 #
 
-include_recipe "nginx"
-include_recipe "php"
-include_recipe "plexwatch::prerequisites"
+include_recipe "apt"
 
-directory "/opt/plexWatch"
-
-remote_file "/opt/plexWatch/plexWatch.pl" do
-  source "https://raw.github.com/ljunkie/plexWatch/master/plexWatch.pl"
-  mode 0755
-  not_if "ls /opt/plexWatch/plexWatch.pl"
+apt_repository "plexhometheater" do
+  uri "http://ppa.launchpad.net/plexapp/plexht/ubuntu"
+  distribution node['lsb']['codename']
+  components ["main"]
+  keyserver "keyserver.ubuntu.com"
+  key "EB7DFFFB"
+  action :add
+  notifies :run, "execute[apt-get update]", :immediately
 end
 
-link "/opt/plexWatch/config.pl" do
-  to "/shared/plexwatch/config.pl"
-end
+directory "/root/bin"
 
-cron "PlexWatch" do
-  command "/opt/plexWatch/plexWatch.pl"
-end
-
-directory "/usr/share/nginx/www/plexwatch" do
-  owner "www-data"
-  group "www-data"
-end
-
-git "/usr/share/nginx/www/plexwatch" do
-  user "www-data"
-  group "www-data"
-  repository "https://github.com/ecleese/plexWatchWeb.git"
-  revision "master"
-  action :sync
-end
-
-template "/etc/nginx/sites-enabled/plexwatch" do
-  notifies :restart, "service[nginx]"
+cookbook_file "/root/bin/backup-plex.sh" do
+  mode "0755"
 end
 

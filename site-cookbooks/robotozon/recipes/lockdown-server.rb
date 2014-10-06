@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: plex
-# Recipe:: prerequisites
+# Cookbook Name:: robotozon
+# Recipe:: lockdown-server
 #
 # Copyright 2014, Seth Kingry
 #
@@ -16,15 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# This is a test commit
 
-package 'libwww-perl'
-package 'libxml-simple-perl'
-package 'libtime-duration-perl'
-package 'libtime-modules-perl'
-package 'libdbd-sqlite3-perl'
-package 'perl-doc'
-package 'libjson-perl'
-package 'libfile-readbackwards-perl'
-package 'avahi-daemon'
+user "ubuntu" do
+  action :remove
+  not_if "ls /tmp/bootstrap.lck"
+end
+
+directory "/home/ubuntu" do
+  recursive true
+  action :delete
+  not_if "ls /tmp/bootstrap.lck"
+end
 

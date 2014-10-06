@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: plex
-# Recipe:: prerequisites
+# Cookbook Name:: robotozon
+# Recipe:: disable-ipv6
 #
 # Copyright 2014, Seth Kingry
 #
@@ -16,15 +16,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# This is a test commit
 
-package 'libwww-perl'
-package 'libxml-simple-perl'
-package 'libtime-duration-perl'
-package 'libtime-modules-perl'
-package 'libdbd-sqlite3-perl'
-package 'perl-doc'
-package 'libjson-perl'
-package 'libfile-readbackwards-perl'
-package 'avahi-daemon'
+include_recipe "sysctl"
+
+sysctl "net.ipv6.conf.all.autoconf" do
+  value 1
+end
+
+sysctl "net.ipv6.conf.all.accept_ra" do
+  value 1
+end
+
+sysctl "net.ipv6.conf.eth0.accept_dad" do
+  value 0
+end
 
