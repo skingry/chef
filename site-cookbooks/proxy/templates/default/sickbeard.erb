@@ -2,7 +2,7 @@ server {
   listen 80;
   server_name sickbeard.robotozon.com;
 
-  access_log /var/log/nginx/sickbeard.robotozon.com-access.log main;
+  access_log /var/log/nginx/sickbeard.robotozon.com-access.log;
   error_log /var/log/nginx/sickbeard.robotozon.com-error.log;
 
   proxy_set_header Host $http_host;
@@ -29,7 +29,7 @@ server {
     auth_basic_user_file   htpasswd;
 
     if (!-f $request_filename){
-      proxy_pass http://sickbeard.local.pvt:8081;
+      proxy_pass http://sickbeard.prod.robotozon.com:8081;
     }
   }
 }

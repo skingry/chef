@@ -2,7 +2,7 @@ server {
   listen 80;
   server_name sabnzbd.robotozon.com;
 
-  access_log /var/log/nginx/sabnzbd.robotozon.com-access.log main;
+  access_log /var/log/nginx/sabnzbd.robotozon.com-access.log;
   error_log /var/log/nginx/sabnzbd.robotozon.com-error.log;
 
   proxy_set_header Host $http_host;
@@ -29,7 +29,7 @@ server {
     auth_basic_user_file   htpasswd;
 
     if (!-f $request_filename){
-      proxy_pass http://sabnzbd.local.pvt:8080;
+      proxy_pass http://sabnzbd.prod.robotozon.com:8080;
     }
   }
 }

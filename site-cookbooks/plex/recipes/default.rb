@@ -17,16 +17,20 @@
 # limitations under the License.
 #
 
-include_recipe "apt"
+include_recipe "plex::prerequisites"
 
-apt_repository "plexhometheater" do
-  uri "http://ppa.launchpad.net/plexapp/plexht/ubuntu"
-  distribution node['lsb']['codename']
-  components ["main"]
-  keyserver "keyserver.ubuntu.com"
-  key "EB7DFFFB"
-  action :add
-  notifies :run, "execute[apt-get update]", :immediately
+remote_file "/root/plexmediaserver.deb" do
+  source "https://downloads.plex.tv/plex-media-server/0.9.9.14.531-7eef8c6/plexmediaserver_0.9.9.14.531-7eef8c6_amd64.deb"
+  checksum "d4058c71e052"
+end
+
+bash "install plexmediaserver" do
+  user "root"
+  cwd "/root"
+  code <<-EOH
+  dpkg -i plexmediaserver.deb
+  EOH
+  not_if "ls /etc/init.d/plexmediaserver"
 end
 
 directory "/root/bin"
@@ -45,4 +49,6 @@ mount "/var/tmp" do
   action [:mount, :enable]
   options "defaults,noatime,mode=1777,size=1024m"
 end
+
+include_recipe "plex::plexwatch"
 

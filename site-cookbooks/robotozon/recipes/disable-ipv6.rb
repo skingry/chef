@@ -19,15 +19,15 @@
 
 include_recipe "sysctl"
 
-sysctl "net.ipv6.conf.all.autoconf" do
+sysctl "net.ipv6.conf.all.disable_ipv6" do
   value 1
 end
 
-sysctl "net.ipv6.conf.all.accept_ra" do
+sysctl "net.ipv6.conf.default.disable_ipv6" do
   value 1
 end
 
-sysctl "net.ipv6.conf.eth0.accept_dad" do
-  value 0
+sysctl "net.ipv6.conf.lo.disable_ipv6" do
+  value 1
 end
 

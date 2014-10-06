@@ -5,5 +5,19 @@
     "role[base]",
     "recipe[plex]",
     "recipe[robotozon::disable-ipv6]"
-  ]
+  ],
+  "default_attributes": {
+    "nginx": {
+      "default_site_enabled": false
+    }
+  },
+  "override_attributes": {
+    "php_fpm": {
+      "listen": "/var/run/php5-fpm.sock",
+      "max_children": "30",
+      "start_servers": "4",
+      "min_spare_servers": "4",
+      "max_spare_servers": "6"
+    }
+  }
 }

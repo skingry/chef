@@ -2,7 +2,7 @@ server {
   listen 80;
   server_name transmission.robotozon.com;
 
-  access_log /var/log/nginx/transmission.robotozon.com-access.log main;
+  access_log /var/log/nginx/transmission.robotozon.com-access.log;
   error_log /var/log/nginx/transmission.robotozon.com-error.log;
 
   proxy_set_header Host $http_host;
@@ -29,7 +29,7 @@ server {
     auth_basic_user_file   htpasswd;
 
     if (!-f $request_filename){
-      proxy_pass http://transmission.local.pvt:9091;
+      proxy_pass http://transmission.prod.robotozon.com:9091;
     }
   }
 }

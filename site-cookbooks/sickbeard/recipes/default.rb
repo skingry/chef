@@ -55,7 +55,6 @@ git "/home/sickbeard/app" do
   repository "https://github.com/skingry/Sick-Beard.git"
   revision "master"
   action :sync
-  notifies :restart, "service[sickbeard]", :delayed
 end
 
 service "sickbeard" do

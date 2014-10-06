@@ -1,0 +1,11 @@
+include=/etc/php5/fpm/pool.d/*.conf
+
+[global]
+pid = /var/run/php5-fpm.pid
+error_log = /var/log/php5-fpm.log
+log_level = notice
+emergency_restart_threshold = <%= node[:php_fpm][:emergency_restart_threshold] %>
+emergency_restart_interval = <%= node[:php_fpm][:emergency_restart_interval] %>
+process_control_timeout = <%= node[:php_fpm][:process_control_timeout] %>
+daemonize = yes
+

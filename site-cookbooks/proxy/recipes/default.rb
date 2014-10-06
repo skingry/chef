@@ -19,23 +19,15 @@
 
 include_recipe "nginx"
 
-cookbook_file "/etc/nginx/htpasswd" do
-  notifies :restart, "service[nginx]"
-end
+cookbook_file "/etc/nginx/htpasswd"
 
-template "/etc/nginx/sites-enabled/sickbeard" do
-  notifies :restart, "service[nginx]"
-end
+template "/etc/nginx/sites-available/sickbeard"
+template "/etc/nginx/sites-available/sabnzbd"
+template "/etc/nginx/sites-available/transmission"
+template "/etc/nginx/sites-available/plex"
 
-template "/etc/nginx/sites-enabled/sabnzbd" do
-    notifies :restart, "service[nginx]"
-end
-
-template "/etc/nginx/sites-enabled/transmission" do
-    notifies :restart, "service[nginx]"
-end
-
-template "/etc/nginx/sites-enabled/plex" do
-    notifies :restart, "service[nginx]"
-end
+nginx_site 'sickbeard'
+nginx_site 'sabnzbd'
+nginx_site 'transmission'
+nginx_site 'plex'
 

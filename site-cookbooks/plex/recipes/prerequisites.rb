@@ -27,4 +27,7 @@ package 'perl-doc'
 package 'libjson-perl'
 package 'libfile-readbackwards-perl'
 package 'avahi-daemon'
+package 'libavahi-client3'
+package 'avahi-utils'
+package 'sqlite3'
 

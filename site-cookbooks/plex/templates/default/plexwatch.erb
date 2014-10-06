@@ -1,9 +1,9 @@
 server {
   listen 8082;
-  server_name plex.local.pvt;
+  server_name plex.prod.robotozon.com;
 
-  access_log /var/log/nginx/plex.local.pvt-access.log main;
-  error_log /var/log/nginx/plex.local.pvt-error.log;
+  access_log /var/log/nginx/plex.prod.robotozon.com-access.log;
+  error_log /var/log/nginx/plex.prod.robotozon.com-error.log;
 
   proxy_set_header Host $http_host;
   proxy_set_header X-Real-IP $remote_addr;
@@ -18,7 +18,7 @@ server {
   proxy_read_timeout 210;
   proxy_buffers 256 64k;
 
-  root /usr/share/nginx/www/plexwatch;
+  root /usr/share/nginx/plexwatch;
   error_page 500 502 503 504 /50x.html;
 
   index index.php;
@@ -31,7 +31,7 @@ server {
   location ~ \.php$ {
     try_files $uri =404;
     fastcgi_split_path_info ^(.+\.php)(/.+)$;
-    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
     fastcgi_index index.php;
     include fastcgi_params;
   }

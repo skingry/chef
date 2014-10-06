@@ -14,6 +14,7 @@
     "recipe[users::sysadmins]"
   ],
   "default_attributes": {
+    "set_fqdn": "*.prod.robotozon.com",
     "authorization": {
       "sudo": {
         "passwordless": "true"
@@ -23,8 +24,11 @@
       "interval": "300",
       "splay": "60"
     },
+    "hostname_cookbook": {
+      "use_node_ip": true
+    },
     "ntp": {
-      "servers": ["192.168.15.1"]
+      "servers": ["chef.prod.robotozon.com"]
     },
     "tz": "America/New_York"
   }

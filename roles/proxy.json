@@ -4,7 +4,11 @@
   "run_list": [
     "role[base]",
     "recipe[proxy]",
-    "recipe[speedtest]",
     "recipe[robotozon::disable-ipv6]"
-  ]
+  ],
+  "default_attributes": {
+    "nginx": {
+      "default_site_enabled": false
+    }
+  }
 }

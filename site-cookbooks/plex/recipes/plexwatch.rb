@@ -18,13 +18,12 @@
 #
 
 include_recipe "nginx"
-include_recipe "php"
-include_recipe "plexwatch::prerequisites"
+include_recipe "php-fpm"
 
 directory "/opt/plexWatch"
 
 remote_file "/opt/plexWatch/plexWatch.pl" do
-  source "https://raw.github.com/ljunkie/plexWatch/master/plexWatch.pl"
+  source "https://raw.githubusercontent.com/ljunkie/plexWatch/master/plexWatch.pl"
   mode 0755
   not_if "ls /opt/plexWatch/plexWatch.pl"
 end
@@ -37,12 +36,12 @@ cron "PlexWatch" do
   command "/opt/plexWatch/plexWatch.pl"
 end
 
-directory "/usr/share/nginx/www/plexwatch" do
+directory "/usr/share/nginx/plexwatch" do
   owner "www-data"
   group "www-data"
 end
 
-git "/usr/share/nginx/www/plexwatch" do
+git "/usr/share/nginx/plexwatch" do
   user "www-data"
   group "www-data"
   repository "https://github.com/ecleese/plexWatchWeb.git"
@@ -50,7 +49,7 @@ git "/usr/share/nginx/www/plexwatch" do
   action :sync
 end
 
-template "/etc/nginx/sites-enabled/plexwatch" do
-  notifies :restart, "service[nginx]"
-end
+template "/etc/nginx/sites-available/plexwatch"
+
+nginx_site "plexwatch"
 

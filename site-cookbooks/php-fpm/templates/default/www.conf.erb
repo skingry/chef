@@ -1,0 +1,18 @@
+[www]
+
+user = <%= node[:php_fpm][:user] %>
+group = <%= node[:php_fpm][:group] %>
+listen = <%= node[:php_fpm][:listen] %>
+listen.owner = <%= node[:php_fpm][:user] %>
+listen.group = <%= node[:php_fpm][:group] %>
+listen.mode = <%= node[:php_fpm][:mode] %>
+listen.allowed_clients = <%= node[:php_fpm][:listen_allowed_clients] %>
+pm = dynamic
+pm.max_children = <%= node[:php_fpm][:max_children] %>
+pm.start_servers = <%= node[:php_fpm][:start_servers] %>
+pm.min_spare_servers = <%= node[:php_fpm][:min_spare_servers] %>
+pm.max_spare_servers = <%= node[:php_fpm][:max_spare_servers] %>
+pm.max_requests = <%= node[:php_fpm][:max_requests] %>
+catch_workers_output = no
+security.limit_extensions = .php
+

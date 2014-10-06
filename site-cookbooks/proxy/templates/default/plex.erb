@@ -2,7 +2,7 @@ server {
   listen 80;
   server_name plex.robotozon.com;
 
-  access_log /var/log/nginx/plex.robotozon.com-access.log main;
+  access_log /var/log/nginx/plex.robotozon.com-access.log;
   error_log /var/log/nginx/plex.robotozon.com-error.log;
 
   proxy_set_header Host $http_host;
@@ -29,7 +29,7 @@ server {
     auth_basic_user_file   htpasswd;
 
     if (!-f $request_filename){
-      proxy_pass http://plex.local.pvt:8082;
+      proxy_pass http://plex.prod.robotozon.com:8082;
     }
   }
 }
