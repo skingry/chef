@@ -1,0 +1,13 @@
+{
+  "name": "production",
+  "description": "ALL DAT PRODUCTION",
+  "cookbook_versions": {
+
+  },
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  }
+}
