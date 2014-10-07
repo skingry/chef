@@ -38,17 +38,17 @@ service "sabnzbd" do
   supports :restart => true, :start => true
 end
 
+link "/etc/init.d/sabnzbd" do
+  to "/shared/sabnzbd/init-script"
+end
+
 git "/home/sabnzbd/app" do
   user "sabnzbd"
   group "nogroup"
   repository "https://github.com/skingry/sabnzbd.git"
   revision "master"
   action :sync
-  notifies :restart, resources(:service => "sabnzbd"), :delayed
-end
-
-link "/etc/init.d/sabnzbd" do
-  to "/shared/sabnzbd/init-script"
+  notifies :restart, "service[sabnzbd]"
 end
 
 service "sabnzbd" do
