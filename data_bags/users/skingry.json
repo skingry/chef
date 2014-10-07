@@ -1,6 +1,6 @@
 {
   "id": "skingry",
-  "password": "$1$7XwSJ6uV$u0Lw.BlVBPGZR1mCs0iAt0",
+  "htpasswd": "{SHA}OcOG9KBKrS+5sAhW2Qr6SIeX9vU=",
   "ssh_keys": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnkqu1P8v6Kk0GhqwcliZh+7fDJzagEYUOhEwN3tmHkxFDSvTQ/qAFs+iXYimq8Vq2PFCZYC2859KgywZshbKg1GYYPeSB7jIZ6Vc45lTnb4ys7/5e/nqjx2ffYKbdVw/WfFhDPARJBoKhJM0AXSDscd+3v95PLDrVR7tc3uGUQcKq3prn2oEnipdXI/ljy38DY0U+foivD9w/7ukChXAcJQtrIuHGg/XK+FjAKV4Y16DzbH56D6Nx4YiK6/im5hrw41uvrBb7OfQeIks8lXSvo7kT9m4lo67xrOSd1zJvMfXuIdKmo/YscF1uUKiWYKW9xG2+xwhlH+npILi0nVhd s.kingry@frisbee.local",
   "groups": "sysadmin",
   "uid": 2001,

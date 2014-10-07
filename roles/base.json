@@ -6,6 +6,7 @@
     "recipe[chef-client]",
     "recipe[chef-client::config]",
     "recipe[hostname]",
+    "recipe[munin::client]",
     "recipe[nodejs]",
     "recipe[ntp]",
     "recipe[openssh]",

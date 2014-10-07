@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: robotozon
-# Recipe:: default
+# Recipe:: monitoring
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,8 +17,13 @@
 # limitations under the License.
 #
 
-include_recipe "robotozon::prerequisites"
-include_recipe "robotozon::lockdown-server"
-include_recipe "robotozon::filer"
-include_recipe "robotozon::monitoring"
+for plugin in [ "df_inode", "entropy", "forks", "fw_packets", "http_loadtime", "if_err_eth0", "interrupts", "irqstats", "nfsd", "nfsd4", "nfs4_client", "nfs_client", "ntp_kernel_err", "ntp_kernel_pll_freq", "ntp_kernel_pll_off", "open_files", "open_inodes", "proc_pri", "threads", "vmstat" ] do
+  munin_plugin "#{plugin}" do
+    enable false
+  end
+end
+
+cookbook_file '/etc/init.d/munin-node' do
+  mode "0755"
+end
 

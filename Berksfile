@@ -1,6 +1,7 @@
 source 'https://supermarket.getchef.com'
 
 cookbook "accumulator", git: "https://github.com/kisoku/chef-accumulator.git"
+cookbook "apache2", git: "https://github.com/onehealth-cookbooks/apache2.git"
 cookbook "apt", git: "https://github.com/opscode-cookbooks/apt.git"
 cookbook "bluepill", git: "https://github.com/opscode-cookbooks/bluepill.git"
 cookbook "build-essential", git: "https://github.com/opscode-cookbooks/build-essential.git"
@@ -13,6 +14,7 @@ cookbook "hostname", git: "https://github.com/nathantsoi/chef-cookbook-hostname.
 cookbook "iis", git: "https://github.com/opscode-cookbooks/iis.git"
 cookbook "iptables", git: "https://github.com/opscode-cookbooks/iptables.git"
 cookbook "logrotate", git: "https://github.com/stevendanna/logrotate.git"
+cookbook "munin", git: "https://github.com/skingry/munin.git"
 cookbook "mysql", git: "https://github.com/opscode-cookbooks/mysql"
 cookbook "nginx", git: "https://github.com/miketheman/nginx.git"
 cookbook "ntp", git: "https://github.com/gmiranda23/ntp.git"

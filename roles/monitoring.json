@@ -1,0 +1,16 @@
+{
+  "name": "monitoring",
+  "description": "Monitoring",
+  "run_list": [
+    "role[base]",
+    "recipe[munin::server]",
+    "recipe[robotozon::disable-ipv6]"
+  ],
+  "default_attributes": {
+    "munin": {
+      "sysadmin_email": "sjkingry@gmail.com",
+      "server_auth_method": "htpasswd",
+      "users_group": "sysadmin"
+    }
+  }
+}
