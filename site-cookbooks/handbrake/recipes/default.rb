@@ -19,9 +19,9 @@
 
 include_recipe "apt"
 
-apt_repository "handbrake-releases" do
+apt_repository "handbrake" do
   uri "http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu"
-  distribution "precise"
+  distribution node['lsb']['codename']
   components ["main"]
   keyserver "keyserver.ubuntu.com"
   key "816950D8"
@@ -30,4 +30,16 @@ apt_repository "handbrake-releases" do
 end
 
 package 'handbrake-cli'
+
+apt_repository "ffmpeg" do
+  uri "http://ppa.launchpad.net/jon-severinsson/ffmpeg/ubuntu"
+  distribution node['lsb']['codename']
+  components ["main"]
+  keyserver "keyserver.ubuntu.com"
+  key "CFCA9579"
+  action :add
+  notifies :run, "execute[apt-get update]", :immediately
+end
+
+package 'ffmpeg'
 
