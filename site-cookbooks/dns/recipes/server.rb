@@ -18,13 +18,22 @@
 #
 
 include_recipe "dns::prerequisites"
-include_recipe "mysql::server"
 
 package 'pdns-recursor'
 package 'bind9utils'
 
 secret = Chef::EncryptedDataBagItem.load_secret("/etc/chef/encrypted_data_bag_secret")
 dns_secrets = Chef::EncryptedDataBagItem.load("secrets", "dns", secret)
+
+node.set['mysql']['server_root_password'] = dns_secrets['mysql_root_password']
+
+include_recipe "mysql::server"
+
+template "/root/.my.cnf" do
+  source "my.cnf.erb"
+  mode "0600"
+  variables(:mysql_root_password => dns_secrets['mysql_root_password'])
+end
 
 git "/tmp/pdns" do
   repository "https://github.com/PowerDNS/pdns.git"

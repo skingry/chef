@@ -28,5 +28,7 @@ package "libtool"
 package "make"
 package "pkg-config"
 package "ragel"
-package "libperconaserverclient18.1-dev"
+package "sqlite3"
+package "libsqlite3-dev"
+package "libmysqlclient-dev"
 

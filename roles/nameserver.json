@@ -3,7 +3,6 @@
   "description": "Nameserver",
   "run_list": [
     "role[base]",
-    "role[mysql]",
     "recipe[dns::server]",
     "recipe[robotozon::disable-ipv6]"
   ],
