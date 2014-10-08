@@ -47,7 +47,7 @@ mount "/var/tmp" do
   device "tmpfs"
   fstype "tmpfs"
   action [:mount, :enable]
-  options "defaults,noatime,mode=1777,size=1024m"
+  options "defaults,noatime,mode=1777,size=2048m"
 end
 
 include_recipe "plex::plexwatch"
