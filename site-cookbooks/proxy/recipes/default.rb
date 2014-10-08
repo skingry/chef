@@ -24,10 +24,8 @@ cookbook_file "/etc/nginx/htpasswd"
 template "/etc/nginx/sites-available/sickbeard"
 template "/etc/nginx/sites-available/sabnzbd"
 template "/etc/nginx/sites-available/transmission"
-template "/etc/nginx/sites-available/plex"
 
 nginx_site 'sickbeard'
 nginx_site 'sabnzbd'
 nginx_site 'transmission'
-nginx_site 'plex'
 

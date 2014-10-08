@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: plex
-# Recipe:: plexwatch
+# Recipe:: plexwatchweb
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,17 +17,20 @@
 # limitations under the License.
 #
 
-git "/opt/plexWatch" do
-  repository "https://github.com/ljunkie/plexWatch.git"
+include_recipe "nginx"
+include_recipe "php-fpm"
+
+git "/usr/share/nginx/plexWatchWeb" do
+  repository "https://github.com/ecleese/plexWatchWeb.git"
   revision "master"
   action :sync
 end
 
-link "/opt/plexWatch/config.pl" do
-  to "/shared/plexwatch/config.pl"
+cookbook_file "/usr/share/nginx/plexWatchWeb/config/config.php"
+
+template "/etc/nginx/sites-available/plexWatchWeb" do
+  notifies :restart, "service[nginx]"
 end
 
-cron "PlexWatch" do
-  command "/opt/plexWatch/plexWatch.pl"
-end
+nginx_site "plexWatchWeb"
 

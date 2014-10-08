@@ -1,5 +1,5 @@
 server {
-  listen 8082;
+  listen 80;
   server_name plex.prod.robotozon.com;
 
   access_log /var/log/nginx/plex.prod.robotozon.com-access.log;
@@ -18,7 +18,7 @@ server {
   proxy_read_timeout 210;
   proxy_buffers 256 64k;
 
-  root /usr/share/nginx/plexwatch;
+  root /usr/share/nginx/plexWatchWeb;
   error_page 500 502 503 504 /50x.html;
 
   index index.php;

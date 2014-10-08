@@ -17,25 +17,18 @@
 # limitations under the License.
 #
 
-include_recipe "php"
 include_recipe "sysctl"
 
 package 'php5-curl'
 package 'php5-dev'
+package 'php5-mysql'
 package 'php5-fpm'
 package 'php-services-json'
 package 'php5-sqlite'
 package 'php5-xmlrpc'
 
-package 'libyaml-0-2'
-package 'libyaml-dev'
-
 directory "/etc/php5/conf.d" do
   recursive true
-end
-
-php_pear "yaml" do
-  action :install
 end
 
 if node['platform'] == 'ubuntu' && node['platform_version'].to_f >= 13.10
@@ -61,13 +54,6 @@ end
 
 template "/etc/php5/fpm/pool.d/www.conf" do
   notifies :restart, "service[php5-fpm]"
-end
-
-if node['platform'] == 'ubuntu' && node['platform_version'].to_f >= 13.10
-  link "/etc/php5/fpm/conf.d/20-yaml.ini" do
-    to "/etc/php5/conf.d/yaml.ini"
-    notifies :restart, "service[php5-fpm]"
-  end
 end
 
 sysctl "net.core.somaxconn" do
