@@ -21,12 +21,12 @@ include_recipe "python"
 
 package 'python-cheetah'
 
-user "sickbeard" do
+user "deploy" do
   supports :manage_home => true
-  comment "Sickbeard User"
+  comment "Application User"
   uid 1000
   gid "nogroup"
-  home "/home/sickbeard"
+  home "/home/deploy"
   shell "/bin/bash"
 end
 
@@ -36,26 +36,31 @@ service "sickbeard" do
 end
 
 directory "/var/run/sickbeard" do
-  user "sickbeard"
+  user "deploy"
   group "nogroup"
   action :create
-end
-
-link "/etc/init.d/sickbeard" do
-  to "/home/sickbeard/app/init.ubuntu"
 end
 
 cookbook_file "/etc/default/sickbeard" do
   source "sickbeard.options"
 end
 
-git "/home/sickbeard/app" do
-  user "sickbeard"
+git "/home/deploy/sickbeard" do
+  user "deploy"
   group "nogroup"
   repository "https://github.com/skingry/Sick-Beard.git"
   revision "master"
   action :sync
-  notifies :restart, "service[sickbeard]"
+  notifies :restart, "service[sickbeard]", :delayed
+end
+
+link "/etc/init.d/sickbeard" do
+  to "/home/deploy/sickbeard/init.ubuntu"
+end
+
+cookbook_file "/home/deploy/sickbeard/autoProcessTV/autoProcessTV.cfg" do
+  user "deploy"
+  group "nogroup"
 end
 
 service "sickbeard" do

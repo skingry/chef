@@ -25,12 +25,12 @@ package 'unrar'
 package 'unzip'
 package 'par2'
 
-user "sabnzbd" do
+user "deploy" do
   supports :manage_home => true
-  comment "SABnzbd User"
+  comment "Application User"
   uid 1000
   gid "nogroup"
-  home "/home/sabnzbd"
+  home "/home/deploy"
   shell "/bin/bash"
 end
 
@@ -42,8 +42,8 @@ link "/etc/init.d/sabnzbd" do
   to "/shared/sabnzbd/init-script"
 end
 
-git "/home/sabnzbd/app" do
-  user "sabnzbd"
+git "/home/deploy/sabnzbd" do
+  user "deploy"
   group "nogroup"
   repository "https://github.com/skingry/sabnzbd.git"
   revision "master"
