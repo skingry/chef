@@ -52,3 +52,10 @@ end
 
 include_recipe "plex::plexwatch"
 
+cron "Backup Plex" do
+  minute "0"
+  hour "0"
+  weekday "1"
+  command "/root/bin/backup-plex.sh 2&>1 /dev/null"
+end
+
