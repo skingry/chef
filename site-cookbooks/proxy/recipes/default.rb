@@ -19,6 +19,9 @@
 
 include_recipe "nginx"
 
+secret = Chef::EncryptedDataBagItem.load_secret("/etc/chef/encrypted_data_bag_secret")
+sickbeard_ssl = Chef::EncryptedDataBagItem.load("ssl", "sickbeard_robotozon_com", secret)
+
 cookbook_file "/etc/nginx/htpasswd"
 
 template "/etc/nginx/sites-available/sickbeard"
@@ -28,4 +31,15 @@ template "/etc/nginx/sites-available/transmission"
 nginx_site 'sickbeard'
 nginx_site 'sabnzbd'
 nginx_site 'transmission'
+
+directory "/etc/nginx/ssl"
+
+file "/etc/nginx/ssl/sickbeard.robotozon.com.crt" do
+  content sickbeard_ssl['cert']
+end
+
+file "/etc/nginx/ssl/sickbeard.robotozon.com.key" do
+  content sickbeard_ssl['key']
+  mode "0600"
+end
 
