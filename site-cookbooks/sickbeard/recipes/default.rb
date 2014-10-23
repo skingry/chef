@@ -48,7 +48,7 @@ end
 git "/home/deploy/sickbeard" do
   user "deploy"
   group "nogroup"
-  repository "https://github.com/skingry/Sick-Beard.git"
+  repository "https://github.com/midgetspy/Sick-Beard.git"
   revision "master"
   action :sync
   notifies :restart, "service[sickbeard]", :delayed

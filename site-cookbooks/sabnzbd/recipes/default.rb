@@ -45,7 +45,7 @@ end
 git "/home/deploy/sabnzbd" do
   user "deploy"
   group "nogroup"
-  repository "https://github.com/skingry/sabnzbd.git"
+  repository "https://github.com/sabnzbd/sabnzbd.git"
   revision "master"
   action :sync
   notifies :restart, "service[sabnzbd]"
