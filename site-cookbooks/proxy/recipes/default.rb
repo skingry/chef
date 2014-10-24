@@ -24,10 +24,12 @@ sickbeard_ssl = Chef::EncryptedDataBagItem.load("ssl", "sickbeard_robotozon_com"
 
 cookbook_file "/etc/nginx/htpasswd"
 
+template "/etc/nginx/sites-available/couchpotato"
 template "/etc/nginx/sites-available/sickbeard"
 template "/etc/nginx/sites-available/sabnzbd"
 template "/etc/nginx/sites-available/transmission"
 
+nginx_site 'couchpotato'
 nginx_site 'sickbeard'
 nginx_site 'sabnzbd'
 nginx_site 'transmission'
