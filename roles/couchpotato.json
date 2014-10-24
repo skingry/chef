@@ -1,0 +1,9 @@
+{
+  "name": "couchpotato",
+  "description": "CouchPotato",
+  "run_list": [
+    "role[base]",
+    "recipe[couchpotato]",
+    "recipe[robotozon::disable-ipv6]"
+  ]
+}
