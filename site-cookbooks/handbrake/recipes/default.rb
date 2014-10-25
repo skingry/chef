@@ -43,3 +43,12 @@ end
 
 package 'ffmpeg'
 
+user "deploy" do
+  supports :manage_home => true
+  comment "Application User"
+  uid 1000
+  gid "nogroup"
+  home "/home/deploy"
+  shell "/bin/bash"
+end
+
