@@ -21,6 +21,20 @@ include_recipe "python"
 
 package 'python-cheetah'
 
+include_recipe "apt"
+
+apt_repository "ffmpeg" do
+  uri "http://ppa.launchpad.net/jon-severinsson/ffmpeg/ubuntu"
+  distribution node['lsb']['codename']
+  components ["main"]
+  keyserver "keyserver.ubuntu.com"
+  key "CFCA9579"
+  action :add
+  notifies :run, "execute[apt-get update]", :immediately
+end
+
+package 'ffmpeg'
+
 user "deploy" do
   supports :manage_home => true
   comment "Application User"
