@@ -27,6 +27,6 @@ mount "/shared" do
   device "monolith.prod.robotozon.com:/zones/filer"
   fstype "nfs"
   action [:mount, :enable]
-  options "rsize=8192,wsize=8192,timeo=14,intr"
+  options "rsize=8192,wsize=8192,timeo=14,intr,nfsvers=3"
 end
 
