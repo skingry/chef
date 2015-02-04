@@ -19,7 +19,7 @@
 
 include_recipe "netatalk::prerequisites"
 
-netatalk_version = "3.0.8"
+netatalk_version = "3.1.7"
 
 user "netatalk" do
   supports :manage_home => true
