@@ -34,6 +34,7 @@
   },
   "chef_type": "role",
   "run_list": [
+    "recipe[chef-solo-search]",
     "recipe[hostnames]",
     "recipe[nodejs]",
     "recipe[ntp]",

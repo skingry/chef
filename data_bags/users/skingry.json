@@ -5,7 +5,9 @@
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnkqu1P8v6Kk0GhqwcliZh+7fDJzagEYUOhEwN3tmHkxFDSvTQ/qAFs+iXYimq8Vq2PFCZYC2859KgywZshbKg1GYYPeSB7jIZ6Vc45lTnb4ys7/5e/nqjx2ffYKbdVw/WfFhDPARJBoKhJM0AXSDscd+3v95PLDrVR7tc3uGUQcKq3prn2oEnipdXI/ljy38DY0U+foivD9w/7ukChXAcJQtrIuHGg/XK+FjAKV4Y16DzbH56D6Nx4YiK6/im5hrw41uvrBb7OfQeIks8lXSvo7kT9m4lo67xrOSd1zJvMfXuIdKmo/YscF1uUKiWYKW9xG2+xwhlH+npILi0nVhd s.kingry@frisbee.local",
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOtlWhuvgdIpS4vNVrcz0J+3l2zOIhBJ9gJis+45KX6l sjkingry@gmail.com"
   ],
-  "groups": "sysadmin",
+  "groups": [
+    "sysadmin"
+  ],
   "uid": 1000,
   "shell": "\/bin\/zsh",
   "comment": "Seth Kingry"
