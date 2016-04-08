@@ -7,6 +7,6 @@
   ],
   "groups": "sysadmin",
   "uid": 1000,
-  "shell": "\/bin\/bash",
+  "shell": "\/bin\/zsh",
   "comment": "Seth Kingry"
 }
