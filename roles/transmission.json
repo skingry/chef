@@ -1,9 +1,0 @@
-{
-  "name": "transmission",
-  "description": "Transmission",
-  "run_list": [
-    "role[base]",
-    "recipe[transmission]",
-    "recipe[robotozon::enable-ipv6]"
-  ]
-}

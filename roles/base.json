@@ -2,11 +2,7 @@
   "name": "base",
   "description": "Drop The Bass",
   "run_list": [
-    "recipe[robotozon]",
-    "recipe[chef-client]",
-    "recipe[chef-client::config]",
-    "recipe[hostname]",
-    "recipe[munin::client]",
+    "recipe[hostnames]",
     "recipe[nodejs]",
     "recipe[ntp]",
     "recipe[openssh]",
@@ -15,21 +11,34 @@
     "recipe[users::sysadmins]"
   ],
   "default_attributes": {
-    "set_fqdn": "*.prod.robotozon.com",
+    "set_fqdn": "*.robotozon.com",
     "authorization": {
       "sudo": {
         "passwordless": "true"
       }
     },
-    "chef_client": {
-      "interval": "300",
-      "splay": "60"
-    },
     "hostname_cookbook": {
       "use_node_ip": true
     },
+    "nodejs": {
+      "install_method": "source",
+      "version": "4.4.2"
+    },
     "ntp": {
-      "servers": ["chef.prod.robotozon.com"]
+      "servers": [
+        "0.north-america.pool.ntp.org",
+        "1.north-america.pool.ntp.org",
+        "2.north-america.pool.ntp.org",
+        "3.north-america.pool.ntp.org"
+      ]
+    },
+    "openssh": {
+      "server": {
+        "permit_root_login": "no",
+        "port": [ "22", "1471" ],
+        "use_dns": "no",
+        "password_authentication": "no"
+      }
     },
     "tz": "America/New_York"
   }

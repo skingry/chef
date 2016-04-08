@@ -1,6 +1,0 @@
-# Sickbeard Options
-
-SB_USER="deploy"
-SB_HOME="/home/deploy/sickbeard"
-SB_DATA="/shared/sickbeard"
-

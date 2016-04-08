@@ -1,9 +1,0 @@
-{
-  "name": "netatalk",
-  "description": "Netatalk",
-  "run_list": [
-    "role[base]",
-    "recipe[netatalk]",
-    "recipe[robotozon::disable-ipv6]"
-  ]
-}

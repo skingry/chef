@@ -1,9 +1,0 @@
-{
-  "name": "sabnzbd",
-  "description": "SABnzbd",
-  "run_list": [
-    "role[base]",
-    "recipe[sabnzbd]",
-    "recipe[robotozon::disable-ipv6]"
-  ]
-}

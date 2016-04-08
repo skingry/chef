@@ -1,9 +1,0 @@
-{
-  "name": "headphones",
-  "description": "Headphones",
-  "run_list": [
-    "role[base]",
-    "recipe[headphones]",
-    "recipe[robotozon::disable-ipv6]"
-  ]
-}

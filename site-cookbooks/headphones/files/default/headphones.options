@@ -1,9 +1,0 @@
-# COPY THIS FILE TO /etc/default/headphones
-# OPTIONS: HP_USER, HP_HOME, HP_DATA, HP_PIDFILE, PYTHON_BIN, HP_OPTS, SSD_OPTS, HP_PORT
-
-HP_HOME=/home/deploy/headphones
-HP_USER=deploy
-HP_PIDFILE=/var/run/headphones/headphones.pid
-HP_DATA=/shared/headphones
-HP_OPTS="--config=/shared/headphones/config.ini"
-

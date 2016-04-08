@@ -1,9 +1,0 @@
-{
-  "name": "sickbeard",
-  "description": "Sickbeard",
-  "run_list": [
-    "role[base]",
-    "recipe[sickbeard]",
-    "recipe[robotozon::disable-ipv6]"
-  ]
-}
