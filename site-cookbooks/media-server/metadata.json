@@ -1,0 +1,31 @@
+{
+  "name": "media-server",
+  "description": "Installs and Configures Media Server",
+  "maintainer": "Seth Kingry",
+  "maintainer_email": "sjkingry@gmail.com",
+  "license": "Apache v2",
+  "platforms": {
+    "ubuntu": ">= 0.0.0"
+  },
+  "dependencies": {
+    "docker": "~> 2.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "plex": "Installs Plex."
+  },
+  "version": "0.1.0"
+}

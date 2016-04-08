@@ -10,6 +10,7 @@ cookbook "chef_handler", git: "https://github.com/opscode-cookbooks/chef_handler
 cookbook "chef-solo-search", git: "https://github.com/edelight/chef-solo-search.git"
 cookbook "chef-sugar", git: "https://github.com/sethvargo/chef-sugar.git"
 cookbook "cron", git: "https://github.com/opscode-cookbooks/cron.git"
+cookbook "docker", git: "https://github.com/chef-cookbooks/docker.git"
 cookbook "hostsfile", git: "https://github.com/customink-webops/hostsfile.git"
 cookbook "hostnames", git: "https://github.com/nathantsoi/chef-cookbook-hostname.git"
 cookbook "iis", git: "https://github.com/opscode-cookbooks/iis.git"
