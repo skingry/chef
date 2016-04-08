@@ -2,15 +2,6 @@
   "name": "base",
   "description": "Drop The Bass",
   "json_class": "Chef::Role",
-  "run_list": [
-    "recipe[hostnames]",
-    "recipe[nodejs]",
-    "recipe[ntp]",
-    "recipe[openssh]",
-    "recipe[sudo]",
-    "recipe[timezone-ii]",
-    "recipe[users::sysadmins]"
-  ],
   "default_attributes": {
     "set_fqdn": "*.robotozon.com",
     "authorization": {
@@ -20,10 +11,6 @@
     },
     "hostname_cookbook": {
       "use_node_ip": true
-    },
-    "nodejs": {
-      "install_method": "source",
-      "version": "4.4.2"
     },
     "ntp": {
       "servers": [
@@ -42,6 +29,18 @@
       }
     },
     "tz": "America/New_York"
-  }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[hostnames]",
+    "recipe[nodejs]",
+    "recipe[ntp]",
+    "recipe[openssh]",
+    "recipe[sudo]",
+    "recipe[timezone-ii]",
+    "recipe[users::sysadmins]"
+  ]
 }
 
