@@ -8,7 +8,7 @@ verbose_logging            false
 
 encrypted_data_bag_secret  "/home/skingry/chef/encrypted_data_bag_secret"
 
-cookbook_path              "/home/skingry/chef/cookbooks"
+cookbook_path              [ "/home/skingry/chef/cookbooks", "/home/skingry/chef/site-cookbooks" ]
 environment_path           "/home/skingry/chef/environments"
 role_path                  "/home/skingry/chef/roles"
 data_bag_path              "/home/skingry/chef/data_bags"
