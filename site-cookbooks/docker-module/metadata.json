@@ -1,6 +1,6 @@
 {
-  "name": "media-server",
-  "description": "Installs and Configures Media Server",
+  "name": "docker-module",
+  "description": "Installs and Configures Docker",
   "maintainer": "Seth Kingry",
   "maintainer_email": "sjkingry@gmail.com",
   "license": "Apache v2",
@@ -8,8 +8,7 @@
     "ubuntu": ">= 0.0.0"
   },
   "dependencies": {
-    "apt": ">= 0.0.0",
-    "docker": "~> 2.0"
+    "apt": ">= 0.0.0"
   },
   "recommendations": {
   },
@@ -26,12 +25,7 @@
   "groupings": {
   },
   "recipes": {
-    "couchpotato": "Installs Couchpotato",
-    "plex": "Installs Plex",
-    "plexpy": "Installs PlexPy",
-    "sabnzbd": "Installs SABnzbd",
-    "sonarr": "Installs Sonarr",
-    "transmission": "Installs Transmission"
+    "default": "Installs Docker."
   },
   "version": "0.1.0"
 }

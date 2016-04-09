@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: media-server
-# Recipe:: plexpy
+# Cookbook Name:: zfs
+# Recipe:: default
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,17 +17,15 @@
 # limitations under the License.
 #
 
-docker_image 'plexpy' do
-  repo 'linuxserver/plexpy'
-  action :pull
-  notifies :redeploy, 'docker_container[plexpy]'
+apt_repository "zfs" do
+  uri "http://ppa.launchpad.net/zfs-native/stable/ubuntu"
+  distribution node['lsb']['codename']
+  components ["main"]
+  keyserver "keyserver.ubuntu.com"
+  key "F6B0FC61"
+  action :add
+  notifies :run, "execute[apt-get update]", :immediately
 end
 
-docker_container 'plexpy' do
-  repo 'linuxserver/plexpy'
-  port '8181:8181'
-  host_name 'plexpy'
-  env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro' ]
-end
+package "ubuntu-zfs"
 
