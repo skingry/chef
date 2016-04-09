@@ -8,6 +8,7 @@
     "ubuntu": ">= 0.0.0"
   },
   "dependencies": {
+    "apt": ">= 0.0.0",
     "docker": "~> 2.0"
   },
   "recommendations": {

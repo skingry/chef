@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: plex
+# Recipe:: sonarr
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,5 +17,17 @@
 # limitations under the License.
 #
 
-cookbook_file "/etc/default/plexmediaserver"
+docker_image 'sonarr' do
+  repo 'tuxeh/sonarr'
+  action :pull
+  notifies :redeploy, 'docker_container[sonarr]'
+end
+
+docker_container 'sonarr' do
+  repo 'tuxeh/sonarr'
+  port '8989:8989'
+  host_name 'sonarr'
+  user 'nobody'
+  volumes [ '/data/configs:/volumes/config', '/data:/data' ]
+end
 

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: plex
+# Recipe:: sabnzbd
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,5 +17,17 @@
 # limitations under the License.
 #
 
-cookbook_file "/etc/default/plexmediaserver"
+docker_image 'sabnzbd' do
+  repo 'timhaak/sabnzbd'
+  action :pull
+  notifies :redeploy, 'docker_container[sabnzbd]'
+end
+
+docker_container 'sabnzbd' do
+  repo 'timhaak/sabnzbd'
+  port '8080:8080'
+  host_name 'sabnzbd'
+  user 'nobody'
+  volumes [ '/data/configs/sabnzbd:/config', '/data:/data' ]
+end
 

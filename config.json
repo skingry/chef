@@ -1,5 +1,9 @@
 {
   "run_list": [
-    "role[base]"
+    "role[base]",
+    "recipe[media-server::plex]",
+    "recipe[media-server::sabnzbd]",
+    "recipe[media-server::sonarr]",
+    "recipe[media-server::transmission]"
   ]
 }
