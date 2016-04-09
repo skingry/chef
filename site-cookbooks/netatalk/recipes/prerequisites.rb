@@ -30,3 +30,26 @@ package 'libgcrypt11-dev'
 package 'avahi-daemon'
 package 'avahi-utils'
 package 'libavahi-client-dev'
+
+include_recipe "media-server::directories"
+
+directory "/data/Backups" do
+  owner "nobody"
+  group "nogroup"
+end
+
+directory "/data/Documents" do
+  owner "nobody"
+  group "nogroup"
+end
+
+directory "/data/Downloads" do
+  owner "nobody"
+  group "nogroup"
+end
+
+directory "/data/Media" do
+  owner "nobody"
+  group "nogroup"
+end
+
