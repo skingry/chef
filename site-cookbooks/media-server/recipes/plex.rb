@@ -28,6 +28,7 @@ docker_container 'plex' do
   port '32400:32400'
   host_name 'plex'
   user 'nobody'
+  env [ 'SKIP_CHOWN_CONFIG=false' ]
   volumes [ '/data/configs/plex:/config', '/data:/data' ]
 end
 
