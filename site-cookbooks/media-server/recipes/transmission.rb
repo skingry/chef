@@ -17,6 +17,11 @@
 # limitations under the License.
 #
 
+directory "/data/configs/transmission" do
+  owner "nobody"
+  group "nogroup"
+end
+
 apt_repository "transmissionbt" do
   uri "http://ppa.launchpad.net/transmissionbt/ppa/ubuntu"
   distribution node['lsb']['codename']

@@ -17,6 +17,11 @@
 # limitations under the License.
 #
 
+directory "/data/configs/plexpy" do
+  owner "nobody"
+  group "nogroup"
+end
+
 docker_image 'plexpy' do
   repo 'linuxserver/plexpy'
   action :pull

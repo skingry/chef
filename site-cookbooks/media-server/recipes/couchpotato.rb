@@ -17,6 +17,11 @@
 # limitations under the License.
 #
 
+directory "/data/configs/couchpotato" do
+  owner "nobody"
+  group "nogroup"
+end
+
 docker_image 'couchpotato' do
   repo 'linuxserver/couchpotato'
   action :pull

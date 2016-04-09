@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: sabnzbd
+# Recipe:: directories
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,22 +17,23 @@
 # limitations under the License.
 #
 
-directory "/data/configs/sabnzbd" do
+directory "/data" do
   owner "nobody"
   group "nogroup"
 end
 
-docker_image 'sabnzbd' do
-  repo 'timhaak/sabnzbd'
-  action :pull
-  notifies :redeploy, 'docker_container[sabnzbd]'
+directory "/data/configs" do
+  owner "nobody"
+  group "nogroup"
 end
 
-docker_container 'sabnzbd' do
-  repo 'timhaak/sabnzbd'
-  port '8080:8080'
-  host_name 'sabnzbd'
-  user 'nobody'
-  volumes [ '/data/configs/sabnzbd:/config', '/data:/data' ]
+directory "/data/configs/nginx" do
+  owner "nobody"
+  group "nogroup"
+end
+
+directory "/data/configs/plex/Library/Application Support" do
+  owner "nobody"
+  group "nogroup"
 end
 
