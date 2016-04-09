@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "apt": ">= 0.0.0",
-    "docker": "~> 2.0"
+    "docker": "~> 2.0",
+    "plexapp": ">= 0.0.0"
   },
   "recommendations": {
   },
@@ -27,7 +28,6 @@
   },
   "recipes": {
     "couchpotato": "Installs Couchpotato",
-    "plex": "Installs Plex",
     "plexpy": "Installs PlexPy",
     "sabnzbd": "Installs SABnzbd",
     "sonarr": "Installs Sonarr",

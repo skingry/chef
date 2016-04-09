@@ -1,0 +1,24 @@
+{
+  "name": "media-server",
+  "description": "Setup Media Server",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "plexapp": {
+      "application_support_dir": "/data/configs/plex/Library/Application Support",
+      "user": "nobody",
+      "version": "0.9.16.4.1911-ee6e505"
+    }
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[media-server::couchpotato]",
+    "recipe[media-server::plexpy]",
+    "recipe[media-server::sabnzbd]",
+    "recipe[media-server::sonarr]",
+    "recipe[media-server::transmission]",
+    "recipe[plexapp]"
+  ]
+}
+
