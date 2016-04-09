@@ -1,10 +1,6 @@
 {
   "run_list": [
     "role[base]",
-    "recipe[docker-module]",
-    "role[media-server]",
-    "recipe[nginx]",
-    "recipe[ruby]",
-    "recipe[zfs]"
+    "role[media-server]"
   ]
 }
