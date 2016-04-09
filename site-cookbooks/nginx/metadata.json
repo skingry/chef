@@ -1,0 +1,30 @@
+{
+  "name": "nginx",
+  "description": "Installs and Configures Nginx",
+  "maintainer": "Seth Kingry",
+  "maintainer_email": "sjkingry@gmail.com",
+  "license": "Apache v2",
+  "platforms": {
+    "ubuntu": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "default": "Installs nginx."
+  },
+  "version": "0.1.0"
+}
