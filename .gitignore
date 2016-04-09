@@ -1,3 +1,4 @@
+.vagrant
 cookbooks/*
 .ruby-version
 Berksfile.lock
