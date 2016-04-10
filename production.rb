@@ -6,9 +6,12 @@ file_backup_path           "/var/chef/backup"
 log_level                  :info
 verbose_logging            false
 
+environment                "production"
+
 cookbook_path              [ "/home/skingry/chef/cookbooks", "/home/skingry/chef/site-cookbooks" ]
 environment_path           "/home/skingry/chef/environments"
 role_path                  "/home/skingry/chef/roles"
 data_bag_path              "/home/skingry/chef/data_bags"
 
 json_attribs               "/home/skingry/chef/config.json"
+

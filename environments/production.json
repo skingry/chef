@@ -1,0 +1,13 @@
+{
+  name: "production",
+  description: "ALL DAT PRODUCTION",
+  json_class: "Chef::Environment",
+  chef_type: "environment",
+  cookbook_versions: {
+  },
+  default_attributes: {
+    "set_fqdn": "*.robotozon.com"
+  },
+  override_attributes: {
+  }
+}

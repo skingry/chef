@@ -51,7 +51,8 @@ service "netatalk" do
   action :enable
 end
 
-cookbook_file "/usr/local/etc/afp.conf" do
+template "/usr/local/etc/afp.conf" do
   notifies :restart, "service[netatalk]"
+  variables(:hostname => node[:netatalk][:hostname])
 end
 

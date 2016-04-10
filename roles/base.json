@@ -3,7 +3,6 @@
   "description": "Drop The Bass",
   "json_class": "Chef::Role",
   "default_attributes": {
-    "set_fqdn": "*.robotozon.com",
     "authorization": {
       "sudo": {
         "passwordless": "true"
