@@ -29,6 +29,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Set the timesync threshold to 5 seconds, instead of the default 20 minutes.
     v.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 5000]
   end
-  config.vm.synced_folder '.', '/home/skingry/chef', :disabled => false
+  config.vm.synced_folder '.', '/home/vagrant/chef', :disabled => false
 end
 
