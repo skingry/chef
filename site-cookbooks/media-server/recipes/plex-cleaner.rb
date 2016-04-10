@@ -28,7 +28,8 @@ end
 cron "Plex Cleaner" do
   minute "0"
   hour "3"
+  user "nobody"
   mailto "sjkingry@gmail.com"
-  command "/usr/bin/python /root/bin/Plex-Cleaner/PlexCleaner.py --config /data/configs/Plex-Cleaner/Cleaner.conf"
+  command "/usr/bin/python /root/bin/Plex-Cleaner/PlexCleaner.py --config /data/configs/Plex-Cleaner/Cleaner.conf >> /dev/null"
 end
 
