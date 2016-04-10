@@ -16,6 +16,7 @@
     "recipe[docker-module]",
     "recipe[media-server::directories]",
     "recipe[media-server::couchpotato]",
+    "recipe[media-server::letsencrypt]",
     "recipe[media-server::plex]",
     "recipe[media-server::plex-cleaner]",
     "recipe[media-server::plexpy]",
