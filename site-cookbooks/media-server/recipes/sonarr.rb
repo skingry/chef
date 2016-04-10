@@ -20,16 +20,16 @@
 include_recipe "media-server::directories"
 
 docker_image 'sonarr' do
-  repo 'tuxeh/sonarr'
+  repo 'linuxserver/sonarr'
   action :pull
   notifies :redeploy, 'docker_container[sonarr]'
 end
 
 docker_container 'sonarr' do
-  repo 'tuxeh/sonarr'
+  repo 'linuxserver/sonarr'
   port '8989:8989'
   host_name 'sonarr'
-  user 'nobody'
-  volumes [ '/data/configs:/volumes/config', '/data:/data' ]
+  env [ 'PUID=65534', 'PGID=65534' ]
+  volumes [ '/data/configs/sonarr:/config', '/data:/data', '/data/Media/TV:/tv', '/data/Downloads/complete/tv:/downloads', '/dev/rtc:/dev/rtc:ro' ]
 end
 
