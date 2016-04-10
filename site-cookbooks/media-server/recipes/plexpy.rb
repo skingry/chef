@@ -35,6 +35,6 @@ docker_container 'plexpy' do
   port '8181:8181'
   host_name 'plexpy'
   env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro' ]
+  volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro', '/etc/localtime:/etc/localtime:ro' ]
 end
 
