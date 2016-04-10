@@ -17,9 +17,11 @@
 # limitations under the License.
 #
 
-apt_repository "zfs" do
+codename = node['lsb']['codename']
+
+apt_repository "zfs-native-stable-#{codename}" do
   uri "http://ppa.launchpad.net/zfs-native/stable/ubuntu"
-  distribution node['lsb']['codename']
+  distribution "#{codename}"
   components ["main"]
   keyserver "keyserver.ubuntu.com"
   key "F6B0FC61"
