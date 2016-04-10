@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "media-server::directories"
+
 directory "/data/configs/sabnzbd" do
   owner "nobody"
   group "nogroup"

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: plexpy
+# Recipe:: plex
 #
 # Copyright 2014, Seth Kingry
 #
@@ -19,22 +19,26 @@
 
 include_recipe "media-server::directories"
 
-directory "/data/configs/plexpy" do
+include_recipe "plexapp"
+
+directory "/data/configs/plex" do
   owner "nobody"
   group "nogroup"
+  recursive true
+  notifies :restart, "service[plexmediaserver]", :delayed
 end
 
-docker_image 'plexpy' do
-  repo 'linuxserver/plexpy'
-  action :pull
-  notifies :redeploy, 'docker_container[plexpy]'
+directory "/data/configs/plex/Library" do
+  owner "nobody"
+  group "nogroup"
+  recursive true
+  notifies :restart, "service[plexmediaserver]", :delayed
 end
 
-docker_container 'plexpy' do
-  repo 'linuxserver/plexpy'
-  port '8181:8181'
-  host_name 'plexpy'
-  env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro' ]
+directory "/data/configs/plex/Library/Application Support" do
+  owner "nobody"
+  group "nogroup"
+  recursive true
+  notifies :restart, "service[plexmediaserver]", :delayed
 end
 

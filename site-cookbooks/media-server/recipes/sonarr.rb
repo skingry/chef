@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "media-server::directories"
+
 docker_image 'sonarr' do
   repo 'tuxeh/sonarr'
   action :pull

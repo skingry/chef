@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "media-server::directories"
+
 directory "/data/configs/couchpotato" do
   owner "nobody"
   group "nogroup"

@@ -32,19 +32,3 @@ directory "/data/configs/nginx" do
   group "nogroup"
 end
 
-directory "/data/configs/plex" do
-  owner "nobody"
-  group "nogroup"
-end
-
-directory "/data/configs/plex/Library" do
-  owner "nobody"
-  group "nogroup"
-end
-
-directory "/data/configs/plex/Library/Application Support" do
-  owner "nobody"
-  group "nogroup"
-  recursive true
-end
-
