@@ -17,6 +17,13 @@
 # limitations under the License.
 #
 
+include_recipe "media-server::directories"
+
+directory "/data/configs/nginx" do
+  owner "nobody"
+  group "nogroup"
+end
+
 package "nginx"
 
 service "nginx" do

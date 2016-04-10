@@ -27,8 +27,3 @@ directory "/data/configs" do
   group "nogroup"
 end
 
-directory "/data/configs/nginx" do
-  owner "nobody"
-  group "nogroup"
-end
-
