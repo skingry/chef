@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-apt_repository "ruby22" do
+apt_repository "brightbox-ruby-ng" do
   uri "http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu"
   distribution node['lsb']['codename']
   components ["main"]
