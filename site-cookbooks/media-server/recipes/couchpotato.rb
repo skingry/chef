@@ -35,6 +35,6 @@ docker_container 'couchpotato' do
   port '5050:5050'
   host_name 'couchpotato'
   env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ '/data/configs/couchpotato:/config', '/data:/data', '/data/Downloads/complete/movies:/downloads', '/data/Media/Movies:/movies' ]
+  volumes [ '/data/configs/couchpotato:/config', '/data:/data', '/data/Downloads/complete/movies:/downloads', '/data/Media/Movies:/movies', '/etc/localtime:/etc/localtime:ro' ]
 end
 
