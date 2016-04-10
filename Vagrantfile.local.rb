@@ -1,5 +1,5 @@
 $vagrant[:name] = "Media Server"
-$vagrant[:ssh_username] = "skingry"
+$vagrant[:ssh_username] = "vagrant"
 $vagrant[:hostname] = "monolith.media-server-testing.com"
 $vagrant[:hostname_aliases] = [ "couchpotato.media-server-testing.com", 
                                 "plex.media-server-testing.com", 
