@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-git "/usr/local/Plex-Cleaner" do
+git "/opt/Plex-Cleaner" do
   repository "https://github.com/ngovil21/Plex-Cleaner.git"
   revision "master"
   action :sync
@@ -28,6 +28,6 @@ cron "Plex Cleaner" do
   hour "3"
   user "nobody"
   mailto "sjkingry@gmail.com"
-  command "/usr/bin/python /usr/local/Plex-Cleaner/PlexCleaner.py --config /data/configs/Plex-Cleaner/Cleaner.conf >> /dev/null"
+  command "/usr/bin/python /opt/Plex-Cleaner/PlexCleaner.py --config /data/configs/Plex-Cleaner/Cleaner.conf >> /dev/null"
 end
 
