@@ -10,5 +10,5 @@ $vagrant[:hostname_aliases] = [ "couchpotato.media-server-testing.com",
 $vagrant[:main_ip] = "192.168.56.101"
 $vagrant[:cpus] = 4
 $vagrant[:memory_size] = 4096
-$vagrant[:ioapic] = 'off'
+$vagrant[:ioapic] = 'on'
 
