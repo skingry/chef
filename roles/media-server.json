@@ -14,15 +14,7 @@
   "chef_type": "role",
   "run_list": [
     "recipe[docker-module]",
-    "recipe[media-server::directories]",
-    "recipe[media-server::couchpotato]",
-    "recipe[media-server::letsencrypt]",
-    "recipe[media-server::plex]",
-    "recipe[media-server::plex-cleaner]",
-    "recipe[media-server::plexpy]",
-    "recipe[media-server::sabnzbd]",
-    "recipe[media-server::sonarr]",
-    "recipe[media-server::transmission]",
+    "recipe[media-server]",
     "recipe[nginx]",
     "recipe[ruby]",
     "recipe[zfs]"

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: transmission
+# Recipe:: default
 #
 # Copyright 2014, Seth Kingry
 #
@@ -18,18 +18,12 @@
 #
 
 include_recipe "media-server::directories"
-
-docker_image 'transmission' do
-  repo 'linuxserver/transmission'
-  action :pull
-  notifies :redeploy, 'docker_container[transmission]'
-end
-
-docker_container 'transmission' do
-  repo 'linuxserver/transmission'
-  port [ '9091:9091', '51413:51413' ]
-  host_name 'transmission'
-  env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ '/data/configs/transmission:/config', '/data:/data', '/data/Downloads:/downloads', '/etc/localtime:/etc/localtime:ro' ]
-end
+include_recipe "media-server::couchpotato"
+include_recipe "media-server::letsencrypt"
+include_recipe "media-server::plex"
+include_recipe "media-server::plex-cleaner"
+include_recipe "media-server::plexpy"
+include_recipe "media-server::sabnzbd"
+include_recipe "media-server::sonarr"
+include_recipe "media-server::transmission"
 
