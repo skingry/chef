@@ -13,7 +13,6 @@
   },
   "chef_type": "role",
   "run_list": [
-    "recipe[docker-module]",
     "recipe[media-server]",
     "recipe[nginx]",
     "recipe[ruby]",
