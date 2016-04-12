@@ -36,5 +36,6 @@ docker_container 'couchpotato' do
   host_name 'couchpotato'
   env [ 'PUID=65534', 'PGID=65534' ]
   volumes [ '/data/configs/couchpotato:/config', '/data:/data', '/data/Downloads/complete/movies:/downloads', '/data/Media/Movies:/movies', '/etc/localtime:/etc/localtime:ro' ]
+  restart_policy 'always'
 end
 

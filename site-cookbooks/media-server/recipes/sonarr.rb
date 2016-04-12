@@ -31,5 +31,6 @@ docker_container 'sonarr' do
   host_name 'sonarr'
   env [ 'PUID=65534', 'PGID=65534' ]
   volumes [ '/data/configs/sonarr:/config', '/data:/data', '/data/Media/TV:/tv', '/data/Downloads/complete/tv:/downloads', '/dev/rtc:/dev/rtc:ro' ]
+  restart_policy 'always'
 end
 

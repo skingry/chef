@@ -31,5 +31,6 @@ docker_container 'transmission' do
   host_name 'transmission'
   env [ 'PUID=65534', 'PGID=65534' ]
   volumes [ '/data/configs/transmission:/config', '/data:/data', '/data/Downloads:/downloads', '/etc/localtime:/etc/localtime:ro' ]
+  restart_policy 'always'
 end
 

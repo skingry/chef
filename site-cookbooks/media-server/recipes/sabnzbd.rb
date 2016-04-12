@@ -36,5 +36,6 @@ docker_container 'sabnzbd' do
   host_name 'sabnzbd'
   user 'nobody'
   volumes [ '/data/configs/sabnzbd:/config', '/data:/data' ]
+  restart_policy 'always'
 end
 
