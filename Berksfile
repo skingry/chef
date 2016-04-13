@@ -3,6 +3,7 @@ source 'https://supermarket.getchef.com'
 cookbook "accumulator", git: "https://github.com/kisoku/chef-accumulator.git"
 cookbook "apache2", git: "https://github.com/onehealth-cookbooks/apache2.git"
 cookbook "apt", git: "https://github.com/opscode-cookbooks/apt.git"
+cookbook "awscli", git: "https://github.com/awslabs/awscli-cookbook"
 cookbook "bluepill", git: "https://github.com/opscode-cookbooks/bluepill.git"
 cookbook "build-essential", git: "https://github.com/opscode-cookbooks/build-essential.git"
 cookbook "chef-client", git: "https://github.com/opscode-cookbooks/chef-client.git"

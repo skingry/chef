@@ -33,12 +33,14 @@
   },
   "chef_type": "role",
   "run_list": [
+    "recipe[awscli]",
     "recipe[chef-solo-search]",
     "recipe[hostnames]",
     "recipe[netatalk]",
     "recipe[nodejs]",
     "recipe[ntp]",
     "recipe[openssh]",
+    "recipe[python]",
     "recipe[sudo]",
     "recipe[timezone-ii]",
     "recipe[users::sysadmins]"
