@@ -11,17 +11,6 @@
     "hostname_cookbook": {
       "use_node_ip": true
     },
-    "postfix": {
-      "main": {
-        "inet_protocols": "ipv4",
-        "smtp_use_tls": "no",
-        "smtpd_use_tls": "no"
-      },
-      "transports": {
-        "*": "smtp:"
-      },
-      "use_transport_maps": "true"
-    },
     "ntp": {
       "servers": [
         "0.north-america.pool.ntp.org",
@@ -38,6 +27,23 @@
         "password_authentication": "no"
       }
     },
+    "postfix": {
+      "main": {
+        "inet_interfaces": "all",
+        "inet_protocols": "ipv4",
+        "mynetworks": [
+          "192.168.15.0/24",
+          "192.168.66.0/24",
+          "127.0.0.0/8"
+        ],
+        "smtp_use_tls": "no",
+        "smtpd_use_tls": "no"
+      },
+      "transports": {
+        "*": "smtp:"
+      },
+      "use_transport_maps": "true"
+    },
     "tz": "America/New_York"
   },
   "override_attributes": {
@@ -47,7 +53,7 @@
     "recipe[awscli]",
     "recipe[chef-solo-search]",
     "recipe[hostnames]",
-    "recipe[postfix]",
+    "recipe[postfix::server]",
     "recipe[netatalk]",
     "recipe[nodejs]",
     "recipe[ntp]",
