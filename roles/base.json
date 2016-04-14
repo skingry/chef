@@ -11,6 +11,17 @@
     "hostname_cookbook": {
       "use_node_ip": true
     },
+    "postfix": {
+      "main": {
+        "inet_protocols": "ipv4",
+        "smtp_use_tls": "no",
+        "smtpd_use_tls": "no"
+      },
+      "transports": {
+        "*": "smtp:"
+      },
+      "use_transport_maps": "true"
+    },
     "ntp": {
       "servers": [
         "0.north-america.pool.ntp.org",
@@ -36,6 +47,7 @@
     "recipe[awscli]",
     "recipe[chef-solo-search]",
     "recipe[hostnames]",
+    "recipe[postfix]",
     "recipe[netatalk]",
     "recipe[nodejs]",
     "recipe[ntp]",
