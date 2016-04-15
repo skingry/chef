@@ -1,10 +1,10 @@
 #!/bin/bash
 
-apt-add-repository --yes ppa:zfs-native/stable
-apt-get update
-apt-get -y install ubuntu-zfs
-modprobe zfs
-zpool create -f tank raidz /dev/sdb /dev/sdc /dev/sdd /dev/sde
-zfs create -o mountpoint=/data tank/data
+sudo apt-add-repository --yes ppa:zfs-native/stable
+sudo apt-get update
+sudo apt-get -y install ubuntu-zfs
+sudo modprobe zfs
+sudo zpool create -f tank raidz /dev/sdb /dev/sdc /dev/sdd /dev/sde
+sudo zfs create -o mountpoint=/data tank/data
 curl -L https://www.opscode.com/chef/install.sh | sudo bash
-chef-solo -c /home/vagrant/chef/development.rb
+sudo su - -c 'chef-solo -c /home/vagrant/chef/development.rb'
