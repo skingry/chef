@@ -17,9 +17,47 @@
 # limitations under the License.
 #
 
-include_recipe "media-server::directories"
+directory "/data" do
+  owner "nobody"
+  group "nogroup"
+end
+
+directory "/data/configs" do
+  owner "nobody"
+  group "nogroup"
+end
 
 directory "/data/configs/nginx" do
+  owner "nobody"
+  group "nogroup"
+end
+
+directory "/data/configs/nginx/sites" do
+  owner "nobody"
+  group "nogroup"
+end
+
+directory "/data/configs/nginx/webroot" do
+  owner "nobody"
+  group "nogroup"
+end
+
+cookbook_file "/data/configs/nginx/webroot/index.html" do
+  owner "nobody"
+  group "nogroup"
+end
+
+cookbook_file "/data/configs/nginx/webroot/50x.html" do
+  owner "nobody"
+  group "nogroup"
+end
+
+cookbook_file "/data/configs/nginx/webroot/explosion-animation.gif" do
+  owner "nobody"
+  group "nogroup"
+end
+
+cookbook_file "/data/configs/nginx/webroot/robot.gif" do
   owner "nobody"
   group "nogroup"
 end
