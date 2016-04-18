@@ -37,8 +37,7 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
-  port "#{port}:#{port}"
-  host_name "#{name}"
+  network_mode 'host'
   env [ 'PUID=65534', 'PGID=65534' ]
   volumes [ "/data/configs/#{name}:/config", '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
