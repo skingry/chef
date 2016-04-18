@@ -17,28 +17,49 @@
 # limitations under the License.
 #
 
-include_recipe "media-server::directories"
+domain = node[:media_server][:domain]
+name = 'plex'
+repo = "linuxserver/#{name}"
 
-include_recipe "plexapp"
+include_recipe 'media-server::directories'
 
-directory "/data/configs/plex" do
-  owner "nobody"
-  group "nogroup"
-  recursive true
-  notifies :restart, "service[plexmediaserver]", :delayed
+directory "/data/configs/#{name}" do
+  owner 'nobody'
+  group 'nogroup'
 end
 
-directory "/data/configs/plex/Library" do
-  owner "nobody"
-  group "nogroup"
+directory "/data/configs/#{name}/Library" do
+  owner 'nobody'
+  group 'nogroup'
   recursive true
-  notifies :restart, "service[plexmediaserver]", :delayed
+  notifies :restart, "docker_container[#{name}]", :delayed
 end
 
-directory "/data/configs/plex/Library/Application Support" do
-  owner "nobody"
-  group "nogroup"
+directory "/data/configs/#{name}/Library/Application Support" do
+  owner 'nobody'
+  group 'nogroup'
   recursive true
-  notifies :restart, "service[plexmediaserver]", :delayed
+  notifies :restart, "docker_container[#{name}]", :delayed
+end
+
+docker_image "#{name}" do
+  repo "#{repo}"
+  action :pull
+  notifies :redeploy, "docker_container[#{name}]"
+end
+
+docker_container "#{name}" do
+  repo "#{repo}"
+  network_mode 'host'
+  env [ 'PUID=65534', 'PGID=65534' ]
+  volumes [ "/data/configs/#{name}:/config", '/data:/data' ]
+  restart_policy 'always'
+end
+
+template "/data/configs/nginx/sites/#{name}.conf" do
+  source 'plex_proxy_site.erb'
+  notifies :restart, 'service[nginx]'
+  variables :domain => "#{domain}",
+            :name => "#{name}"
 end
 

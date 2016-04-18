@@ -3,11 +3,6 @@
   "description": "Setup Media Server",
   "json_class": "Chef::Role",
   "default_attributes": {
-    "plexapp": {
-      "application_support_dir": "/data/configs/plex/Library/Application Support",
-      "user": "nobody",
-      "version": "0.9.16.4.1911-ee6e505"
-    }
   },
   "override_attributes": {
   },
