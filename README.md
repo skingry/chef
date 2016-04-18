@@ -6,19 +6,19 @@ This is my "infrastructure as code" Chef repository used to setup my media serve
 ## Overview of Applications
 ***
 
-[Couchpotato](https://couchpota.to/) is a Python based PVR.
+[Couchpotato](https://couchpota.to/) is a Python based PVR. ([Docker Code Repository](https://github.com/linuxserver/docker-couchpotato))
 
-[Plex Media Server](https://en.wikipedia.org/wiki/Plex_(software)#Plex_Media_Server) is a media management tool with a "10-foot user interface".  It organizes personal media stored on local devices.
+[Plex Media Server](https://en.wikipedia.org/wiki/Plex_(software)#Plex_Media_Server) is a media management tool with a "10-foot user interface".  It organizes personal media stored on local devices. ([Docker Code Repository](https://github.com/linuxserver/docker-plex))
 
-[PlexPy](https://github.com/drzoidberg33/plexpy) is a Python based monitoring and tracking tool for Plex Media Server.
+[PlexPy](https://github.com/drzoidberg33/plexpy) is a Python based monitoring and tracking tool for Plex Media Server. ([Docker Code Repository](https://github.com/linuxserver/docker-plexpy))
 
 [Plex Cleaner](https://github.com/ngovil21/Plex-Cleaner) is a Python script for automatic deletion of consumed media on a Plex Media Server.
 
-[Sonarr](https://sonarr.tv/) is a PVR for newsgroup users (with limited torrent support). It watches for new episodes of your favorite shows and when they are posted it downloads them, sorts and renames them, and optionally generates metadata for them.
+[Sonarr](https://sonarr.tv/) is a PVR for newsgroup users (with limited torrent support). It watches for new episodes of your favorite shows and when they are posted it downloads them, sorts and renames them, and optionally generates metadata for them. ([Docker Code Repository](https://github.com/linuxserver/docker-sonarr))
 
-[SABnzbd](http://sabnzbd.org/) is an open source binary Usenet reader written in Python.  It automates, simplifies, and streamlines downloading of binary files from Usenet sources.
+[SABnzbd](http://sabnzbd.org/) is an open source binary Usenet reader written in Python.  It automates, simplifies, and streamlines downloading of binary files from Usenet sources. ([Docker Code Repository](https://github.com/linuxserver/docker-sabnzbd))
 
-[Transmission](https://www.transmissionbt.com/) is a web based BitTorrent client.
+[Transmission](https://www.transmissionbt.com/) is a web based BitTorrent client. ([Docker Code Repository](https://github.com/linuxserver/docker-transmission))
 
 Other applications used are: [nginx](https://www.nginx.com/) as a reverse web proxy, [Let's Encrypt](https://letsencrypt.org/) to provide signed SSL certificates for the nginx reverse proxy, and [netatalk](http://netatalk.sourceforge.net/) as a LAN based file sharing server.
 
