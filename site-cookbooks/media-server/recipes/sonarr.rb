@@ -17,20 +17,30 @@
 # limitations under the License.
 #
 
-include_recipe "media-server::directories"
+domain = node[:media_server][:domain]
+name = 'sonarr'
+port = '8989'
+repo = "linuxserver/#{name}"
 
-docker_image 'sonarr' do
-  repo 'linuxserver/sonarr'
-  action :pull
-  notifies :redeploy, 'docker_container[sonarr]'
+include_recipe 'media-server::directories'
+
+directory "/data/configs/#{name}" do
+  owner 'nobody'
+  group 'nogroup'
 end
 
-docker_container 'sonarr' do
-  repo 'linuxserver/sonarr'
-  port '8989:8989'
-  host_name 'sonarr'
+docker_image "#{name}" do
+  repo "#{repo}"
+  action :pull
+  notifies :redeploy, "docker_container[#{name}]"
+end
+
+docker_container "#{name}" do
+  repo "#{repo}"
+  port "#{port}:#{port}"
+  host_name "#{name}"
   env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ '/data/configs/sonarr:/config', '/data:/data', '/data/Media/TV:/tv', '/data/Downloads/complete/tv:/downloads', '/dev/rtc:/dev/rtc:ro' ]
+  volumes [ "/data/configs/#{name}:/config", '/data:/data', '/dev/rtc:/dev/rtc:ro' ]
   restart_policy 'always'
 end
 

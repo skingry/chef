@@ -7,6 +7,9 @@
   },
   "default_attributes": {
     "set_fqdn": "*.media-server-testing.com",
+    "media_server": {
+      "domain": "media-server-testing.com"
+    },
     "netatalk": {
       "hostname": "Media Server Testing"
     }

@@ -17,25 +17,30 @@
 # limitations under the License.
 #
 
-include_recipe "media-server::directories"
+domain = node[:media_server][:domain]
+name = 'plexpy'
+port = '8181'
+repo = "linuxserver/#{name}"
 
-directory "/data/configs/plexpy" do
-  owner "nobody"
-  group "nogroup"
+include_recipe 'media-server::directories'
+
+directory "/data/configs/#{name}" do
+  owner 'nobody'
+  group 'nogroup'
 end
 
-docker_image 'plexpy' do
-  repo 'linuxserver/plexpy'
+docker_image "#{name}" do
+  repo "#{repo}"
   action :pull
-  notifies :redeploy, 'docker_container[plexpy]'
+  notifies :redeploy, "docker_container[#{name}]"
 end
 
-docker_container 'plexpy' do
-  repo 'linuxserver/plexpy'
-  port '8181:8181'
-  host_name 'plexpy'
+docker_container "#{name}" do
+  repo "#{repo}"
+  port "#{port}:#{port}"
+  host_name "#{name}"
   env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ "/data/configs/#{name}:/config", '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 

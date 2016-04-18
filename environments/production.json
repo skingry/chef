@@ -6,7 +6,10 @@
   "cookbook_versions": {
   },
   "default_attributes": {
-    "set_fqdn": "*.robotozon.com"
+    "set_fqdn": "*.robotozon.com",
+    "media_server": {
+      "domain": "robotozon.com"
+    }
   },
   "override_attributes": {
   }

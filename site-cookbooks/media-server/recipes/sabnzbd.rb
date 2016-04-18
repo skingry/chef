@@ -17,25 +17,30 @@
 # limitations under the License.
 #
 
-include_recipe "media-server::directories"
+domain = node[:media_server][:domain]
+name = 'sabnzbd'
+port = '8080'
+repo = "linuxserver/#{name}"
 
-directory "/data/configs/sabnzbd" do
-  owner "nobody"
-  group "nogroup"
+include_recipe 'media-server::directories'
+
+directory "/data/configs/#{name}" do
+  owner 'nobody'
+  group 'nogroup'
 end
 
-docker_image 'sabnzbd' do
-  repo 'timhaak/sabnzbd'
+docker_image "#{name}" do
+  repo "#{repo}"
   action :pull
-  notifies :redeploy, 'docker_container[sabnzbd]'
+  notifies :redeploy, "docker_container[#{name}]"
 end
 
-docker_container 'sabnzbd' do
-  repo 'timhaak/sabnzbd'
-  port '8080:8080'
-  host_name 'sabnzbd'
-  user 'nobody'
-  volumes [ '/data/configs/sabnzbd:/config', '/data:/data' ]
+docker_container "#{name}" do
+  repo "#{repo}"
+  port "#{port}:#{port}"
+  host_name "#{name}"
+  env [ 'PUID=65534', 'PGID=65534' ]
+  volumes [ "/data/configs/#{name}:/config", '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 

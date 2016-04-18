@@ -17,25 +17,30 @@
 # limitations under the License.
 #
 
-include_recipe "media-server::directories"
+domain = node[:media_server][:domain]
+name = 'couchpotato'
+port = '5050'
+repo = "linuxserver/#{name}"
 
-directory "/data/configs/couchpotato" do
-  owner "nobody"
-  group "nogroup"
+include_recipe 'media-server::directories'
+
+directory "/data/configs/#{name}" do
+  owner 'nobody'
+  group 'nogroup'
 end
 
-docker_image 'couchpotato' do
-  repo 'linuxserver/couchpotato'
+docker_image "#{name}" do
+  repo "#{repo}"
   action :pull
-  notifies :redeploy, 'docker_container[couchpotato]'
+  notifies :redeploy, "docker_container[#{name}]"
 end
 
-docker_container 'couchpotato' do
-  repo 'linuxserver/couchpotato'
-  port '5050:5050'
-  host_name 'couchpotato'
+docker_container "#{name}" do
+  repo "#{repo}"
+  port "#{port}:#{port}"
+  host_name "#{name}"
   env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ '/data/configs/couchpotato:/config', '/data:/data', '/data/Downloads/complete/movies:/downloads', '/data/Media/Movies:/movies', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ "/data/configs/#{name}:/config", '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 
