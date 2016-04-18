@@ -41,7 +41,7 @@ server {
 <% end -%>
 
     if (!-f $request_filename){
-    proxy_pass http://localhost:<%= @port %>;
+      proxy_pass http://localhost:<%= @port %>;
     }
   }
 
@@ -49,3 +49,4 @@ server {
     allow                 all;
   }
 }
+

@@ -44,3 +44,12 @@ docker_container "#{name}" do
   restart_policy 'always'
 end
 
+template "/data/configs/nginx/sites/#{name}.conf" do
+  source 'proxy_site.erb'
+  notifies :restart, 'service[nginx]'
+  variables :domain => "#{domain}",
+            :name => "#{name}",
+            :port => "#{port}",
+            :environment => "#{node.chef_environment}"
+end
+
