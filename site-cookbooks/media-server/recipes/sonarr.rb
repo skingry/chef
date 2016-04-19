@@ -49,6 +49,7 @@ template "/data/configs/nginx/sites/#{name}.conf" do
   variables :domain => "#{domain}",
             :name => "#{name}",
             :port => "#{port}",
-            :environment => "#{node.chef_environment}"
+            :environment => "#{node.chef_environment}",
+            :auth => 'true'
 end
 

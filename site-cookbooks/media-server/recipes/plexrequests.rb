@@ -18,9 +18,9 @@
 #
 
 domain = node[:media_server][:domain]
-name = 'couchpotato'
-port = '5050'
-repo = "linuxserver/#{name}"
+name = 'plexrequests'
+port = '3000'
+repo = "lsiodev/#{name}"
 
 include_recipe 'media-server::directories'
 
@@ -50,6 +50,6 @@ template "/data/configs/nginx/sites/#{name}.conf" do
             :name => "#{name}",
             :port => "#{port}",
             :environment => "#{node.chef_environment}",
-            :auth => 'true'
+            :auth => 'false'
 end
 

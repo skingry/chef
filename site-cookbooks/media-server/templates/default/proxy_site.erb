@@ -32,7 +32,7 @@ server {
   proxy_set_header X_FORWARDED_PROTO https;
 
   location / {
-<% if @environment == "production" %>
+<% if @environment == "production" && @auth == "true" %>
     satisfy                any;
     allow                  192.168.0.0/16;
     deny                   all;
