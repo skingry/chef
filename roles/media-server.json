@@ -10,7 +10,6 @@
   "run_list": [
     "recipe[media-server]",
     "recipe[nginx]",
-    "recipe[ruby]",
     "recipe[zfs]"
   ]
 }

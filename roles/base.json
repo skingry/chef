@@ -59,6 +59,7 @@
     "recipe[ntp]",
     "recipe[openssh]",
     "recipe[python]",
+    "recipe[ruby]",
     "recipe[sudo]",
     "recipe[timezone-ii]",
     "recipe[users::sysadmins]"
