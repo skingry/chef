@@ -25,6 +25,7 @@ cron "Configs Backup" do
   minute "30"
   hour "3"
   day "1"
+  path "/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin"
   user "root"
   mailto "sjkingry@gmail.com"
   command "/opt/bin/configs-backup.sh >> /dev/null"
