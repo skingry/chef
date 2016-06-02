@@ -28,6 +28,7 @@ cron "Letsencrypt Certificate Renewal" do
   hour "3"
   weekday "1"
   mailto "sjkingry@gmail.com"
+  path "/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin"
   command "/opt/letsencrypt/letsencrypt-auto renew && service nginx restart"
 end
 
