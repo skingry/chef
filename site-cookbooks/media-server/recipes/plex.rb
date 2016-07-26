@@ -19,6 +19,7 @@
 
 domain = node[:media_server][:domain]
 name = 'plex'
+version = '1.0.2.2413-7caf41d'
 repo = "linuxserver/#{name}"
 
 include_recipe 'media-server::directories'
@@ -44,6 +45,7 @@ end
 
 docker_image "#{name}" do
   repo "#{repo}"
+  tag "#{version}"
   action :pull
   notifies :redeploy, "docker_container[#{name}]"
 end
