@@ -45,7 +45,6 @@ end
 
 docker_image "#{name}" do
   repo "#{repo}"
-  tag "#{version}"
   action :pull
   notifies :redeploy, "docker_container[#{name}]"
 end
@@ -53,7 +52,7 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
-  env [ 'PUID=65534', 'PGID=65534' ]
+  env [ 'PUID=65534', 'PGID=65534', "VERSION=#{version}" ]
   volumes [ "/data/configs/#{name}:/config", '/data:/data' ]
   restart_policy 'always'
 end
