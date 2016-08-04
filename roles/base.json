@@ -54,7 +54,6 @@
     "recipe[chef-solo-search]",
     "recipe[hostnames]",
     "recipe[postfix::server]",
-    "recipe[netatalk]",
     "recipe[nodejs]",
     "recipe[ntp]",
     "recipe[openssh]",

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: default
+# Recipe:: netatalk
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,21 +17,21 @@
 # limitations under the License.
 #
 
-docker_service 'default' do
-  storage_driver 'zfs'
-  action [:create, :start]
+name = 'netatalk'
+repo = "skingry/#{name}"
+
+include_recipe 'media-server::directories'
+
+docker_image "#{name}" do
+  repo "#{repo}"
+  action :pull
+  notifies :redeploy, "docker_container[#{name}]"
 end
 
-include_recipe "media-server::backup"
-include_recipe "media-server::directories"
-include_recipe "media-server::couchpotato"
-include_recipe "media-server::letsencrypt"
-include_recipe "media-server::netatalk"
-include_recipe "media-server::plex"
-include_recipe "media-server::plex-cleaner"
-include_recipe "media-server::plexpy"
-include_recipe "media-server::plexrequests"
-include_recipe "media-server::sabnzbd"
-include_recipe "media-server::sonarr"
-include_recipe "media-server::transmission"
+docker_container "#{name}" do
+  repo "#{repo}"
+  network_mode 'host'
+  volumes [ "/data/Backups:/data/Backups", '/data/Documents:/data/Documents', '/data/Downloads:/data/Downloads', '/data/Media:/data/Media']
+  restart_policy 'always'
+end
 
