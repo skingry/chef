@@ -20,7 +20,7 @@
 domain = node[:media_server][:domain]
 name = 'sabnzbd'
 port = '8080'
-repo = "linuxserver/#{name}"
+repo = "skingry/#{name}"
 
 include_recipe 'media-server::directories'
 
@@ -38,7 +38,6 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
-  env [ 'PUID=65534', 'PGID=65534' ]
   volumes [ "/data/configs/#{name}:/config", '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
