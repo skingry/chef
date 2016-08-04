@@ -19,7 +19,7 @@
 
 domain = node[:media_server][:domain]
 name = 'plex'
-version = '1.0.2.2413-7caf41d'
+version = 'latest'
 repo = "linuxserver/#{name}"
 
 include_recipe 'media-server::directories'
