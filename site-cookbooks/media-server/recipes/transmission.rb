@@ -20,7 +20,7 @@
 domain = node[:media_server][:domain]
 name = 'transmission'
 port = '9091'
-repo = "linuxserver/#{name}"
+repo = "skingry/#{name}"
 
 include_recipe 'media-server::directories'
 
