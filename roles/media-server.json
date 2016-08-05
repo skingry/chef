@@ -9,7 +9,6 @@
   "chef_type": "role",
   "run_list": [
     "recipe[media-server]",
-    "recipe[nginx]",
     "recipe[zfs]"
   ]
 }

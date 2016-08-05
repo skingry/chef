@@ -23,6 +23,7 @@ port = '8989'
 repo = "skingry/#{name}"
 
 include_recipe 'media-server::directories'
+include_recipe 'media-server::nginx'
 
 directory "/data/configs/#{name}" do
   owner 'nobody'
@@ -44,7 +45,7 @@ end
 
 template "/data/configs/nginx/sites/#{name}.conf" do
   source 'proxy_site.erb'
-  notifies :restart, 'service[nginx]'
+  notifies :restart, "docker_container[nginx]", :delayed
   variables :domain => "#{domain}",
             :name => "#{name}",
             :port => "#{port}",

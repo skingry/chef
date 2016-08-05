@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: couchpotato
+# Recipe:: nginx
 #
 # Copyright 2014, Seth Kingry
 #
@@ -18,17 +18,24 @@
 #
 
 domain = node[:media_server][:domain]
-name = 'plexrequests'
-port = '3000'
-repo = "lsiodev/#{name}"
+name = 'nginx'
+repo = "skingry/#{name}"
 
 include_recipe 'media-server::directories'
-include_recipe 'media-server::nginx'
 
 directory "/data/configs/#{name}" do
   owner 'nobody'
   group 'nogroup'
 end
+
+directory "/data/configs/#{name}/sites" do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/data/configs/nginx/logs'
+
+directory '/data/configs/nginx/ssl'
 
 docker_image "#{name}" do
   repo "#{repo}"
@@ -39,18 +46,7 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
-  env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ "/data/configs/#{name}:/config", '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ "/data/configs/#{name}:/config" ]
   restart_policy 'always'
-end
-
-template "/data/configs/nginx/sites/#{name}.conf" do
-  source 'proxy_site.erb'
-  notifies :restart, "docker_container[nginx]", :delayed
-  variables :domain => "#{domain}",
-            :name => "#{name}",
-            :port => "#{port}",
-            :environment => "#{node.chef_environment}",
-            :auth => 'false'
 end
 
