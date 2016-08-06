@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Record current date
-DATE=`date +%Y%m%m`
+DATE=`date +%Y%m%d`
 
 # Create backup file
 tar -cf - /data/configs | gzip -c > /tmp/configs-backup-${DATE}.tgz
