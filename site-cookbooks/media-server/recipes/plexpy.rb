@@ -20,7 +20,7 @@
 domain = node[:media_server][:domain]
 name = 'plexpy'
 port = '8181'
-repo = "linuxserver/#{name}"
+repo = "skingry/#{name}"
 
 include_recipe 'media-server::directories'
 include_recipe 'media-server::nginx'
@@ -39,7 +39,6 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
-  env [ 'PUID=65534', 'PGID=65534' ]
   volumes [ "/data/configs/#{name}:/config", '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
