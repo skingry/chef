@@ -3,22 +3,24 @@
 
 This is my "infrastructure as code" Chef repository used to setup my media server. It uses [Docker](https://www.docker.com/) for containerization of the applications and [ZFS](https://en.wikipedia.org/wiki/ZFS) for the data storage layer.  It uses various Python, C++, and .NET applications to fetch, process, organize, and deliver media. All of the applications talk to each other via RESTful API's.
 
+Each `Dockerfile` in the `Docker` directory calls a specific recipe in this Chef repo to facilitate the configuration of the container during build.  In addition, this repository is linked to the public [Docker Hub](https://hub.docker.com/r/skingry) to allow automated builds of each of the containers when code updates are pushed.
+
 ## Overview of Applications
 ***
 
-[Couchpotato](https://couchpota.to/) is a Python based PVR. ([Docker Code Repository](https://github.com/linuxserver/docker-couchpotato))
+[Couchpotato](https://couchpota.to/) is a Python based PVR.
 
-[Plex Media Server](https://en.wikipedia.org/wiki/Plex_(software)#Plex_Media_Server) is a media management tool with a "10-foot user interface".  It organizes personal media stored on local devices. ([Docker Code Repository](https://github.com/linuxserver/docker-plex))
+[Plex Media Server](https://en.wikipedia.org/wiki/Plex_(software)#Plex_Media_Server) is a media management tool with a "10-foot user interface".  It organizes personal media stored on local devices.
 
-[PlexPy](https://github.com/drzoidberg33/plexpy) is a Python based monitoring and tracking tool for Plex Media Server. ([Docker Code Repository](https://github.com/linuxserver/docker-plexpy))
+[PlexPy](https://github.com/drzoidberg33/plexpy) is a Python based monitoring and tracking tool for Plex Media Server.
 
 [Plex Cleaner](https://github.com/ngovil21/Plex-Cleaner) is a Python script for automatic deletion of consumed media on a Plex Media Server.
 
-[Sonarr](https://sonarr.tv/) is a PVR for newsgroup users (with limited torrent support). It watches for new episodes of your favorite shows and when they are posted it downloads them, sorts and renames them, and optionally generates metadata for them. ([Docker Code Repository](https://github.com/linuxserver/docker-sonarr))
+[Sonarr](https://sonarr.tv/) is a PVR for newsgroup users (with limited torrent support). It watches for new episodes of your favorite shows and when they are posted it downloads them, sorts and renames them, and optionally generates metadata for them.
 
-[SABnzbd](http://sabnzbd.org/) is an open source binary Usenet reader written in Python.  It automates, simplifies, and streamlines downloading of binary files from Usenet sources. ([Docker Code Repository](https://github.com/linuxserver/docker-sabnzbd))
+[SABnzbd](http://sabnzbd.org/) is an open source binary Usenet reader written in Python.  It automates, simplifies, and streamlines downloading of binary files from Usenet sources.
 
-[Transmission](https://www.transmissionbt.com/) is a web based BitTorrent client. ([Docker Code Repository](https://github.com/linuxserver/docker-transmission))
+[Transmission](https://www.transmissionbt.com/) is a web based BitTorrent client.
 
 Other applications used are: [nginx](https://www.nginx.com/) as a reverse web proxy, [Let's Encrypt](https://letsencrypt.org/) to provide signed SSL certificates for the nginx reverse proxy, and [netatalk](http://netatalk.sourceforge.net/) as a LAN based file sharing server.
 

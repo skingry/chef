@@ -1,6 +1,6 @@
 {
-  "name": "media-server",
-  "description": "Installs and Configures Media Server",
+  "name": "docker-plex",
+  "description": "Installs and configures Plex Media Server inside a Docker container.",
   "maintainer": "Seth Kingry",
   "maintainer_email": "sjkingry@gmail.com",
   "license": "Apache v2",
@@ -9,8 +9,6 @@
   },
   "dependencies": {
     "apt": ">= 0.0.0",
-    "awscli": ">= 0.0.0",
-    "docker": "~> 2.0",
     "python": ">= 0.0.0"
   },
   "recommendations": {
@@ -28,11 +26,7 @@
   "groupings": {
   },
   "recipes": {
-    "couchpotato": "Installs Couchpotato",
-    "plexpy": "Installs PlexPy",
-    "sabnzbd": "Installs SABnzbd",
-    "sonarr": "Installs Sonarr",
-    "transmission": "Installs Transmission"
+    "default": "Installs Plex."
   },
   "version": "0.1.0"
 }

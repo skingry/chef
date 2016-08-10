@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: media-server
-# Recipe:: plex-cleaner
+# Cookbook Name:: docker-nginx
+# Recipe:: default
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,19 +17,24 @@
 # limitations under the License.
 #
 
-include_recipe "python"
+package 'nginx'
 
-git "/opt/Plex-Cleaner" do
-  repository "https://github.com/ngovil21/Plex-Cleaner.git"
-  revision "master"
-  action :sync
-end
+cookbook_file '/etc/nginx/nginx.conf'
 
-cron "Plex Cleaner" do
-  minute "0"
-  hour "3"
-  user "nobody"
-  mailto "sjkingry@gmail.com"
-  command "/usr/bin/python /opt/Plex-Cleaner/PlexCleaner.py --config /data/configs/Plex-Cleaner/Cleaner.conf >> /dev/null"
+directory '/config'
+directory '/config/logs'
+directory '/config/sites'
+
+cookbook_file '/config/sites/00-default.conf'
+
+directory '/webroot'
+
+cookbook_file '/webroot/50x.html'
+cookbook_file '/webroot/explosion-animation.gif'
+cookbook_file '/webroot/index.html'
+cookbook_file '/webroot/robot.gif'
+
+cookbook_file '/sbin/my_init' do
+  mode 0755
 end
 

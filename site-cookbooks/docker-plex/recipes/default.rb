@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: media-server
-# Recipe:: backup
+# Cookbook Name:: docker-plex
+# Recipe:: default
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,19 +17,36 @@
 # limitations under the License.
 #
 
-include_recipe 'awscli'
+package 'avahi-daemon'
+package 'dbus'
 
-cookbook_file '/opt/bin/configs-backup.sh' do
-  mode 0700
+remote_file '/tmp/plexmediaserver.deb' do
+  source 'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu'
 end
 
-cron 'Configs Backup' do
-  minute '30'
-  hour '3'
-  day '1'
-  path '/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin'
+bash 'Install Plex Media Server' do
   user 'root'
-  mailto 'sjkingry@gmail.com'
-  command '/opt/bin/configs-backup.sh >> /dev/null'
+  cwd '/tmp'
+  code <<-EOH
+  dpkg -i /tmp/plexmediaserver.deb
+  rm -rf /tmp/plexmediaserver.deb
+  EOH
+end
+
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/defaults'
+
+cookbook_file '/defaults/plexmediaserver'
+
+cookbook_file '/sbin/update_plex' do
+  mode 0755
+end
+
+cookbook_file '/sbin/my_init' do
+  mode 0755
 end
 

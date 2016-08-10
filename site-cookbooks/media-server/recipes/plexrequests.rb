@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: couchpotato
+# Recipe:: plexrequests
 #
 # Copyright 2014, Seth Kingry
 #

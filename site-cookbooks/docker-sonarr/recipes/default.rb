@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: media-server
-# Recipe:: plex-cleaner
+# Cookbook Name:: docker-transmission
+# Recipe:: default
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,19 +17,36 @@
 # limitations under the License.
 #
 
-include_recipe "python"
+include_recipe 'apt'
 
-git "/opt/Plex-Cleaner" do
-  repository "https://github.com/ngovil21/Plex-Cleaner.git"
-  revision "master"
-  action :sync
+apt_repository 'nzbdrone' do
+  uri 'http://apt.sonarr.tv/'
+  distribution 'master'
+  components ['main']
+  keyserver 'keyserver.ubuntu.com'
+  key 'FDA5DFFC'
+  action :add
+  notifies :run, 'execute[apt-get update]', :immediately
 end
 
-cron "Plex Cleaner" do
-  minute "0"
-  hour "3"
-  user "nobody"
-  mailto "sjkingry@gmail.com"
-  command "/usr/bin/python /opt/Plex-Cleaner/PlexCleaner.py --config /data/configs/Plex-Cleaner/Cleaner.conf >> /dev/null"
+package 'nzbdrone'
+
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/watch' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/downloads' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+cookbook_file '/sbin/my_init' do
+  mode 0755
 end
 

@@ -1,0 +1,68 @@
+{
+  "name": "server",
+  "description": "Sets up the server everything else runs on...",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "authorization": {
+      "sudo": {
+        "passwordless": "true"
+      }
+    },
+    "hostname_cookbook": {
+      "use_node_ip": true
+    },
+    "ntp": {
+      "servers": [
+        "0.north-america.pool.ntp.org",
+        "1.north-america.pool.ntp.org",
+        "2.north-america.pool.ntp.org",
+        "3.north-america.pool.ntp.org"
+      ]
+    },
+    "openssh": {
+      "server": {
+        "permit_root_login": "no",
+        "port": [ "22", "1471" ],
+        "use_dns": "no",
+        "password_authentication": "no"
+      }
+    },
+    "postfix": {
+      "main": {
+        "inet_interfaces": "all",
+        "inet_protocols": "ipv4",
+        "mynetworks": [
+          "192.168.15.0/24",
+          "192.168.66.0/24",
+          "127.0.0.0/8"
+        ],
+        "smtp_use_tls": "no",
+        "smtpd_use_tls": "no"
+      },
+      "transports": {
+        "*": "smtp:"
+      },
+      "use_transport_maps": "true"
+    },
+    "tz": "America/New_York"
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[awscli]",
+    "recipe[chef-solo-search]",
+    "recipe[hostnames]",
+    "recipe[media-server]",
+    "recipe[nodejs]",
+    "recipe[ntp]",
+    "recipe[openssh]",
+    "recipe[postfix::server]",
+    "recipe[python]",
+    "recipe[sudo]",
+    "recipe[timezone-ii]",
+    "recipe[users::sysadmins]",
+    "recipe[zfs]"
+  ]
+}
+

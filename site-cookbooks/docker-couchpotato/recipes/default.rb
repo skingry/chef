@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: media-server
-# Recipe:: plex-cleaner
+# Cookbook Name:: docker-couchpotato
+# Recipe:: default
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,19 +17,25 @@
 # limitations under the License.
 #
 
-include_recipe "python"
+include_recipe 'python'
 
-git "/opt/Plex-Cleaner" do
-  repository "https://github.com/ngovil21/Plex-Cleaner.git"
-  revision "master"
+package 'python-cheetah'
+package 'python-lxml'
+package 'python-openssl'
+
+git '/couchpotato' do
+  repository 'https://github.com/CouchPotato/CouchPotatoServer.git'
+  enable_checkout false
+  checkout_branch 'master'
   action :sync
 end
 
-cron "Plex Cleaner" do
-  minute "0"
-  hour "3"
-  user "nobody"
-  mailto "sjkingry@gmail.com"
-  command "/usr/bin/python /opt/Plex-Cleaner/PlexCleaner.py --config /data/configs/Plex-Cleaner/Cleaner.conf >> /dev/null"
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+cookbook_file '/sbin/my_init' do
+  mode 0755
 end
 
