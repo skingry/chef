@@ -8,4 +8,6 @@ sudo zpool create -f tank raidz /dev/sdb /dev/sdc /dev/sdd /dev/sde
 sudo zfs create -o mountpoint=/data tank/data
 sudo zfs create -o mountpoint=/var/lib/docker tank/docker
 curl -L https://www.opscode.com/chef/install.sh | sudo bash
+sudo su - -c 'bundle install'
+sudo su - -c 'berks vendor cookbooks'
 sudo su - -c 'chef-solo -c /chef/solo.rb -j /chef/configs/server.json'
