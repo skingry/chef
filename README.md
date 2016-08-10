@@ -32,7 +32,7 @@ Other applications used are: [nginx](https://www.nginx.com/) as a reverse web pr
 [VirtualBox](http://www.virtualbox.org) is a free virtualization platform that allows the creation of virtual machines on a local workstation.
 
 
-### Development Setup Prerequisites:
+### Setup Prerequisites:
 ***
 
 1. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) ( and corresponding VirtualBox Extension Pack )
@@ -43,31 +43,19 @@ Other applications used are: [nginx](https://www.nginx.com/) as a reverse web pr
    $ vagrant plugin install vagrant-hostsupdater
    ```
    
-### Development Setup:
+### Setup:
 ***
 
 1. Clone the Chef repository and `cd` to it: 
 
    ```
-   $ git clone https://github.com/skingry/media-server.git
-   $ cd ./media-server
+   $ git clone https://github.com/skingry/chef.git
+   $ cd ./chef
    $ pwd
-   /Users/jdoe/Code/skingry/media-server
+   /Users/jdoe/Code/skingry/chef
    ```
    
-2. Install the Gem bundle:
-
-    ```
-    $ bundler install
-    ```
-    
-3. Install the subordinate cookbooks:
-
-   ```
-   $ berks vendor cookbooks
-   ```
-   
-4. Start the VM ( while the VM is starting, you may be prompted for your workstation password so the `/etc/hosts` file can be updated by the `vagrant-hostsupdater` plugin ):
+2. Start the VM ( while the VM is starting, you may be prompted for your workstation password so the `/etc/hosts` file can be updated by the `vagrant-hostsupdater` plugin ):
 
    ```
    $ vagrant up
@@ -85,7 +73,7 @@ Other applications used are: [nginx](https://www.nginx.com/) as a reverse web pr
    /// TRUNCATED OUTPUT ///
    ```
    
-5. Access the Vagrant:
+3. Access the Vagrant:
 
    ```
    $ vagrant ssh
@@ -108,7 +96,7 @@ _**--- ALL STEPS BELOW ARE PERFORMED WITHIN THE VAGRANT ---**_
    $ ./bootstrap.sh
    ```
    
-   _NOTE: This script will install ZFS, setup the data store, and install/run Chef for the first time._
+   _NOTE: This script will install required Gems, subordinate cookbooks, ZFS, setup the data store, and install/run Chef for the first time._
    
 _**TODO: Add more documentation about the setup of the applications and provisioning a production system.**_
 
