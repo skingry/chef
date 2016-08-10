@@ -104,7 +104,7 @@ _**--- ALL STEPS BELOW ARE PERFORMED WITHIN THE VAGRANT ---**_
 1. Within the Vagrant, `cd` to the Chef directory and run the `bootstrap.sh` script:
 
    ```
-   $ cd ./chef
+   $ cd /chef
    $ ./bootstrap.sh
    ```
    
