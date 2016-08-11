@@ -7,7 +7,7 @@
   "groups": [
     "sysadmin"
   ],
-  "uid": 1000,
+  "uid": 2001,
   "shell": "\/bin\/bash",
   "comment": "System Administrator"
 }
