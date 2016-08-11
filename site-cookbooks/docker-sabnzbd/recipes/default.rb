@@ -25,8 +25,20 @@ package 'python-cheetah'
 package 'python-lxml'
 package 'python-openssl'
 package 'python-yenc'
-package 'unrar-free'
 package 'unzip'
+
+remote_file '/tmp/unrar.deb' do
+  source 'http://launchpadlibrarian.net/214085480/unrar_5.3.2-1_amd64.deb'
+end
+
+bash 'Install Unrar (non-free)' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+  dpkg -i /tmp/unrar.deb
+  rm -rf /tmp/unrar.deb
+  EOH
+end
 
 git '/sabnzbd' do
   repository 'https://github.com/sabnzbd/sabnzbd.git'
