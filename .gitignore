@@ -1,5 +1,7 @@
 .vagrant
 cookbooks/*
+cache/*
+backup/*
 .ruby-version
 Berksfile.lock
 Gemfile.lock
