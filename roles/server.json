@@ -60,8 +60,7 @@
     "recipe[python]",
     "recipe[sudo]",
     "recipe[timezone-ii]",
-    "recipe[users::sysadmins]",
-    "recipe[zfs]"
+    "recipe[users::sysadmins]"
   ]
 }
 
