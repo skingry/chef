@@ -17,8 +17,8 @@ server {
   listen 443 ssl;
 
   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-  ssl_certificate /config/ssl/fullchain.pem;
-  ssl_certificate_key /config/ssl/privkey.pem;
+  ssl_certificate /config/ssl/live/<%= @domain %>/fullchain.pem;
+  ssl_certificate_key /config/ssl/live/<%= @domain %>/privkey.pem;
 
   server_name <%= @name %>.<%= @domain %>;
 
