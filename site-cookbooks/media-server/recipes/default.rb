@@ -22,8 +22,8 @@ docker_service 'default' do
   action [:create, :start]
 end
 
-include_recipe "media-server::backup"
 include_recipe "media-server::directories"
+include_recipe "media-server::backup"
 include_recipe "media-server::couchpotato"
 include_recipe "media-server::letsencrypt"
 include_recipe "media-server::netatalk"

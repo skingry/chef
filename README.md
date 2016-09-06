@@ -89,11 +89,10 @@ Other applications used are: [nginx](https://www.nginx.com/) as a reverse web pr
 
 _**--- ALL STEPS BELOW ARE PERFORMED WITHIN THE VAGRANT ---**_
  
-1. Within the Vagrant, `cd` to the Chef directory and run the `bootstrap.sh` script:
+1. Within the Vagrant, run the `bootstrap.sh` script (inside the `/chef` directory):
 
    ```
-   $ cd /chef
-   $ ./bootstrap.sh
+   $ /chef/bootstrap.sh
    ```
    
    _NOTE: This script will install required Gems, subordinate cookbooks, ZFS, setup the data store, and install/run Chef for the first time._

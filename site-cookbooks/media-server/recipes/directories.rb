@@ -17,13 +17,15 @@
 # limitations under the License.
 #
 
-directory "/data" do
-  owner "nobody"
-  group "nogroup"
+directory '/data' do
+  owner 'nobody'
+  group 'nogroup'
 end
 
-directory "/data/configs" do
-  owner "nobody"
-  group "nogroup"
+directory '/data/configs' do
+  owner 'nobody'
+  group 'nogroup'
 end
 
+directory '/opt'
+directory '/opt/bin'

@@ -13,7 +13,7 @@ VAGRANTFILE_API_VERSION = '2'
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.insert_key = false
   config.ssh.forward_agent = true
-  config.ssh.username = $vagrant:ssh_username]
+  config.ssh.username = $vagrant[:ssh_username]
   config.vm.box = "robotozon/media-server"
   config.vm.box_url = "http://s3.robotozon.com/base_boxes/media-server.json"
   config.vm.network 'private_network', ip: $vagrant[:main_ip]
