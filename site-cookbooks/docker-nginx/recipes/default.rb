@@ -24,15 +24,13 @@ cookbook_file '/etc/nginx/nginx.conf'
 directory '/config'
 directory '/config/logs'
 directory '/config/sites'
+directory '/config/webroot'
 
 cookbook_file '/config/sites/00-default.conf'
-
-directory '/webroot'
-
-cookbook_file '/webroot/50x.html'
-cookbook_file '/webroot/explosion-animation.gif'
-cookbook_file '/webroot/index.html'
-cookbook_file '/webroot/robot.gif'
+cookbook_file '/config/webroot/50x.html'
+cookbook_file '/config/webroot/explosion-animation.gif'
+cookbook_file '/config/webroot/index.html'
+cookbook_file '/config/webroot/robot.gif'
 
 cookbook_file '/sbin/my_init' do
   mode 0755
