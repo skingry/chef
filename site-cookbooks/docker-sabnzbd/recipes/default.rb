@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: docker-couchpotato
+# Cookbook Name:: docker-sabnzbd
 # Recipe:: default
 #
 # Copyright 2014, Seth Kingry
