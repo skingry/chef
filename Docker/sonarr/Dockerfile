@@ -8,11 +8,10 @@ RUN apt-get -q update
 RUN git clone https://github.com/skingry/chef.git
 WORKDIR /chef
 RUN berks vendor cookbooks && \
-    chef-solo -c solo.rb -j configs/docker-sonarr.json
+    chef-solo -c solo.rb -j configs/sonarr.json
 
 # Clean Up
-RUN apt-get --quiet --yes purge --auto-remove $DEPS && \
-    apt-get --quiet --yes autoclean && \
+RUN apt-get --quiet --yes autoclean && \
     apt-get --quiet --yes autoremove && \
     apt-get --quiet --yes clean && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* && \
@@ -21,4 +20,5 @@ RUN apt-get --quiet --yes purge --auto-remove $DEPS && \
 
 # Start Sonarr
 EXPOSE 8989
-CMD ["/sbin/my_init"]
+VOLUME [ "/data" ]
+CMD ["/sbin/sonarr"]

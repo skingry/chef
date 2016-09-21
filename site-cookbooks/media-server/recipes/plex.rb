@@ -52,7 +52,7 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
-  volumes [ "/data/configs/#{name}:/config", '/data:/data' ]
+  volumes [ '/data:/data' ]
   restart_policy 'always'
 end
 

@@ -8,7 +8,7 @@ RUN apt-get -q update
 RUN git clone https://github.com/skingry/chef.git
 WORKDIR /chef
 RUN berks vendor cookbooks && \
-    chef-solo -c solo.rb -j configs/docker-plexpy.json
+    chef-solo -c solo.rb -j configs/plexpy.json
 
 # Clean Up
 RUN apt-get --quiet --yes autoclean && \
@@ -20,4 +20,5 @@ RUN apt-get --quiet --yes autoclean && \
 
 # Start PlexPy
 EXPOSE 8181
-CMD ["/sbin/my_init"]
+VOLUME [ "/data" ]
+CMD ["/sbin/plexpy"]

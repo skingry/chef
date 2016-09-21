@@ -31,7 +31,7 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
-  volumes [ "/data/Backups:/data/Backups", '/data/Documents:/data/Documents', '/data/Downloads:/data/Downloads', '/data/Media:/data/Media']
+  volumes [ '/data:/data' ]
   restart_policy 'always'
 end
 

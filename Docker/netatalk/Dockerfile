@@ -19,7 +19,7 @@ RUN apt-get install --no-install-recommends --fix-missing --assume-yes $DEFAULT
 RUN git clone https://github.com/skingry/chef.git
 WORKDIR /chef
 RUN berks vendor cookbooks && \
-    chef-solo -c solo.rb -j configs/docker-netatalk.json
+    chef-solo -c solo.rb -j configs/netatalk.json
 
 # Remove the build dependencies
 RUN apt-get --quiet --yes purge --auto-remove $DEPS
@@ -37,4 +37,5 @@ RUN apt-get --quiet --yes autoclean && \
 
 # Start Netatalk
 EXPOSE 548
-CMD ["/sbin/my_init"]
+VOLUME [ "/data" ]
+CMD ["/sbin/netatalk"]

@@ -40,7 +40,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
   env [ 'PUID=65534', 'PGID=65534' ]
-  volumes [ "/data/configs/#{name}:/config", '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 
@@ -49,8 +49,6 @@ template "/data/configs/nginx/sites/#{name}.conf" do
   notifies :restart, "docker_container[nginx]", :delayed
   variables :domain => "#{domain}",
             :name => "#{name}",
-            :port => "#{port}",
-            :environment => "#{node.chef_environment}",
-            :auth => 'false'
+            :port => "#{port}"
 end
 

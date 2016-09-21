@@ -3,8 +3,8 @@ server{
 
   server_name <%= @name %>.<%= @domain %>;
 
-  access_log /config/logs/<%= @name %>.<%= @domain %>-access.log;
-  error_log /config/logs/<%= @name %>.<%= @domain %>-error.log;
+  access_log /data/configs/nginx/logs/<%= @name %>.<%= @domain %>-access.log;
+  error_log /data/configs/nginx/logs/<%= @name %>.<%= @domain %>-error.log;
 
   proxy_set_header Host $http_host;
   proxy_set_header X-Real-IP $remote_addr;
@@ -18,13 +18,13 @@ server {
   listen 443 ssl;
 
   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-  ssl_certificate /config/ssl/live/<%= @domain %>/fullchain.pem;
-  ssl_certificate_key /config/ssl/live/<%= @domain %>/privkey.pem;
+  ssl_certificate /data/configs/nginx/ssl/live/<%= @domain %>/fullchain.pem;
+  ssl_certificate_key /data/configs/nginx/ssl/live/<%= @domain %>/privkey.pem;
 
   server_name plex.robotozon.com;
 
-  access_log /config/logs/<%= @name %>.<%= @domain %>-access.log;
-  error_log /config/logs/<%= @name %>.<%= @domain %>-error.log;
+  access_log /data/configs/nginx/logs/<%= @name %>.<%= @domain %>-access.log;
+  error_log /data/configs/nginx/logs/<%= @name %>.<%= @domain %>-error.log;
 
   proxy_set_header Host $http_host;
   proxy_set_header X-Real-IP $remote_addr;

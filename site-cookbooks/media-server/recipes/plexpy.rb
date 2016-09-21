@@ -39,7 +39,7 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
-  volumes [ "/data/configs/#{name}:/config", '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 
@@ -48,7 +48,5 @@ template "/data/configs/nginx/sites/#{name}.conf" do
   notifies :restart, "docker_container[nginx]", :delayed
   variables :domain => "#{domain}",
             :name => "#{name}",
-            :port => "#{port}",
-            :environment => "#{node.chef_environment}",
-            :auth => 'true'
+            :port => "#{port}"
 end

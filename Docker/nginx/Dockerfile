@@ -8,7 +8,7 @@ RUN apt-get -q update
 RUN git clone https://github.com/skingry/chef.git
 WORKDIR /chef
 RUN berks vendor cookbooks && \
-    chef-solo -c solo.rb -j configs/docker-nginx.json
+    chef-solo -c solo.rb -j configs/nginx.json
 
 # Clean Up
 RUN apt-get --quiet --yes autoclean && \
@@ -20,4 +20,5 @@ RUN apt-get --quiet --yes autoclean && \
 
 # Start Nginx
 EXPOSE 80
-CMD ["/sbin/my_init"]
+VOLUME [ "/data" ]
+CMD ["/sbin/nginx"]

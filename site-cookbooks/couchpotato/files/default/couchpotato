@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ ! -f /couchpotato/CouchPotato.py ]; then
+  git clone https://github.com/CouchPotato/CouchPotatoServer.git couchpotato
+elif [ -f /couchpotato/CouchPotato.py ]; then
+  cd /couchpotato
+  git pull
+else
+  echo "I don't know what to do."
+  exit 127
+fi
+
+exec setuser nobody python /couchpotato/CouchPotato.py --config_file=/data/configs/couchpotato/config.ini --data_dir=/data/configs/couchpotato/data --console_log
