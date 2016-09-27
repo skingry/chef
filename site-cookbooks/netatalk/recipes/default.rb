@@ -18,6 +18,7 @@
 #
 
 include_recipe 'media-server::directories'
+include_recipe 'netatalk::prerequisites'
 
 netatalk_version = '3.1.8'
 config_dir = '/data/configs/netatalk'
