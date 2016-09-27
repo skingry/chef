@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+htpasswd = data_bag_item('users','admin')
+
 domain = node[:media_server][:domain]
 name = 'nginx'
 repo = "skingry/#{name}"
@@ -48,5 +50,14 @@ docker_container "#{name}" do
   network_mode 'host'
   volumes [ '/data:/data' ]
   restart_policy 'always'
+end
+
+template '/data/configs/nginx/htpasswd' do
+  variables(
+    :user => htpasswd['id'],
+    :hash => htpasswd['htpasswd']
+  )
+  notifies :restart, "docker_container[nginx]", :delayed
+  not_if 'test -f /data/configs/nginx/htpasswd'
 end
 
