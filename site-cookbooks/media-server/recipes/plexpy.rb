@@ -48,5 +48,6 @@ template "/data/configs/nginx/sites/#{name}.conf" do
   notifies :restart, "docker_container[nginx]", :delayed
   variables :domain => "#{domain}",
             :name => "#{name}",
-            :port => "#{port}"
+            :port => "#{port}",
+            :auth => true
 end
