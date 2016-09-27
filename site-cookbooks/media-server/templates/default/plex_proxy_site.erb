@@ -17,7 +17,6 @@ server{
 server {
   listen 443 ssl;
 
-  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
   ssl_certificate /data/configs/nginx/ssl/live/<%= @domain %>/fullchain.pem;
   ssl_certificate_key /data/configs/nginx/ssl/live/<%= @domain %>/privkey.pem;
 
