@@ -97,5 +97,8 @@ _**--- ALL STEPS BELOW ARE PERFORMED WITHIN THE VAGRANT ---**_
    
    _NOTE: This script will install required Gems, download subordinate cookbooks, install and setup ZFS, setup the data store, and install/run Chef for the first time._
    
+### Usage:
+***
+   
 _**TODO: Add more documentation about the setup of the applications and provisioning a production system.**_
 

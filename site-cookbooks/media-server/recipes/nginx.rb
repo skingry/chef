@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-htpasswd = data_bag_item('users','admin')
+users = data_bag('users')
 
 domain = node[:media_server][:domain]
 name = 'nginx'
@@ -52,12 +52,15 @@ docker_container "#{name}" do
   restart_policy 'always'
 end
 
-template '/data/configs/nginx/htpasswd' do
-  variables(
-    :user => htpasswd['id'],
-    :hash => htpasswd['htpasswd']
-  )
-  notifies :restart, "docker_container[nginx]", :delayed
-  not_if 'test -f /data/configs/nginx/htpasswd'
+users.each do |user|
+  creds = data_bag_item('users', user)
+  template '/data/configs/nginx/htpasswd' do
+    variables(
+      :user => creds['id'],
+      :hash => creds['htpasswd']
+    )
+    notifies :restart, "docker_container[nginx]", :delayed
+    not_if 'test -f /data/configs/nginx/htpasswd'
+  end
 end
 
