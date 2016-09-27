@@ -20,4 +20,5 @@ sudo gem install --no-ri --no-rdoc bundler
 # Run Chef
 cd /chef
 berks vendor cookbooks
+cp sample-configs/admin.json data_bags/users/admin.json
 sudo su - -c 'chef-solo -c /chef/solo.rb -j /chef/configs/server.json'
