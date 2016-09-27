@@ -1,0 +1,16 @@
+{
+  "name": "docker",
+  "description": "Docker Container Environment",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "cookbook_versions": {
+  },
+  "default_attributes": {
+    "set_fqdn": "*.docker.local",
+    "media_server": {
+      "domain": "docker.local"
+    }
+  },
+  "override_attributes": {
+  }
+}

@@ -1,4 +1,4 @@
-node_name                  "monolith.robotozon.com"
+node_name                  "monolith.media-server.local"
 
 file_cache_path            "/chef/cache"
 file_backup_path           "/chef/backup"
@@ -6,7 +6,7 @@ file_backup_path           "/chef/backup"
 log_level                  :info
 verbose_logging            false
 
-environment                "default"
+environment                "development"
 
 cookbook_path              [ "/chef/cookbooks", "/chef/site-cookbooks" ]
 environment_path           "/chef/environments"
