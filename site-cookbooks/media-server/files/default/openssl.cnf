@@ -1,0 +1,32 @@
+[req]
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+
+
+[req_distinguished_name]
+countryName = Country Name (2 letter code)
+countryName_default = US
+stateOrProvinceName = State or Province Name (full name)
+stateOrProvinceName_default = GA
+localityName = Locality Name (eg, city)
+localityName_default = Atlanta
+organizationalUnitName= Organizational Unit Name (eg, section)
+organizationalUnitName_default= Robotozon
+commonName = Internet Widgits Ltd
+commonName_max= 64
+
+[ v3_req ]
+# Extensions to add to a c  ertificate request
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = couchpotato.media-server.local
+DNS.2 = plex.media-server.local
+DNS.3 = plexpy.media-server.local
+DNS.4 = sabnzbd.media-server.local
+DNS.5 = sonarr.media-server.local
+DNS.6 = transmission.media-server.local
+DNS.7 = media-server.local
+DNS.8 = www.media-server.local

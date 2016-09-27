@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: nginx
-# Recipe:: default
+# Recipe:: config_files
 #
 # Copyright 2014, Seth Kingry
 #
@@ -20,14 +20,19 @@
 include_recipe 'media-server::directories'
 config_dir = '/data/configs/nginx'
 
-include_recipe 'nginx::config_files'
+directory "#{config_dir}"
+directory "#{config_dir}/logs"
+directory "#{config_dir}/sites"
+directory "#{config_dir}/ssl"
+directory "#{config_dir}/webroot"
 
-package 'nginx'
-package 'nginx-core'
-package 'nginx-extras'
+cookbook_file "#{config_dir}/sites/00-default.conf"
+cookbook_file "#{config_dir}/webroot/50x.html"
+cookbook_file "#{config_dir}/webroot/explosion-animation.gif"
+cookbook_file "#{config_dir}/webroot/index.html"
+cookbook_file "#{config_dir}/webroot/robot.gif"
 
-template '/sbin/nginx' do
-  mode 0755
+template "#{config_dir}/nginx.conf" do
   variables :config_dir => "#{config_dir}"
 end
 

@@ -3,7 +3,7 @@
 
 This is my "infrastructure as code" Chef repository used to setup my personal media server. It uses [Docker](https://www.docker.com/) for containerization of the applications and [ZFS](https://en.wikipedia.org/wiki/ZFS) for the data storage layer.  In addition, it uses various Python, C++, and .NET applications to fetch, process, organize, and deliver media. All of the applications communicate via RESTful API's.
 
-The [companion repository](https://github.com/skingry/Dockerfiles) to this one contains all of the `Dockerfiles` needed to build the containers.
+There is a [companion repository](https://github.com/skingry/Dockerfiles) that contains all of the `Dockerfiles` needed to build the containers.
 
 ## Overview of Applications
 ***
@@ -77,7 +77,7 @@ Other applications used are: [nginx](https://www.nginx.com/) as a reverse web pr
 
    ```
    $ vagrant ssh
-   Welcome to Ubuntu 14.04.1 LTS (GNU/Linux 3.13.0-45-generic x86_64)
+   Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-31-generic x86_64)
 
    * Documentation:  https://help.ubuntu.com/
 
@@ -99,6 +99,4 @@ _**--- ALL STEPS BELOW ARE PERFORMED WITHIN THE VAGRANT ---**_
    
 ### Usage:
 ***
-   
-_**TODO: Add more documentation about the setup of the applications and provisioning a production system.**_
 

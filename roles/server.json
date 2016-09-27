@@ -5,6 +5,7 @@
   "default_attributes": {
     "authorization": {
       "sudo": {
+        "groups": [ "sysadmin" ],
         "passwordless": "true"
       }
     },

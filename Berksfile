@@ -9,7 +9,7 @@ cookbook "hostnames", github: "nathantsoi/chef-cookbook-hostname", ref: "df39cbc
 cookbook "hostsfile", github: "customink-webops/hostsfile", ref: "44c7960b21bab50247b0d4c2cc571a33c07f0e60"
 cookbook "iptables", github: "chef-cookbooks/iptables", ref: "ed16aae260afecaf01f6f311e3497837fe7b9531"
 cookbook "ntp", github: "chef-cookbooks/ntp", ref: "957739c3bb72b0a0847994da079481e74c29389a"
-cookbook "openssh", github: "chef-cookbooks/openssh", ref: "de8fc25969b07843b0519d0ef7078b31fd40101e"
+cookbook "openssh", github: "chef-cookbooks/openssh", ref: "363378c2443e6b7d7225d4f51adeb35e1d836c65"
 cookbook "postfix", github: "chef-cookbooks/postfix", ref: "acebcc23003c821579c2c79c8d650db445dac604"
 cookbook "python", github: "poise/python", ref: "711e4d98c25643be2df5afaf3cfc2e811eaee18f"
 cookbook "sudo", github: "chef-cookbooks/sudo", ref: "7b7f9e53a484b74dfff146fffc084130cd2a9993"

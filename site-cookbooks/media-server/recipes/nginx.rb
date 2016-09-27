@@ -24,6 +24,7 @@ name = 'nginx'
 repo = "skingry/#{name}"
 
 include_recipe 'media-server::directories'
+include_recipe 'nginx::config_files'
 
 directory "/data/configs/#{name}" do
   owner 'nobody'
@@ -38,6 +39,18 @@ end
 directory '/data/configs/nginx/logs'
 
 directory '/data/configs/nginx/ssl'
+
+if node.chef_environment == 'development'
+  directory '/data/configs/nginx/ssl/live'
+  directory "/data/configs/nginx/ssl/live/#{node[:media_server][:domain]}"
+  cookbook_file "/data/configs/nginx/ssl/live/#{node[:media_server][:domain]}/privkey.pem" do
+    mode 0600
+    notifies :restart, "docker_container[#{name}]", :delayed
+  end
+  cookbook_file "/data/configs/nginx/ssl/live/#{node[:media_server][:domain]}/fullchain.pem" do
+    notifies :restart, "docker_container[#{name}]", :delayed
+  end
+end
 
 docker_image "#{name}" do
   repo "#{repo}"
@@ -55,11 +68,12 @@ end
 users.each do |user|
   creds = data_bag_item('users', user)
   template '/data/configs/nginx/htpasswd' do
+    mode 0600
     variables(
       :user => creds['id'],
       :hash => creds['htpasswd']
     )
-    notifies :restart, "docker_container[nginx]", :delayed
+    notifies :restart, "docker_container[#{name}]", :delayed
     not_if 'test -f /data/configs/nginx/htpasswd'
   end
 end
