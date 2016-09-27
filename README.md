@@ -1,9 +1,9 @@
 # Description
 ***
 
-This is my "infrastructure as code" Chef repository used to setup my media server. It uses [Docker](https://www.docker.com/) for containerization of the applications and [ZFS](https://en.wikipedia.org/wiki/ZFS) for the data storage layer.  It uses various Python, C++, and .NET applications to fetch, process, organize, and deliver media. All of the applications talk to each other via RESTful API's.
+This is my "infrastructure as code" Chef repository used to setup my personal media server. It uses [Docker](https://www.docker.com/) for containerization of the applications and [ZFS](https://en.wikipedia.org/wiki/ZFS) for the data storage layer.  In addition, it uses various Python, C++, and .NET applications to fetch, process, organize, and deliver media. All of the applications communicate via RESTful API's.
 
-Each `Dockerfile` in the `Docker` directory calls a specific recipe in this Chef repo to facilitate the configuration of the container during build.  In addition, this repository is linked to the public [Docker Hub](https://hub.docker.com/r/skingry) to allow automated builds of each of the containers when code updates are pushed.
+The [companion repository](https://github.com/skingry/Dockerfiles) to this one contains all of the `Dockerfiles` needed to build the containers.
 
 ## Overview of Applications
 ***
@@ -22,7 +22,7 @@ Each `Dockerfile` in the `Docker` directory calls a specific recipe in this Chef
 
 [Transmission](https://www.transmissionbt.com/) is a web based BitTorrent client.
 
-Other applications used are: [nginx](https://www.nginx.com/) as a reverse web proxy, [Let's Encrypt](https://letsencrypt.org/) to provide signed SSL certificates for the nginx reverse proxy, and [netatalk](http://netatalk.sourceforge.net/) as a LAN based file sharing server.
+Other applications used are: [nginx](https://www.nginx.com/) as a reverse web proxy, [Certbot](https://github.com/certbot/certbot) to provide signed SSL certificates for the nginx reverse proxy, and [netatalk](http://netatalk.sourceforge.net/) as a LAN based file sharing server.
 
 ## Overview of Development Components
 ***
@@ -95,7 +95,7 @@ _**--- ALL STEPS BELOW ARE PERFORMED WITHIN THE VAGRANT ---**_
    $ /chef/bootstrap.sh
    ```
    
-   _NOTE: This script will install required Gems, subordinate cookbooks, ZFS, setup the data store, and install/run Chef for the first time._
+   _NOTE: This script will install required Gems, download subordinate cookbooks, install and setup ZFS, setup the data store, and install/run Chef for the first time._
    
 _**TODO: Add more documentation about the setup of the applications and provisioning a production system.**_
 
