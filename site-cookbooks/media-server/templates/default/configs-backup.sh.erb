@@ -6,7 +6,7 @@ DATE=`date +%Y%m%d`
 # Get the hostname of the server
 HOSTNAME=`hostname -f`
 
-BACKUP_FILE="${HOSTNAME}configs-backup-${DATE}.tgz"
+BACKUP_FILE="${HOSTNAME}-configs-backup-${DATE}.tgz"
 
 # Create backup file
 tar -cf - /data/configs | gzip -c > /tmp/${BACKUP_FILE}
