@@ -25,20 +25,6 @@ repo = "skingry/#{name}"
 include_recipe 'media-server::directories'
 include_recipe 'nginx::config_files'
 
-directory "#{config_dir}" do
-  owner 'nobody'
-  group 'nogroup'
-end
-
-directory "#{config_dir}/sites" do
-  owner 'nobody'
-  group 'nogroup'
-end
-
-directory "#{config_dir}/logs"
-
-directory "#{config_dir}/ssl"
-
 if node.chef_environment == 'development'
   directory "#{config_dir}/ssl/live"
   directory "#{config_dir}/ssl/live/#{node[:media_server][:domain]}"
