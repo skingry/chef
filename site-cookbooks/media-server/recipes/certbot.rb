@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: letsencrypt
+# Recipe:: certbot
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,18 +17,18 @@
 # limitations under the License.
 #
 
-git "/opt/letsencrypt" do
-  repository "https://github.com/letsencrypt/letsencrypt"
+git "/opt/certbot" do
+  repository "https://github.com/certbot/certbot"
   revision "master"
   action :sync
 end
 
-cron "Letsencrypt Certificate Renewal" do
+cron "certbot Certificate Renewal" do
   minute "0"
   hour "3"
   weekday "1"
   mailto "sjkingry@gmail.com"
   path "/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin"
-  command "/opt/letsencrypt/letsencrypt-auto --config-dir /data/configs/nginx/ssl renew && docker restart nginx"
+  command "/opt/certbot/certbot-auto --config-dir /data/configs/nginx/ssl renew && docker restart nginx"
 end
 
