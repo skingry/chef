@@ -19,8 +19,9 @@
 
 include_recipe 'awscli'
 
-cookbook_file '/opt/bin/configs-backup.sh' do
+template '/opt/bin/configs-backup.sh' do
   mode 0700
+  variables :domain => "#{node[:media_server][:domain]}"
 end
 
 cron 'Configs Backup' do
