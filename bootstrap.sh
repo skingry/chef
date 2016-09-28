@@ -37,4 +37,4 @@ sudo gem install --no-ri --no-rdoc bundler
 cd /chef
 berks vendor cookbooks
 cp sample-files/vagrant.json data_bags/users/vagrant.json
-sudo su - -c 'chef-solo -c /chef/solo/development.rb -j /chef/solo/configs/server.json'
+sudo su - -c 'chef-solo -c /chef/solo/config/development.rb -j /chef/solo/json/server.json'
