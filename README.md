@@ -8,13 +8,13 @@ There is a [companion repository](https://github.com/skingry/Dockerfiles) that c
 ## Overview of Applications
 ***
 
+###**Web Applications:**
+
 [Couchpotato](https://couchpota.to/) is a Python based PVR.
 
 [Plex Media Server](https://en.wikipedia.org/wiki/Plex_(software)#Plex_Media_Server) is a media management tool with a "10-foot user interface".  It organizes personal media stored on local devices.
 
 [PlexPy](https://github.com/drzoidberg33/plexpy) is a Python based monitoring and tracking tool for Plex Media Server.
-
-[Plex Cleaner](https://github.com/ngovil21/Plex-Cleaner) is a Python script for automatic deletion of consumed media on a Plex Media Server.
 
 [Sonarr](https://sonarr.tv/) is a PVR for newsgroup users (with limited torrent support). It watches for new episodes of your favorite shows and when they are posted it downloads them, sorts and renames them, and optionally generates metadata for them.
 
@@ -22,7 +22,15 @@ There is a [companion repository](https://github.com/skingry/Dockerfiles) that c
 
 [Transmission](https://www.transmissionbt.com/) is a web based BitTorrent client.
 
-Other applications used are: [nginx](https://www.nginx.com/) as a reverse web proxy, [Certbot](https://github.com/certbot/certbot) to provide signed SSL certificates for the nginx reverse proxy, and [netatalk](http://netatalk.sourceforge.net/) as a LAN based file sharing server.
+###**Other Applications:** 
+
+[Nginx](https://www.nginx.com/) as the reverse web proxy for the web applications.
+
+[Certbot](https://github.com/certbot/certbot) to provide signed SSL certificates for the reverse proxy.
+
+[Netatalk](http://netatalk.sourceforge.net/) as the LAN based file sharing server.
+
+[Plex Cleaner](https://github.com/ngovil21/Plex-Cleaner) is a Python script for automatic purging of consumed media on a Plex Media Server.
 
 ## Overview of Development Components
 ***
@@ -100,4 +108,11 @@ _**--- ALL STEPS BELOW ARE PERFORMED WITHIN THE VAGRANT ---**_
 ### Usage:
 ***
 
-All of the interfacxe
+All of the interfaces for the web applications can be accessed via web browser.  You will have to ignore the SSL warning as the certificate used is self-signed.
+
++ [Couchpotato](https://couchpotato.media-server.local/)
++ [Plex Media Server](https://plex.media-server.local)
++ [PlexPy](https://plexpy.media-server.local)
++ [Sonarr](https://sonarr.media-server.local)
++ [SABnzbd](https://sonarr.media-server.local)
++ [Transmission](https://transmission.media-server.local)
