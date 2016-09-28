@@ -10,7 +10,7 @@ $vagrant[:hostname_aliases] = [ "couchpotato.#{domain}",
                                 "sonarr.#{domain}",
                                 "transmission.#{domain}" ]
 $vagrant[:main_ip] = "192.168.56.101"
-$vagrant[:cpus] = 4
-$vagrant[:memory_size] = 4096
+$vagrant[:cpus] = 2
+$vagrant[:memory_size] = 2048
 $vagrant[:ioapic] = 'on'
 
