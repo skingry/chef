@@ -17,37 +17,36 @@
 # limitations under the License.
 #
 
-users = data_bag('users')
-
 domain = node[:media_server][:domain]
 name = 'nginx'
+config_dir = "/data/configs/#{name}"
 repo = "skingry/#{name}"
 
 include_recipe 'media-server::directories'
 include_recipe 'nginx::config_files'
 
-directory "/data/configs/#{name}" do
+directory "#{config_dir}" do
   owner 'nobody'
   group 'nogroup'
 end
 
-directory "/data/configs/#{name}/sites" do
+directory "#{config_dir}/sites" do
   owner 'nobody'
   group 'nogroup'
 end
 
-directory '/data/configs/nginx/logs'
+directory "#{config_dir}/logs"
 
-directory '/data/configs/nginx/ssl'
+directory "#{config_dir}/ssl"
 
 if node.chef_environment == 'development'
-  directory '/data/configs/nginx/ssl/live'
-  directory "/data/configs/nginx/ssl/live/#{node[:media_server][:domain]}"
-  cookbook_file "/data/configs/nginx/ssl/live/#{node[:media_server][:domain]}/privkey.pem" do
+  directory "#{config_dir}/ssl/live"
+  directory "#{config_dir}/ssl/live/#{node[:media_server][:domain]}"
+  cookbook_file "#{config_dir}/ssl/live/#{node[:media_server][:domain]}/privkey.pem" do
     mode 0600
     notifies :restart, "docker_container[#{name}]", :delayed
   end
-  cookbook_file "/data/configs/nginx/ssl/live/#{node[:media_server][:domain]}/fullchain.pem" do
+  cookbook_file "#{config_dir}/ssl/live/#{node[:media_server][:domain]}/fullchain.pem" do
     notifies :restart, "docker_container[#{name}]", :delayed
   end
 end
@@ -65,16 +64,16 @@ docker_container "#{name}" do
   restart_policy 'always'
 end
 
-users.each do |user|
-  creds = data_bag_item('users', user)
-  template '/data/configs/nginx/htpasswd' do
-    mode 0600
-    variables(
-      :user => creds['id'],
-      :hash => creds['htpasswd']
-    )
-    notifies :restart, "docker_container[#{name}]", :delayed
-    not_if 'test -f /data/configs/nginx/htpasswd'
-  end
+hashes = Array.new
+
+search(:users, "groups:sysadmin").each do |user|
+  hashes.push("#{user['id']}:#{user['htpasswd']}")
+end
+
+file "#{config_dir}/htpasswd" do
+  mode 0600
+  content hashes.join("\n")
+  notifies :restart, "docker_container[#{name}]", :delayed
+  not_if "test -f #{config_dir}/htpasswd"
 end
 
