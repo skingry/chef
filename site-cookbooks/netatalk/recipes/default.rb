@@ -19,6 +19,7 @@
 
 include_recipe 'media-server::directories'
 include_recipe 'netatalk::prerequisites'
+include_recipe 'netatalk::config_files'
 
 netatalk_version = '3.1.8'
 config_dir = '/data/configs/netatalk'
@@ -57,32 +58,7 @@ bash 'build netatalk' do
   EOH
 end
 
-template "#{config_dir}/afp.conf" do
-  variables(:hostname => node[:netatalk][:hostname])
-end
-
 cookbook_file '/sbin/netatalk' do
   mode 0755
 end
 
-directory '/data'
-
-directory '/data/Backups' do
-  owner 'nobody'
-  group 'nogroup'
-end
-
-directory '/data/Downloads' do
-  owner 'nobody'
-  group 'nogroup'
-end
-
-directory '/data/Documents' do
-  owner 'nobody'
-  group 'nogroup'
-end
-
-directory '/data/Media' do
-  owner 'nobody'
-  group 'nogroup'
-end

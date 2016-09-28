@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: media-server
-# Recipe:: netatalk
+# Cookbook Name:: netatalk
+# Recipe:: config_files
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,22 +17,34 @@
 # limitations under the License.
 #
 
-name = 'netatalk'
-repo = "skingry/#{name}"
-
 include_recipe 'media-server::directories'
-include_recipe 'netatalk::config_files'
 
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-  notifies :redeploy, "docker_container[#{name}]"
+config_dir = '/data/configs/netatalk'
+
+directory "#{config_dir}"
+
+template "#{config_dir}/afp.conf" do
+  variables(:hostname => node[:netatalk][:hostname])
 end
 
-docker_container "#{name}" do
-  repo "#{repo}"
-  network_mode 'host'
-  volumes [ '/data:/data' ]
-  restart_policy 'always'
+directory '/data'
+
+directory '/data/Backups' do
+  owner 'nobody'
+  group 'nogroup'
 end
 
+directory '/data/Downloads' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/data/Documents' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/data/Media' do
+  owner 'nobody'
+  group 'nogroup'
+end
