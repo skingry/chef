@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: media-server
-# Recipe:: plex-cleaner
+# Cookbook Name:: plex-cleaner
+# Recipe:: default
 #
-# Copyright 2016, Seth Kingry
+# Copyright 2014, Seth Kingry
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,27 +17,17 @@
 # limitations under the License.
 #
 
-name = 'plex-cleaner'
-repo = "skingry/#{name}"
+include_recipe 'media-server::directories'
+include_recipe 'python'
 
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-  notifies :redeploy, "docker_container[#{name}]"
+git '/plex-cleaner' do
+  repository "https://github.com/ngovil21/Plex-Cleaner.git"
+  enable_checkout false
+  checkout_branch 'master'
+  action :sync
 end
 
-docker_container "#{name}" do
-  repo "#{repo}"
-  network_mode 'host'
-  volumes [ '/data:/data' ]
-end
-
-if node.chef_environment != 'development'
-  cron "Plex Cleaner" do
-    minute "0"
-    hour "3"
-    mailto "#{node[:cron_mailto]}"
-    command "docker start -i #{name}"
-  end
+cookbook_file '/sbin/plex-cleaner' do
+  mode 0755
 end
 

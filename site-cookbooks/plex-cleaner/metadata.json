@@ -1,6 +1,6 @@
 {
-  "name": "certbot",
-  "description": "Installs and configures Certbot",
+  "name": "plex-cleaner",
+  "description": "Installs and configures Plex Cleaner",
   "maintainer": "Seth Kingry",
   "maintainer_email": "sjkingry@gmail.com",
   "license": "Apache v2",

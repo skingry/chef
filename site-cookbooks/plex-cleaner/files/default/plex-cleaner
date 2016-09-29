@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ ! -f /plex-cleaner/PlexCleaner.py ]; then
+  git clone https://github.com/ngovil21/Plex-Cleaner.git
+elif [ -f /plex-cleaner/PlexCleaner.py ]; then
+  cd /plex-cleaner
+  git pull
+else
+  echo "I don't know what to do."
+  exit 127
+fi
+
+setuser nobody /usr/bin/python /opt/Plex-Cleaner/PlexCleaner.py --config /data/configs/plex-cleaner/plex-cleaner.conf
