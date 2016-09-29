@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Make sure the env vars are set
-if [ "${BUCKET}" = "" ]; then
+if [ "$BUCKET" = "" ]; then
   echo "Need to set environment variable for s3 bucket."
   exit 127
 fi
 
-if [ "${HOSTNAME}" = "" ]; then
+if [ "$HOSTNAME" = "" ]; then
   echo "Need to set environment variable for hostname."
   exit 127
 fi
@@ -14,7 +14,7 @@ fi
 # Record current date
 DATE=`date +%Y%m%d`
 
-BACKUP_FILE="${HOSTNAME}-configs-backup-${DATE}.tgz"
+BACKUP_FILE="$HOSTNAME-configs-backup-${DATE}.tgz"
 
 # Create backup file
 echo "-- Creating archive."
@@ -22,7 +22,7 @@ tar -cf - /data/configs | gzip -c > /tmp/${BACKUP_FILE}
 
 # Send the backup file to S3
 echo "-- Sending archive to s3."
-AWS_CONFIG_FILE="/data/configs/aws/config" aws s3 cp /tmp/${BACKUP_FILE} s3://${BUCKET}/backups/
+AWS_CONFIG_FILE="/data/configs/aws/config" aws s3 cp /tmp/${BACKUP_FILE} s3://$BUCKET/backups/
 
 # Clean up after ourselves
 echo "-- Cleaning up."
