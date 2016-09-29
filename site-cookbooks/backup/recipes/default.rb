@@ -18,7 +18,7 @@
 #
 
 include_recipe 'media-server::directories'
-include_recipe 'aws'
+include_recipe 'awscli'
 
 cookbook_file '/sbin/backup' do
   mode 0700
