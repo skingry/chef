@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Make sure the env vars are set
-if [ "$BUCKET" = "" ]; then
+if [ "$S3_BUCKET" = "" ]; then
   echo "Need to set environment variable for s3 bucket."
   exit 127
 fi
@@ -22,7 +22,7 @@ tar -cf - /data/configs | gzip -c > /tmp/${BACKUP_FILE}
 
 # Send the backup file to S3
 echo "-- Sending archive to s3."
-AWS_CONFIG_FILE="/data/configs/aws/config" aws s3 cp /tmp/${BACKUP_FILE} s3://$BUCKET/backups/
+AWS_CONFIG_FILE="/data/configs/aws/config" aws s3 cp /tmp/${BACKUP_FILE} s3://$S3_BUCKET/backups/
 
 # Clean up after ourselves
 echo "-- Cleaning up."
