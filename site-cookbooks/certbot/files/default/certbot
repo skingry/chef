@@ -3,7 +3,7 @@
 if [ ! -f /certbot/certbot-auto ]; then
   git clone https://github.com/certbot/certbot.git
 elif [ -f /certbot/certbot-auto ]; then
-  cd /sabnzbd
+  cd /certbot
   git pull
 else
   echo "I don't know what to do."
