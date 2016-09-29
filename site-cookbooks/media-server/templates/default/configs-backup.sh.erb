@@ -12,7 +12,7 @@ BACKUP_FILE="${HOSTNAME}-configs-backup-${DATE}.tgz"
 tar -cf - /data/configs | gzip -c > /tmp/${BACKUP_FILE}
 
 # Send the backup file to S3
-aws s3 cp /tmp/${BACKUP_FILE} s3://s3.<%= @domain %>/backups/
+AWS_CONFIG_FILE="/data/configs/aws/config" aws s3 cp /tmp/${BACKUP_FILE} s3://s3.<%= @domain %>/backups/
 
 # Clean up after ourselves
 rm /tmp/${BACKUP_FILE}
