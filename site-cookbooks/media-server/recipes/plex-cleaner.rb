@@ -30,6 +30,6 @@ cron "Plex Cleaner" do
   hour "3"
   user "nobody"
   mailto "sjkingry@gmail.com"
-  command "/usr/bin/python /opt/Plex-Cleaner/PlexCleaner.py --config /data/configs/Plex-Cleaner/Cleaner.conf >> /dev/null"
+  command "/usr/bin/python /opt/Plex-Cleaner/PlexCleaner.py --config /data/configs/plex-cleaner/plex-cleaner.conf >> /dev/null"
 end
 
