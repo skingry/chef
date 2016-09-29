@@ -9,7 +9,8 @@
     "cron_mailto": "root",
     "set_fqdn": "*.docker.local",
     "media_server": {
-      "domain": "docker.local"
+      "domain": "docker.local",
+      "s3_bucket": "s3.docker.local"
     }
   },
   "override_attributes": {

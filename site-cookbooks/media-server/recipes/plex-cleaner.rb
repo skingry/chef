@@ -30,6 +30,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
   volumes [ '/data:/data' ]
+  action :create
 end
 
 if node.chef_environment != 'development'
