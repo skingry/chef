@@ -36,8 +36,7 @@ cron "Certbot Certificate Renewal" do
   minute "0"
   hour "3"
   weekday "1"
-  mailto "sjkingry@gmail.com"
-  path "/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin"
+  mailto "#{node[:cron_mailto]}"
   command "docker start -i #{name}"
 end
 

@@ -6,6 +6,7 @@
   "cookbook_versions": {
   },
   "default_attributes": {
+    "cron_mailto": "root",
     "set_fqdn": "*.media-server.local",
     "media_server": {
       "domain": "media-server.local"
