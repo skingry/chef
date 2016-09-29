@@ -32,11 +32,13 @@ docker_container "#{name}" do
   volumes [ '/data:/data' ]
 end
 
-cron "Certbot Certificate Renewal" do
-  minute "0"
-  hour "3"
-  weekday "1"
-  mailto "#{node[:cron_mailto]}"
-  command "docker start -i #{name}"
+if node.chef_environment != 'development'
+  cron "Certbot Certificate Renewal" do
+    minute "0"
+    hour "3"
+    weekday "1"
+    mailto "#{node[:cron_mailto]}"
+    command "docker start -i #{name}"
+  end
 end
 
