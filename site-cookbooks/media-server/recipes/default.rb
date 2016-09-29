@@ -24,7 +24,6 @@ end
 
 include_recipe "media-server::directories"
 include_recipe "media-server::backup"
-include_recipe "media-server::certbot"
 include_recipe "media-server::couchpotato"
 include_recipe "media-server::netatalk"
 include_recipe "media-server::nginx"

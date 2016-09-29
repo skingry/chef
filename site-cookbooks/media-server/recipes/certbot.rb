@@ -2,7 +2,7 @@
 # Cookbook Name:: media-server
 # Recipe:: certbot
 #
-# Copyright 2014, Seth Kingry
+# Copyright 2016, Seth Kingry
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,18 +17,27 @@
 # limitations under the License.
 #
 
-git "/opt/certbot" do
-  repository "https://github.com/certbot/certbot"
-  revision "master"
-  action :sync
+name = 'certbot'
+repo = "skingry/#{name}"
+
+docker_image "#{name}" do
+  repo "#{repo}"
+  action :pull
+  notifies :redeploy, "docker_container[#{name}]"
 end
 
-cron "certbot Certificate Renewal" do
+docker_container "#{name}" do
+  repo "#{repo}"
+  network_mode 'host'
+  volumes [ '/data:/data' ]
+end
+
+cron "Certbot Certificate Renewal" do
   minute "0"
   hour "3"
   weekday "1"
   mailto "sjkingry@gmail.com"
   path "/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin"
-  command "/opt/certbot/certbot-auto --config-dir /data/configs/nginx/ssl renew && docker restart nginx"
+  command "docker start -i #{name}"
 end
 
