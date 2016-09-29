@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: media-server
-# Recipe:: backup
+# Cookbook Name:: backup
+# Recipe:: default
 #
-# Copyright 2016, Seth Kingry
+# Copyright 2014, Seth Kingry
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,28 +17,10 @@
 # limitations under the License.
 #
 
-name = 'backup'
-repo = "skingry/#{name}"
+include_recipe 'media-server::directories'
+include_recipe 'aws'
 
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-  notifies :redeploy, "docker_container[#{name}]"
-end
-
-docker_container "#{name}" do
-  repo "#{repo}"
-  network_mode 'host'
-  volumes [ '/data:/data' ]
-end
-
-if node.chef_environment != 'development'
-  cron "Config Backup" do
-    minute "30"
-    hour "3"
-    weekday "1"
-    mailto "#{node[:cron_mailto]}"
-    command "docker start -i #{name}"
-  end
+cookbook_file '/sbin/backup' do
+  mode 0700
 end
 

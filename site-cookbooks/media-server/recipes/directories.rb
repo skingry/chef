@@ -26,6 +26,3 @@ directory '/data/configs' do
   owner 'nobody'
   group 'nogroup'
 end
-
-directory '/opt'
-directory '/opt/bin'
