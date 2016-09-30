@@ -32,13 +32,8 @@ remote_file '/tmp/unrar.deb' do
   source 'http://launchpadlibrarian.net/214085480/unrar_5.3.2-1_amd64.deb'
 end
 
-bash 'Install Unrar (non-free)' do
-  user 'root'
-  cwd '/tmp'
-  code <<-EOH
-  dpkg -i /tmp/unrar.deb
-  rm -rf /tmp/unrar.deb
-  EOH
+package 'unrar' do
+  source '/tmp/unrar.deb'
 end
 
 git '/sabnzbd' do
