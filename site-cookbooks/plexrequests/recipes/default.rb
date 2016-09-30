@@ -18,9 +18,9 @@
 #
 
 include_recipe 'media-server::directories'
-include_recipe 'awscli'
+include_recipe 'mongodb'
 
-cookbook_file '/sbin/backup' do
+cookbook_file '/sbin/plexrequests' do
   mode 0700
 end
 
