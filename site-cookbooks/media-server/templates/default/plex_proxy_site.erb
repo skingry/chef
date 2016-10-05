@@ -1,7 +1,7 @@
 server{
   listen 80;
 
-  server_name <%= @name %>.<%= @domain %>;
+  server_name <%= @name %> <%= @name %>.<%= @domain %>;
 
   access_log /data/configs/nginx/logs/<%= @name %>.<%= @domain %>-access.log;
   error_log /data/configs/nginx/logs/<%= @name %>.<%= @domain %>-error.log;
@@ -12,7 +12,7 @@ server{
   proxy_set_header X_FORWARDED_PROTO http;
   proxy_redirect off;
 
-  return 301 https://$server_name$request_uri;
+  return 301 https://<%= @name %>.<%= @domain %>;
 }
 
 server {
