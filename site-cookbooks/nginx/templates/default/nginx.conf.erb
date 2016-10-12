@@ -35,7 +35,7 @@ http {
   gzip_disable "msie6";
 
   root <%= @config_dir %>/webroot;
-  error_page 500 502 503 504 /50x.html;
+  error_page 400 401 403 404 405 409 500 502 503 504 /error.html;
 
   include /etc/nginx/conf.d/*.conf;
   include <%= @config_dir %>/sites/*;

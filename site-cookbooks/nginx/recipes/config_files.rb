@@ -27,7 +27,7 @@ directory "#{config_dir}/ssl"
 directory "#{config_dir}/webroot"
 
 cookbook_file "#{config_dir}/sites/00-default.conf"
-cookbook_file "#{config_dir}/webroot/50x.html"
+cookbook_file "#{config_dir}/webroot/error.html"
 cookbook_file "#{config_dir}/webroot/explosion-animation.gif"
 cookbook_file "#{config_dir}/webroot/index.html"
 cookbook_file "#{config_dir}/webroot/robot.gif"
