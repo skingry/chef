@@ -38,7 +38,7 @@ if node.chef_environment != 'development'
     minute "0"
     hour "3"
     mailto "#{node[:cron_mailto]}"
-    command "docker start -i #{name}"
+    command "docker start -i #{name} >> /dev/null"
   end
 end
 
