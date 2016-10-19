@@ -20,10 +20,19 @@ BACKUP_FILE="$HOSTNAME-configs-backup-${DATE}.tgz"
 echo "-- Creating archive."
 tar -cf - /data/configs | gzip -c > /tmp/${BACKUP_FILE}
 
+# Encrypt the backup file
+echo "-- Encrypting archive."
+openssl enc -aes-256-cbc -salt -in /tmp/${BACKUP_FILE} -out /tmp/${BACKUP_FILE}.enc -pass file:/data/configs/keys/key.bin
+
+# Decrypt the backup file
+# openssl enc -d -aes-256-cbc -in /tmp/${BACKUP_FILE}.enc -out /tmp/${BACKUP_FILE} -pass file:/data/configs/keys/key.bin
+
 # Send the backup file to S3
 echo "-- Sending archive to s3."
-AWS_CONFIG_FILE="/data/configs/aws/config" aws s3 cp /tmp/${BACKUP_FILE} s3://$S3_BUCKET/backups/
+AWS_CONFIG_FILE="/data/configs/aws/config" aws s3 cp /tmp/${BACKUP_FILE}.enc s3://$S3_BUCKET/backups/
 
 # Clean up after ourselves
 echo "-- Cleaning up."
 rm /tmp/${BACKUP_FILE}
+rm /tmp/${BACKUP_FILE}.enc
+
