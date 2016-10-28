@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Update Sonarr if needed...
+apt-get update
 apt-get upgrade -y nzbdrone
 
 exec setuser nobody mono /opt/NzbDrone/NzbDrone.exe -nobrowser -data=/data/configs/sonarr
