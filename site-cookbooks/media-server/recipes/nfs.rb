@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: default
+# Recipe:: nfs
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,20 +17,10 @@
 # limitations under the License.
 #
 
-docker_service 'default' do
-  storage_driver 'zfs'
-  action [:create, :start]
-end
+include_recipe 'nfs::server'
 
-include_recipe "media-server::directories"
-include_recipe "media-server::backup"
-include_recipe "media-server::couchpotato"
-include_recipe "media-server::netatalk"
-include_recipe "media-server::nginx"
-include_recipe "media-server::nfs"
-include_recipe "media-server::plex"
-include_recipe "media-server::plex-cleaner"
-include_recipe "media-server::plexpy"
-include_recipe "media-server::sabnzbd"
-include_recipe "media-server::sonarr"
-include_recipe "media-server::transmission"
+nfs_export '/data' do
+  network '192.168.15.0/24'
+  writeable true
+  options ['no_root_squash']
+end
