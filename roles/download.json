@@ -1,6 +1,6 @@
 {
-  "name": "server",
-  "description": "Sets up the media server...",
+  "name": "download",
+  "description": "Sets up the downloading components of the media server...",
   "json_class": "Chef::Role",
   "default_attributes": {
   },
@@ -9,8 +9,7 @@
   "chef_type": "role",
   "run_list": [
     "role[base]",
-    "recipe[media-server::download]",
-    "recipe[media-server::storage]"
+    "recipe[media-server::download]"
   ]
 }
 
