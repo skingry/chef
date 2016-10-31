@@ -22,11 +22,11 @@ include_recipe 'nfs::server'
 nfs_export '/data' do
   network '192.168.15.81/32'
   writeable true
-  options ['no_root_squash']
+  options [ 'no_root_squash', 'no_subtree_check' ]
 end
 
 nfs_export '/data' do
   network '192.168.15.40/32'
   writeable true
-  options ['no_root_squash']
+  options [ 'no_root_squash', 'no_subtree_check' ]
 end
