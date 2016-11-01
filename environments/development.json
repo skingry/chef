@@ -10,6 +10,14 @@
     "set_fqdn": "*.media-server.local",
     "media_server": {
       "domain": "media-server.local",
+      "ip": {
+        "couchpotato": "localhost",
+        "plexpy": "localhost",
+        "plex": "localhost",
+        "sabnzbd": "localhost",
+        "sonarr": "localhost",
+        "transmission": "localhost"
+      },
       "s3_bucket": "s3.media-server.local"
     }
   },

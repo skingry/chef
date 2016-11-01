@@ -18,7 +18,9 @@
 #
 
 domain = node[:media_server][:domain]
+ip = node[:media_server][:ip][:plex]
 name = 'plex'
+port = '32400'
 repo = "skingry/#{name}"
 
 include_recipe 'media-server::directories'
@@ -60,6 +62,8 @@ template "/data/configs/nginx/sites/#{name}.conf" do
   source 'plex_proxy_site.erb'
   notifies :restart, "docker_container[nginx]", :delayed
   variables :domain => "#{domain}",
-            :name => "#{name}"
+            :ip => "#{ip}",
+            :name => "#{name}",
+            :port => "#{port}"
 end
 

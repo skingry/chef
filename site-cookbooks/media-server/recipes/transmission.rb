@@ -18,6 +18,7 @@
 #
 
 domain = node[:media_server][:domain]
+ip = node[:media_server][:ip][:transmission]
 name = 'transmission'
 port = '9091'
 repo = "skingry/#{name}"
@@ -48,6 +49,7 @@ template "/data/configs/nginx/sites/#{name}.conf" do
   source 'proxy_site.erb'
   notifies :restart, "docker_container[nginx]", :delayed
   variables :domain => "#{domain}",
+            :ip => "#{ip}",
             :name => "#{name}",
             :port => "#{port}",
             :auth => true

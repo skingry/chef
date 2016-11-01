@@ -18,6 +18,7 @@
 #
 
 domain = node[:media_server][:domain]
+ip = node[:media_server][:ip][:plexpy]
 name = 'plexpy'
 port = '8181'
 repo = "skingry/#{name}"
@@ -47,6 +48,7 @@ template "/data/configs/nginx/sites/#{name}.conf" do
   source 'proxy_site.erb'
   notifies :restart, "docker_container[nginx]", :delayed
   variables :domain => "#{domain}",
+            :ip => "#{ip}",
             :name => "#{name}",
             :port => "#{port}",
             :auth => true
