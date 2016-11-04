@@ -18,7 +18,6 @@
 #
 
 docker_service 'default' do
-  storage_driver 'zfs'
   action [:create, :start]
 end
 
