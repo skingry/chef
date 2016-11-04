@@ -21,7 +21,18 @@ docker_service 'default' do
   action [:create, :start]
 end
 
-include_recipe "media-server::couchpotato"
-include_recipe "media-server::sabnzbd"
-include_recipe "media-server::sonarr"
-include_recipe "media-server::transmission"
+include_recipe 'nfs'
+
+directory '/data'
+
+mount '/data' do
+  device 'monolith.robotozon.com:/data'
+  fstype 'nfs'
+  options 'rw'
+  action [:mount, :enable]
+end
+
+include_recipe 'media-server::couchpotato'
+include_recipe 'media-server::sabnzbd'
+include_recipe 'media-server::sonarr'
+include_recipe 'media-server::transmission'
