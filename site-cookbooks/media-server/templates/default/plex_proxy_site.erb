@@ -38,7 +38,7 @@ server {
     }
 
     if (!-f $request_filename){
-    proxy_pass http://<%= @ip %>:<%= @port %>;
+    proxy_pass http://<%= @host %>:<%= @port %>;
     }
   }
 
