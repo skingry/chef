@@ -22,11 +22,12 @@ docker_service 'default' do
   action [:create, :start]
 end
 
-include_recipe "media-server::directories"
-include_recipe "media-server::backup"
-include_recipe "media-server::netatalk"
-include_recipe "media-server::nginx"
-include_recipe "media-server::nfs-server"
-include_recipe "media-server::plex"
-include_recipe "media-server::plex-cleaner"
-include_recipe "media-server::plexpy"
+include_recipe 'media-server::directories'
+include_recipe 'media-server::backup'
+include_recipe 'media-server::netatalk'
+include_recipe 'media-server::nginx'
+include_recipe 'media-server::certbot'
+include_recipe 'media-server::nfs-server'
+include_recipe 'media-server::plex'
+include_recipe 'media-server::plex-cleaner'
+include_recipe 'media-server::plexpy'

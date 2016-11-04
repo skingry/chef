@@ -63,5 +63,3 @@ file "#{config_dir}/htpasswd" do
   not_if "test -f #{config_dir}/htpasswd"
 end
 
-include_recipe 'media-server::certbot'
-
