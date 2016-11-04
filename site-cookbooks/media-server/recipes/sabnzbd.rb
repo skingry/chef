@@ -18,7 +18,7 @@
 #
 
 domain = node[:media_server][:domain]
-ip = node[:media_server][:ip][:sabnzbd]
+host = node[:media_server][:host][:sabnzbd]
 name = 'sabnzbd'
 port = '8080'
 repo = "skingry/#{name}"
@@ -46,7 +46,7 @@ end
 template "/data/configs/nginx/sites/#{name}.conf" do
   source 'proxy_site.erb'
   variables :domain => "#{domain}",
-            :ip => "#{ip}",
+            :host => "#{host}",
             :name => "#{name}",
             :port => "#{port}",
             :auth => true
