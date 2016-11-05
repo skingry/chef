@@ -18,6 +18,8 @@
 #
 
 docker_service 'default' do
+  ipv6 false
+  ipv6_forward false
   storage_driver 'zfs'
   action [:create, :start]
 end
