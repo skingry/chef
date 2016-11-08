@@ -25,6 +25,7 @@ directory "#{config_dir}"
 
 template "#{config_dir}/afp.conf" do
   variables(:hostname => node[:netatalk][:hostname])
+  not_if do ::File.exists?("#{config_dir}/afp.conf") end
 end
 
 directory '/data'
