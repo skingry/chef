@@ -12,7 +12,7 @@ cookbook "mongodb", github: "edelight/chef-mongodb", ref: "dc5836318a27331f605f2
 cookbook "nfs", github: "atomic-penguin/cookbook-nfs", ref: "7b8b8c483119a52b3d3971dc29b8c01322a858c7"
 cookbook "ntp", github: "chef-cookbooks/ntp", ref: "957739c3bb72b0a0847994da079481e74c29389a"
 cookbook "openssh", github: "chef-cookbooks/openssh", ref: "363378c2443e6b7d7225d4f51adeb35e1d836c65"
-cookbook "postfix", github: "chef-cookbooks/postfix", ref: "acebcc23003c821579c2c79c8d650db445dac604"
+cookbook "postfix", github: "chef-cookbooks/postfix", ref: "84ad973e522fcda3a78585f3534fee35c6a46eac"
 cookbook "python", github: "poise/python", ref: "711e4d98c25643be2df5afaf3cfc2e811eaee18f"
 cookbook "sudo", github: "chef-cookbooks/sudo", ref: "7b7f9e53a484b74dfff146fffc084130cd2a9993"
 cookbook "timezone-ii", github: "L2G/timezone-ii", ref: "28c9e49c58c534e798cf01a77a9373c4c54f4587"
