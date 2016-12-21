@@ -34,6 +34,12 @@ mount '/data' do
   action [:mount, :enable]
 end
 
+directory '/etc/systemd/system/docker.service.wants'
+
+link '/etc/systemd/system/docker.service.wants/remote-fs.target' do
+  to '/lib/systemd/system/remote-fs.target'
+end
+
 include_recipe 'media-server::couchpotato'
 include_recipe 'media-server::sabnzbd'
 include_recipe 'media-server::sonarr'
