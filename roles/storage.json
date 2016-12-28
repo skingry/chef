@@ -5,6 +5,9 @@
   "default_attributes": {
   },
   "override_attributes": {
+    "virtualbox": {
+      "version": "5.1"
+    }
   },
   "chef_type": "role",
   "run_list": [
