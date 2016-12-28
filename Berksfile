@@ -17,5 +17,6 @@ cookbook "python", github: "poise/python", ref: "711e4d98c25643be2df5afaf3cfc2e8
 cookbook "sudo", github: "chef-cookbooks/sudo", ref: "7b7f9e53a484b74dfff146fffc084130cd2a9993"
 cookbook "timezone-ii", github: "L2G/timezone-ii", ref: "28c9e49c58c534e798cf01a77a9373c4c54f4587"
 cookbook "users", git: "https://github.com/chef-cookbooks/users.git", ref: "3d4576ef4463e514e8c5d27b59bb8edaade4c7b4"
+cookbook "virtualbox", git: "https://github.com/bradleyd/virtualbox-cookbook.git", ref: "f6da9212b9d6ea53c85a85cc453c84837ec2b159"
 cookbook "yum", github: "chef-cookbooks/yum", ref: "3a271ffe02639ef6aa3482c18034ad8184eb49f6"
 cookbook "yum-epel", github: "opscode-cookbooks/yum-epel", ref: "d57929dc90082064914d9cffdf3a908894f89766"

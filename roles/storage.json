@@ -10,6 +10,14 @@
   "run_list": [
     "role[base]",
     "recipe[media-server::storage]"
-  ]
+  ],
+  "env_run_lists": {
+    "production": [
+      "role[base]",
+      "recipe[media-server::storage]",
+      "recipe[virtualbox]",
+      "recipe[virtualbox::webservice]"
+    ]
+  }
 }
 
