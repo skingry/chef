@@ -19,7 +19,7 @@
       "role[base]",
       "recipe[media-server::storage]",
       "recipe[virtualbox]",
-      "recipe[virtualbox::webservice]"
+      "recipe[virtualbox::systemservice]"
     ]
   }
 }
