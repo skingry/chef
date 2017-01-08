@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: storage
+# Recipe:: influxdb
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,20 +17,23 @@
 # limitations under the License.
 #
 
-docker_service 'default' do
-  ipv6 false
-  ipv6_forward false
-  storage_driver 'zfs'
-  action [:create, :start]
-end
+name = 'influxdb'
+repo = "#{name}"
 
 include_recipe 'media-server::directories'
-include_recipe 'media-server::backup'
-inlcude_recipe 'media-server::influxdb'
-include_recipe 'media-server::netatalk'
-include_recipe 'media-server::nginx'
-include_recipe 'media-server::certbot'
-include_recipe 'media-server::nfs-server'
-include_recipe 'media-server::plex'
-include_recipe 'media-server::plex-cleaner'
-include_recipe 'media-server::plexpy'
+
+directory "/data/configs/#{name}"
+
+docker_image "#{name}" do
+  repo "#{repo}"
+  action :pull
+  notifies :redeploy, "docker_container[#{name}]"
+end
+
+docker_container "#{name}" do
+  repo "#{repo}"
+  network_mode 'host'
+  volumes [ '/data/configs/influxdb:/var/lib/influxdb', '/data/configs/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro' ]
+  restart_policy 'always'
+end
+
