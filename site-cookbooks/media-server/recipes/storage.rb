@@ -26,7 +26,7 @@ end
 
 include_recipe 'media-server::directories'
 include_recipe 'media-server::backup'
-inlcude_recipe 'media-server::influxdb'
+include_recipe 'media-server::influxdb'
 include_recipe 'media-server::netatalk'
 include_recipe 'media-server::nginx'
 include_recipe 'media-server::certbot'
