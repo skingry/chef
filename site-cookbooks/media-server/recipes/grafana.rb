@@ -36,7 +36,7 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
-  env [ 'GF_SECURITY_ADMIN_PASSWORD=secret' ]
+  env [ 'GF_SERVER_ROOT_URL=https://grafana.robotozon.com', 'GF_SECURITY_ADMIN_PASSWORD=secret' ]
   volumes [ '/data/configs/grafana:/var/lib/grafana' ]
   restart_policy 'always'
 end
