@@ -17,7 +17,10 @@
 # limitations under the License.
 #
 
+domain = node[:media_server][:domain]
+host = node[:media_server][:host][:grafana]
 name = 'grafana'
+port = '3000'
 repo = "grafana/#{name}"
 
 include_recipe 'media-server::directories'
@@ -36,5 +39,14 @@ docker_container "#{name}" do
   env [ 'GF_SECURITY_ADMIN_PASSWORD=secret' ]
   volumes [ '/data/configs/grafana:/var/lib/grafana' ]
   restart_policy 'always'
+end
+
+template "/data/configs/nginx/sites/#{name}.conf" do
+  source 'proxy_site.erb'
+  variables :domain => "#{domain}",
+            :host => "#{host}",
+            :name => "#{name}",
+            :port => "#{port}",
+            :auth => true
 end
 
