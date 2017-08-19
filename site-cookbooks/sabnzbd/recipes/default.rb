@@ -26,6 +26,7 @@ package 'python-cheetah'
 package 'python-lxml'
 package 'python-openssl'
 package 'python-yenc'
+package 'sabyenc'
 package 'unzip'
 
 remote_file '/tmp/unrar.deb' do
