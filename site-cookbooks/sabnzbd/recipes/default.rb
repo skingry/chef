@@ -33,8 +33,8 @@ remote_file '/tmp/unrar.deb' do
   source 'http://launchpadlibrarian.net/214085480/unrar_5.3.2-1_amd64.deb'
 end
 
-package 'unrar' do
-  source '/tmp/unrar.deb'
+execute 'Install unrar' do
+  command 'dpkg -i /tmp/unrar.deb'
 end
 
 git '/sabnzbd' do
