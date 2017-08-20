@@ -10,6 +10,7 @@
   "dependencies": {
     "apt": ">= 0.0.0",
     "awscli": ">= 0.0.0",
+    "directories": ">= 0.1.0",
     "docker": "~> 2.0",
     "netatalk": ">= 0.0.0",
     "nfs": ">= 0.0.0",
@@ -33,7 +34,6 @@
   "recipes": {
     "backup": "Installs config backup",
     "couchpotato": "Installs Couchpotato Docker Container",
-    "directories": "Sets up default directories",
     "letsencrypt": "Installs letsencrypt components",
     "netatalk": "Installs Netatalk Docker Container",
     "nginx": "Installs Nginx Docker Container",

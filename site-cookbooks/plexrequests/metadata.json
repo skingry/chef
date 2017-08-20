@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "apt": ">= 0.0.0",
-    "media-server": ">= 0.0.0",
+    "directories": ">= 0.1.0",
     "mongodb": ">= 0.0.0"
   },
   "recommendations": {

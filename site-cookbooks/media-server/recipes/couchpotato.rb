@@ -23,7 +23,7 @@ name = 'couchpotato'
 port = '5050'
 repo = "skingry/#{name}"
 
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 
 directory "/data/configs/#{name}" do
   owner 'nobody'

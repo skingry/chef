@@ -20,7 +20,7 @@
 name = 'netatalk'
 repo = "skingry/#{name}"
 
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 include_recipe 'netatalk::config_files'
 
 docker_image "#{name}" do

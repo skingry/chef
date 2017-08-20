@@ -20,7 +20,7 @@
 name = 'influxdb'
 repo = "#{name}"
 
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 
 directory "/data/configs/#{name}"
 

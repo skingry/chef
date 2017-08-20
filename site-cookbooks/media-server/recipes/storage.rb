@@ -24,7 +24,8 @@ docker_service 'default' do
   action [:create, :start]
 end
 
-include_recipe 'media-server::directories'
+include_recipe 'directories'
+
 include_recipe 'media-server::backup'
 include_recipe 'media-server::grafana'
 include_recipe 'media-server::influxdb'

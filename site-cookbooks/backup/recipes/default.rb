@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe 'media-server::directories'
 include_recipe 'awscli'
+include_recipe 'directories'
 
 cookbook_file '/sbin/backup' do
   mode 0700

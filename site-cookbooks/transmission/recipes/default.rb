@@ -18,7 +18,7 @@
 #
 
 include_recipe 'apt'
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 
 apt_repository 'transmissionbt' do
   uri 'http://ppa.launchpad.net/transmissionbt/ppa/ubuntu'

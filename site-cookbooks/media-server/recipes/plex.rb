@@ -23,7 +23,7 @@ name = 'plex'
 port = '32400'
 repo = "skingry/#{name}"
 
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 
 directory "/data/configs/#{name}" do
   owner 'nobody'

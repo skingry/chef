@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 config_dir = '/data/configs/nginx'
 
 include_recipe 'nginx::config_files'

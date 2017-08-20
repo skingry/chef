@@ -1,6 +1,6 @@
 {
-  "name": "plex-cleaner",
-  "description": "Installs and configures Plex Cleaner",
+  "name": "directories",
+  "description": "Installs and Configures Default Directories",
   "maintainer": "Seth Kingry",
   "maintainer_email": "sjkingry@gmail.com",
   "license": "Apache v2",
@@ -8,9 +8,6 @@
     "ubuntu": ">= 0.0.0"
   },
   "dependencies": {
-    "apt": ">= 0.0.0",
-    "directories": ">= 0.1.0",
-    "python": ">= 0.0.0"
   },
   "recommendations": {
   },
@@ -27,7 +24,6 @@
   "groupings": {
   },
   "recipes": {
-    "default": "Installs Plex Cleaner."
   },
   "version": "0.1.0"
 }

@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 
 package 'avahi-daemon'
 package 'dbus'

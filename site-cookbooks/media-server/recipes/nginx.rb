@@ -22,7 +22,7 @@ name = 'nginx'
 config_dir = "/data/configs/#{name}"
 repo = "skingry/#{name}"
 
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 include_recipe 'nginx::config_files'
 
 if node.chef_environment == 'development'

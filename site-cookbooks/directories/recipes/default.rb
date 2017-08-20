@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: media-server
-# Recipe:: directories
+# Cookbook Name:: directories
+# Recipe:: default
 #
 # Copyright 2014, Seth Kingry
 #

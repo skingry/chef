@@ -23,7 +23,7 @@ name = 'grafana'
 port = '3000'
 repo = "grafana/#{name}"
 
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 
 directory "/data/configs/#{name}"
 

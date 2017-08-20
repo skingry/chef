@@ -18,7 +18,7 @@
 #
 
 include_recipe 'apt'
-include_recipe 'media-server::directories'
+include_recipe 'directories'
 
 apt_repository 'nzbdrone' do
   uri 'http://apt.sonarr.tv/'
