@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "apt": ">= 0.0.0",
-    "media-server": ">= 0.0.0",
     "python": ">= 0.0.0"
   },
   "recommendations": {

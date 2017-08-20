@@ -17,7 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe 'media-server::directories'
 include_recipe 'python'
 
 package 'p7zip-full'
@@ -42,6 +41,16 @@ git '/sabnzbd' do
   enable_checkout false
   checkout_branch 'master'
   action :sync
+end
+
+directory '/data' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/data/configs' do
+  owner 'nobody'
+  group 'nogroup'
 end
 
 directory '/data/configs/sabnzbd' do
