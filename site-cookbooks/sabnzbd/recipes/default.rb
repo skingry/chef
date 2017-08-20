@@ -25,8 +25,9 @@ package 'python-cheetah'
 package 'python-lxml'
 package 'python-openssl'
 package 'python-yenc'
-package 'sabyenc'
 package 'unzip'
+
+python_pip 'sabyenc'
 
 remote_file '/tmp/unrar.deb' do
   source 'http://launchpadlibrarian.net/214085480/unrar_5.3.2-1_amd64.deb'
