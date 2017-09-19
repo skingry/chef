@@ -3,6 +3,7 @@
 if [ ! -f /sabnzbd/SABnzbd.py ]; then
   git clone https://github.com/sabnzbd/sabnzbd.git
 elif [ -f /sabnzbd/SABnzbd.py ]; then
+  pip install sabyenc --upgrade
   cd /sabnzbd
   git pull
 else
