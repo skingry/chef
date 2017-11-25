@@ -31,6 +31,8 @@ server {
   proxy_set_header X_FORWARDED_PROTO https;
   proxy_redirect off;
 
+  resolver 192.168.15.1;
+
   location / {
   <% if @auth == true -%>
     satisfy                any;
