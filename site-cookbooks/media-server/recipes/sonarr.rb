@@ -39,7 +39,7 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   network_mode 'host'
-  volumes [ '/data:/data', '/dev/rtc:/dev/rtc:ro' ]
+  volumes [ '/data:/data', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 
