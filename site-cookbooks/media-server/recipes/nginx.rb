@@ -45,7 +45,8 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
-  network_mode 'host'
+  links [ 'openvpn:couchpotato', 'openvpn:sabnzbd', 'openvpn:sonarr', 'openvpn:transmission' ]
+  port [ '80:80', '443:443' ]
   volumes [ '/data:/data' ]
   restart_policy 'always'
 end

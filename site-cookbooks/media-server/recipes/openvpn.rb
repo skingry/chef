@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: couchpotato
+# Recipe:: openvpn
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,18 +17,10 @@
 # limitations under the License.
 #
 
-domain = node[:media_server][:domain]
-name = 'couchpotato'
-host = "#{name}"
-port = '5050'
+name = 'openvpn'
 repo = "skingry/#{name}"
 
 include_recipe 'directories'
-
-directory "/data/configs/#{name}" do
-  owner 'nobody'
-  group 'nogroup'
-end
 
 docker_image "#{name}" do
   repo "#{repo}"
@@ -38,17 +30,12 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
-  network_mode 'container:openvpn'
-  volumes [ '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
+  cap_add 'NET_ADMIN'
+  devices [{ "PathOnHost"=>"/dev/net/tun", "PathInContainer"=>"/dev/net/tun", "CgroupPermissions"=>"mrw"}]
+  dns [ '8.8.8.8', '8.8.4.4' ]
+  volumes [ '/data:/data' ]
+  privileged true
+  command '/usr/sbin/openvpn --config /data/configs/openvpn/newshosting.ovpn'
   restart_policy 'always'
-end
-
-template "/data/configs/nginx/sites/#{name}.conf" do
-  source 'proxy_site.erb'
-  variables :domain => "#{domain}",
-            :host => "#{host}",
-            :name => "#{name}",
-            :port => "#{port}",
-            :auth => true
 end
 

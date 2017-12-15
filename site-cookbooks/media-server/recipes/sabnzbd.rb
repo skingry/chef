@@ -18,8 +18,8 @@
 #
 
 domain = node[:media_server][:domain]
-host = node[:media_server][:host][:sabnzbd]
 name = 'sabnzbd'
+host = "#{name}"
 port = '8080'
 repo = "skingry/#{name}"
 
@@ -38,7 +38,7 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
-  network_mode 'host'
+  network_mode 'container:openvpn'
   volumes [ '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end

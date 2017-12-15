@@ -18,8 +18,8 @@
 #
 
 domain = node[:media_server][:domain]
-host = node[:media_server][:host][:transmission]
 name = 'transmission'
+host = "#{name}"
 port = '9091'
 repo = "skingry/#{name}"
 
@@ -38,7 +38,7 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
-  network_mode 'host'
+  network_mode 'container:openvpn'
   env [ 'PUID=65534', 'PGID=65534' ]
   volumes [ '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
