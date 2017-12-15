@@ -17,9 +17,7 @@
   "env_run_lists": {
     "production": [
       "role[base]",
-      "recipe[media-server::storage]",
-      "recipe[virtualbox]",
-      "recipe[virtualbox::systemservice]"
+      "recipe[media-server::storage]"
     ]
   }
 }
