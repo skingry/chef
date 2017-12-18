@@ -18,8 +18,8 @@
 #
 
 domain = node[:media_server][:domain]
+host = node[:media_server][:host][:plex]
 name = 'plex'
-host = "#{name}"
 port = '32400'
 repo = "skingry/#{name}"
 
@@ -52,7 +52,7 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
-  port '32400:32400'
+  network_mode 'host'
   volumes [ '/data:/data' ]
   restart_policy 'always'
 end
