@@ -19,7 +19,7 @@
 
 domain = node[:media_server][:domain]
 name = 'resilio'
-host = '#{name}'
+host = "#{name}"
 port = '8888'
 repo = "skingry/#{name}"
 
