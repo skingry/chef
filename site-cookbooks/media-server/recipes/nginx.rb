@@ -45,7 +45,7 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
-  links [ 'openvpn:couchpotato', 'openvpn:sabnzbd', 'openvpn:sonarr', 'openvpn:transmission', 'plexpy:plexpy', 'resilio:resilio' ]
+  links [ 'openvpn:couchpotato', 'openvpn:sabnzbd', 'openvpn:sonarr', 'openvpn:transmission', 'plex:plex', 'plexpy:plexpy', 'resilio:resilio' ]
   port [ '80:80', '443:443' ]
   volumes [ '/data:/data' ]
   restart_policy 'always'

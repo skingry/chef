@@ -38,6 +38,7 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
+  links [ 'plex:plex.local' ]
   volumes [ '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
