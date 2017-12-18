@@ -38,6 +38,8 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
+  memory '1073741824'
+  memory_swap '2147483648'
   links [ 'plex:plex.local' ]
   volumes [ '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'

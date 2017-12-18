@@ -28,6 +28,8 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
+  memory '536870912'
+  memory_swap '1073741824'
   network_mode 'host'
   env [ "HOSTNAME=#{node[:media_server][:domain]}", "S3_BUCKET=#{node[:media_server][:s3_bucket]}" ]
   volumes [ '/data:/data', '/data/configs/backup/backup.sh:/sbin/backup' ]

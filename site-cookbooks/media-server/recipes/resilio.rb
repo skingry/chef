@@ -38,6 +38,8 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
+  memory '1073741824'
+  memory_swap '2147483648'
   port '55541:55541'
   volumes [ '/data:/data', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro', '/data/configs/resilio:/.sync' ]
   restart_policy 'always'

@@ -52,6 +52,8 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
+  memory '8589934592'
+  memory_swap '17179869184'
   port '32400:32400'
   volumes [ '/data:/data' ]
   restart_policy 'always'

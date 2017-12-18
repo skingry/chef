@@ -32,6 +32,8 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
+  memory '1073741824'
+  memory_swap '2147483648'
   network_mode 'host'
   volumes [ '/data/configs/influxdb:/var/lib/influxdb', '/data/configs/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro' ]
   restart_policy 'always'

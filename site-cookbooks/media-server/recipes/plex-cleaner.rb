@@ -28,6 +28,8 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
+  memory '536870912'
+  memory_swap '1073741824'
   network_mode 'host'
   volumes [ '/data:/data' ]
   action :create
