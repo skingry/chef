@@ -4,7 +4,7 @@ cookbook "apt", github: "opscode-cookbooks/apt", ref: "181e36ef395d700c796f7ef09
 cookbook "awscli", github: "awslabs/awscli-cookbook", ref: "7f0b70d08c6010eb4ed3b8623f071c4a8700f322"
 cookbook "build-essential", github: "opscode-cookbooks/build-essential", ref: "84eccf2ab0fa7bcbb16a6c2dc6e4c4417bd5b9f8"
 cookbook "chef-solo-search", github: "edelight/chef-solo-search", ref: "72bd5e3507056e5c931ee0cf7516ce1bfbce6d51"
-cookbook "docker", github: "skingry/docker", ref: "cc0f92cdc373df4701f9c29812956966c9f5fa7a"
+cookbook "docker", github: "skingry/docker", ref: "50155cd52a36d6b0b8ae58ea840e76e421b22adc"
 cookbook "hostnames", github: "nathantsoi/chef-cookbook-hostname", ref: "df39cbca0346c9afd6da8d8d5a73bca333446082"
 cookbook "hostsfile", github: "customink-webops/hostsfile", ref: "44c7960b21bab50247b0d4c2cc571a33c07f0e60"
 cookbook "iptables", github: "chef-cookbooks/iptables", ref: "ed16aae260afecaf01f6f311e3497837fe7b9531"
