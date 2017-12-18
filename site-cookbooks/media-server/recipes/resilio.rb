@@ -18,8 +18,8 @@
 #
 
 domain = node[:media_server][:domain]
-host = node[:media_server][:host][:resilio]
 name = 'resilio'
+host = '#{name}'
 port = '8888'
 repo = "skingry/#{name}"
 
@@ -38,7 +38,7 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
-  network_mode 'host'
+  port '55541:55541'
   volumes [ '/data:/data', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro', '/data/configs/resilio:/.sync' ]
   restart_policy 'always'
 end

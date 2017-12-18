@@ -18,8 +18,8 @@
 #
 
 domain = node[:media_server][:domain]
-host = node[:media_server][:host][:plexpy]
 name = 'plexpy'
+host = "#{name}"
 port = '8181'
 repo = "skingry/#{name}"
 
@@ -38,7 +38,6 @@ end
 
 docker_container "#{name}" do
   repo "#{repo}"
-  network_mode 'host'
   volumes [ '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
