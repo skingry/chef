@@ -33,7 +33,6 @@ end
 docker_image "#{name}" do
   repo "#{repo}"
   action :pull
-  notifies :redeploy, "docker_container[#{name}]"
 end
 
 docker_container "#{name}" do
