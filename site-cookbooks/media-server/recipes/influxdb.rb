@@ -34,7 +34,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '1073741824'
   memory_swap '2147483648'
-  network_mode 'host'
+  port '8086:8086'
   volumes [ '/data/configs/influxdb:/var/lib/influxdb', '/data/configs/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro' ]
   restart_policy 'always'
 end

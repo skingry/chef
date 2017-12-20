@@ -18,8 +18,8 @@
 #
 
 domain = node[:media_server][:domain]
-host = node[:media_server][:host][:grafana]
 name = 'grafana'
+host = "#{name}"
 port = '3000'
 repo = "grafana/#{name}"
 
@@ -37,7 +37,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '1073741824'
   memory_swap '2147483648'
-  network_mode 'host'
+  links [ 'influxdb:influxdb.local' ]
   volumes [ '/data/configs/grafana/grafana.ini:/etc/grafana/grafana.ini', '/data/configs/grafana:/var/lib/grafana' ]
   restart_policy 'always'
 end
