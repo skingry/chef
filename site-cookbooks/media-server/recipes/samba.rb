@@ -30,7 +30,6 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   memory '2147483648'
-  memory_swap '4294967296'
   network_mode 'host'
   volumes [ '/data:/data', '/data/configs/samba/smb.conf:/etc/samba/smb.conf' ]
   restart_policy 'always'

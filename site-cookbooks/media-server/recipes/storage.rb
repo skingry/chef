@@ -34,9 +34,10 @@ include_recipe 'media-server::plex-cleaner'
 include_recipe 'media-server::samba'
 include_recipe 'media-server::netatalk'
 
-include_recipe 'media-server::couchpotato'
-include_recipe 'media-server::grafana'
 include_recipe 'media-server::influxdb'
+include_recipe 'media-server::grafana'
+
+include_recipe 'media-server::couchpotato'
 include_recipe 'media-server::plex'
 include_recipe 'media-server::plexpy'
 include_recipe 'media-server::resilio'

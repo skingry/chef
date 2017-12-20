@@ -38,7 +38,6 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   memory '1073741824'
-  memory_swap '2147483648'
   network_mode 'container:openvpn'
   volumes [ '/data:/data', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'

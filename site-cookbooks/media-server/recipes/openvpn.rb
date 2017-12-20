@@ -30,7 +30,6 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   memory '1073741824'
-  memory_swap '2147483648'
   cap_add 'NET_ADMIN'
   devices [{ "PathOnHost"=>"/dev/net/tun", "PathInContainer"=>"/dev/net/tun", "CgroupPermissions"=>"mrw"}]
   dns [ '8.8.8.8', '8.8.4.4' ]

@@ -45,7 +45,6 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   memory '1073741824'
-  memory_swap '2147483648'
   links [ 'openvpn:couchpotato', 'openvpn:sabnzbd', 'openvpn:sonarr', 'openvpn:transmission', 'grafana:grafana', 'plex:plex', 'plexpy:plexpy', 'resilio:resilio' ]
   port [ '80:80', '443:443' ]
   volumes [ '/data:/data' ]
