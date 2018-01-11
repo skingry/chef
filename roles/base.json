@@ -23,7 +23,7 @@
     "openssh": {
       "server": {
         "permit_root_login": "no",
-        "port": [ "22", "1471" ],
+        "port": "1471",
         "use_dns": "no",
         "password_authentication": "no"
       }
