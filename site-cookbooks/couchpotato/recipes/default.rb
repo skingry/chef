@@ -17,28 +17,32 @@
 # limitations under the License.
 #
 
-include_recipe 'directories'
 include_recipe 'python'
 
 package 'python-cheetah'
 package 'python-lxml'
 package 'python-openssl'
 
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/download' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/movies' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
 git '/couchpotato' do
   repository 'https://github.com/CouchPotato/CouchPotatoServer.git'
   enable_checkout false
   checkout_branch 'master'
   action :sync
-end
-
-directory '/data/configs/couchpotato' do
-  owner 'nobody'
-  group 'nogroup'
-end
-
-directory '/data/configs/couchpotato/data' do
-  owner 'nobody'
-  group 'nogroup'
 end
 
 cookbook_file '/sbin/couchpotato' do

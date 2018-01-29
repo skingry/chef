@@ -10,4 +10,4 @@ else
   exit 127
 fi
 
-exec setuser nobody python /couchpotato/CouchPotato.py --config_file=/data/configs/couchpotato/config.ini --data_dir=/data/configs/couchpotato/data --console_log
+exec setuser nobody python /couchpotato/CouchPotato.py --config_file=/config/config.ini --data_dir=/config/data --console_log
