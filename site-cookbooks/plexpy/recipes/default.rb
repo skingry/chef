@@ -17,24 +17,27 @@
 # limitations under the License.
 #
 
-include_recipe 'directories'
-
 include_recipe 'python'
 
 package 'python-cheetah'
 package 'python-lxml'
 package 'python-openssl'
 
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/logs' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
 git '/plexpy' do
   repository 'https://github.com/drzoidberg33/plexpy.git'
   enable_checkout false
   checkout_branch 'master'
   action :sync
-end
-
-directory '/data/configs/plexpy' do
-  owner 'nobody'
-  group 'nogroup'
 end
 
 cookbook_file '/sbin/plexpy' do

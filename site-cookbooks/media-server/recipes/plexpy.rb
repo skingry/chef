@@ -23,13 +23,6 @@ host = "#{name}"
 port = '8181'
 repo = "skingry/#{name}"
 
-include_recipe 'directories'
-
-directory "/data/configs/#{name}" do
-  owner 'nobody'
-  group 'nogroup'
-end
-
 docker_image "#{name}" do
   repo "#{repo}"
   action :pull
@@ -40,7 +33,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '1073741824'
   links [ 'plex:plex.local' ]
-  volumes [ '/data:/data', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Logs:/logs', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 
@@ -52,3 +45,4 @@ template "/data/configs/nginx/sites/#{name}.conf" do
             :port => "#{port}",
             :auth => true
 end
+
