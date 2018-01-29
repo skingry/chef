@@ -20,8 +20,6 @@
 name = 'samba'
 repo = "skingry/#{name}"
 
-include_recipe 'directories'
-
 docker_image "#{name}" do
   repo "#{repo}"
   action :pull
@@ -31,7 +29,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '2147483648'
   network_mode 'host'
-  volumes [ '/data:/data', '/data/configs/samba/smb.conf:/etc/samba/smb.conf' ]
+  volumes [ '/data/shares:/shares', '/data/configs/samba/smb.conf:/etc/samba/smb.conf' ]
   restart_policy 'always'
 end
 

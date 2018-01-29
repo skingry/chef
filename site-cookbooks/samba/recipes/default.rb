@@ -17,9 +17,12 @@
 # limitations under the License.
 #
 
-include_recipe 'directories'
-
 package 'samba'
+
+directory '/shares' do
+  owner 'nobody'
+  group 'nogroup'
+end
 
 template "/etc/samba/smb.conf" do
   variables(:hostname => node[:samba][:hostname])
