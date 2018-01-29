@@ -18,7 +18,16 @@
 #
 
 include_recipe 'apt'
-include_recipe 'directories'
+
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/download' do
+  owner 'nobody'
+  group 'nogroup'
+end
 
 apt_repository 'transmissionbt' do
   uri 'http://ppa.launchpad.net/transmissionbt/ppa/ubuntu'
@@ -31,11 +40,6 @@ apt_repository 'transmissionbt' do
 end
 
 package 'transmission-daemon'
-
-directory '/data/configs/transmission' do
-  owner 'nobody'
-  group 'nogroup'
-end
 
 cookbook_file '/sbin/transmission' do
   mode 0755

@@ -4,4 +4,4 @@
 apt-get update
 apt-get upgrade -y transmission-daemon
 
-exec setuser nobody /usr/bin/transmission-daemon -g /data/configs/transmission -f
+exec setuser nobody /usr/bin/transmission-daemon -g /config -f
