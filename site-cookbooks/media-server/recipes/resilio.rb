@@ -25,11 +25,6 @@ repo = "skingry/#{name}"
 
 include_recipe 'directories'
 
-directory "/data/configs/#{name}" do
-  owner 'nobody'
-  group 'nogroup'
-end
-
 docker_image "#{name}" do
   repo "#{repo}"
   action :pull
@@ -39,7 +34,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '1073741824'
   port '55541:55541'
-  volumes [ '/data:/data', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro', '/data/configs/resilio:/.sync' ]
+  volumes [ '/data/configs/resilio:/config', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 
