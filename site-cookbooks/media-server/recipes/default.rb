@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: storage
+# Recipe:: default
 #
 # Copyright 2014, Seth Kingry
 #

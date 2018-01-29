@@ -18,7 +18,21 @@
 #
 
 include_recipe 'apt'
-include_recipe 'directories'
+
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/download' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/tv' do
+  owner 'nobody'
+  group 'nogroup'
+end
 
 apt_repository 'nzbdrone' do
   uri 'http://apt.sonarr.tv/'
@@ -31,11 +45,6 @@ apt_repository 'nzbdrone' do
 end
 
 package 'nzbdrone'
-
-directory '/data/configs/sonarr' do
-  owner 'nobody'
-  group 'nogroup'
-end
 
 cookbook_file '/sbin/sonarr' do
   mode 0755

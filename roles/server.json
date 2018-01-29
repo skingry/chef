@@ -9,8 +9,13 @@
   "chef_type": "role",
   "run_list": [
     "role[base]",
-    "recipe[media-server::download]",
-    "recipe[media-server::storage]"
-  ]
+    "recipe[media-server]"
+  ],
+  "env_run_lists": {
+    "production": [
+      "role[base]",
+      "recipe[media-server]"
+    ]
+  }
 }
 
