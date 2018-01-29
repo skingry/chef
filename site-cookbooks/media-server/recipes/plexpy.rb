@@ -24,8 +24,6 @@ port = '8181'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '1073741824'
-  links [ 'plex:plex.local' ]
   volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Logs:/logs', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end

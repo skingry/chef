@@ -24,8 +24,6 @@ port = '32400'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '8589934592'
-  port '32400:32400'
   network_mode 'host'
   volumes [ '/data/configs/plex:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro', '/tmp:/tmp' ]
   restart_policy 'always'
