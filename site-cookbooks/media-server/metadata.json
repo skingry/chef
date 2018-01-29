@@ -13,7 +13,6 @@
     "directories": ">= 0.1.0",
     "docker": "~> 2.0",
     "netatalk": ">= 0.0.0",
-    "nginx": ">= 0.0.0",
     "python": ">= 0.0.0"
   },
   "recommendations": {
