@@ -26,7 +26,9 @@ docker_container "#{name}" do
   repo "#{name}"
   memory '6442450944'
   network_mode 'host'
+  devices [{ "PathOnHost"=>"/dev/dri", "PathInContainer"=>"/dev/dri", "CgroupPermissions"=>"mrw"}]
   volumes [ '/data/configs/plex:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro', '/tmp:/tmp' ]
+  privileged true
   restart_policy 'always'
 end
 
