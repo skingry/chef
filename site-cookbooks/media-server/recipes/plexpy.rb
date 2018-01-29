@@ -21,16 +21,9 @@ domain = node[:media_server][:domain]
 name = 'plexpy'
 host = "#{name}"
 port = '8181'
-repo = "skingry/#{name}"
-
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-  notifies :redeploy, "docker_container[#{name}]"
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '1073741824'
   links [ 'plex:plex.local' ]
   volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Logs:/logs', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]

@@ -21,17 +21,9 @@ domain = node[:media_server][:domain]
 name = 'resilio'
 host = "#{name}"
 port = '8888'
-repo = "skingry/#{name}"
-
-include_recipe 'directories'
-
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '1073741824'
   port '55541:55541'
   volumes [ '/data/configs/resilio:/config', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]

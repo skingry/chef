@@ -21,15 +21,9 @@ domain = node[:media_server][:domain]
 name = 'sabnzbd'
 host = "#{name}"
 port = '8080'
-repo = "skingry/#{name}"
-
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '1073741824'
   network_mode 'container:openvpn'
   volumes [ '/data/configs/sabnzbd:/config', '/data/shares/Downloads:/download', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]

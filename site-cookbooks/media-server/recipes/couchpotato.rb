@@ -21,15 +21,9 @@ domain = node[:media_server][:domain]
 name = 'couchpotato'
 host = "#{name}"
 port = '5050'
-repo = "skingry/#{name}"
-
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '1073741824'
   network_mode 'container:openvpn'
   volumes [ '/data/configs/couchpotato:/config', '/data/shares/Downloads:/download', '/data/shares/Media/Movies:/movies', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]

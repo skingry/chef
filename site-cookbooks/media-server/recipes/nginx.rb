@@ -19,15 +19,10 @@
 
 domain = node[:media_server][:domain]
 name = 'nginx'
-repo = "skingry/#{name}"
 
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '1073741824'
   links [ 'openvpn:couchpotato', 'openvpn:sabnzbd', 'openvpn:sonarr', 'openvpn:transmission', 'grafana:grafana', 'plex:plex', 'plexpy:plexpy', 'resilio:resilio' ]
   port [ '80:80', '443:443' ]

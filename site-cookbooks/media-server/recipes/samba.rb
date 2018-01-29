@@ -18,15 +18,9 @@
 #
 
 name = 'samba'
-repo = "skingry/#{name}"
-
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '2147483648'
   network_mode 'host'
   volumes [ '/data/shares:/shares', '/data/configs/samba/smb.conf:/etc/samba/smb.conf' ]

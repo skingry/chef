@@ -18,15 +18,9 @@
 #
 
 name = 'backup'
-repo = "skingry/#{name}"
-
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '536870912'
   network_mode 'host'
   env [ "HOSTNAME=#{node[:media_server][:domain]}", "S3_BUCKET=#{node[:media_server][:s3_bucket]}" ]
@@ -34,13 +28,11 @@ docker_container "#{name}" do
   action :create
 end
 
-if node.chef_environment != 'development'
-  cron "Config Backup" do
-    minute "30"
-    hour "3"
-    weekday "1"
-    mailto "#{node[:cron_mailto]}"
-    command "docker start -i #{name}"
-  end
+cron "Config Backup" do
+  minute "30"
+  hour "3"
+  weekday "1"
+  mailto "#{node[:cron_mailto]}"
+  command "docker start -i #{name}"
 end
 

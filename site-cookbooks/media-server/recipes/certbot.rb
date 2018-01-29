@@ -18,28 +18,20 @@
 #
 
 name = 'certbot'
-repo = "skingry/#{name}"
-
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '536870912'
   network_mode 'host'
   volumes [ '/data/configs/nginx/ssl:/config', '/data/configs/nginx/webroot:/webroot' ]
   action :create
 end
 
-if node.chef_environment != 'development'
-  cron "Certbot Certificate Renewal" do
-    minute "0"
-    hour "3"
-    weekday "1"
-    mailto "#{node[:cron_mailto]}"
-    command "docker start -i #{name} && docker restart nginx"
-  end
+cron "Certbot Certificate Renewal" do
+  minute "0"
+  hour "3"
+  weekday "1"
+  mailto "#{node[:cron_mailto]}"
+  command "docker start -i #{name} && docker restart nginx"
 end
 

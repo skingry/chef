@@ -18,17 +18,11 @@
 #
 
 name = 'openvpn'
-repo = "skingry/#{name}"
 
 include_recipe 'directories'
 
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
-
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '1073741824'
   cap_add 'NET_ADMIN'
   devices [{ "PathOnHost"=>"/dev/net/tun", "PathInContainer"=>"/dev/net/tun", "CgroupPermissions"=>"mrw"}]

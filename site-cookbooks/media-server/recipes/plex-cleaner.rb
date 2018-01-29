@@ -18,27 +18,19 @@
 #
 
 name = 'plex-cleaner'
-repo = "skingry/#{name}"
-
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '536870912'
   network_mode 'host'
   volumes [ '/data/configs/plex-cleaner:/config' ]
   action :create
 end
 
-if node.chef_environment != 'development'
-  cron "Plex Cleaner" do
-    minute "0"
-    hour "3"
-    mailto "#{node[:cron_mailto]}"
-    command "docker start -i #{name} >> /dev/null"
-  end
+cron "Plex Cleaner" do
+  minute "0"
+  hour "3"
+  mailto "#{node[:cron_mailto]}"
+  command "docker start -i #{name} >> /dev/null"
 end
 

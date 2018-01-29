@@ -21,15 +21,9 @@ domain = node[:media_server][:domain]
 name = 'plex'
 host = "#{name}"
 port = '32400'
-repo = "skingry/#{name}"
-
-docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '8589934592'
   port '32400:32400'
   volumes [ '/data/configs/plex:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
