@@ -10,4 +10,4 @@ else
   exit 127
 fi
 
-setuser nobody /usr/bin/python /plex-cleaner/PlexCleaner.py --config /data/configs/plex-cleaner/plex-cleaner.conf
+setuser nobody /usr/bin/python /plex-cleaner/PlexCleaner.py --config /config/plex-cleaner.conf

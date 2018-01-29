@@ -29,7 +29,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '536870912'
   network_mode 'host'
-  volumes [ '/data:/data' ]
+  volumes [ '/data/configs/plex-cleaner:/config' ]
   action :create
 end
 
