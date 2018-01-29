@@ -22,6 +22,16 @@ include_recipe 'directories'
 package 'avahi-daemon'
 package 'dbus'
 
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/shares' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
 remote_file '/tmp/plexmediaserver.deb' do
   source 'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu'
 end
@@ -33,11 +43,6 @@ bash 'Install Plex Media Server' do
   dpkg -i /tmp/plexmediaserver.deb
   rm -rf /tmp/plexmediaserver.deb
   EOH
-end
-
-directory '/data/configs/plex' do
-  owner 'nobody'
-  group 'nogroup'
 end
 
 directory '/defaults'

@@ -23,27 +23,6 @@ host = "#{name}"
 port = '32400'
 repo = "skingry/#{name}"
 
-include_recipe 'directories'
-
-directory "/data/configs/#{name}" do
-  owner 'nobody'
-  group 'nogroup'
-end
-
-directory "/data/configs/#{name}/Library" do
-  owner 'nobody'
-  group 'nogroup'
-  recursive true
-  notifies :restart, "docker_container[#{name}]", :delayed
-end
-
-directory "/data/configs/#{name}/Library/Application Support" do
-  owner 'nobody'
-  group 'nogroup'
-  recursive true
-  notifies :restart, "docker_container[#{name}]", :delayed
-end
-
 docker_image "#{name}" do
   repo "#{repo}"
   action :pull
@@ -52,9 +31,8 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   memory '8589934592'
-  devices [{ "PathOnHost"=>"/dev/dri", "PathInContainer"=>"/dev/dri", "CgroupPermissions"=>"mrw"}]
   port '32400:32400'
-  volumes [ '/data:/data' ]
+  volumes [ '/data/configs/plex:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 

@@ -7,7 +7,7 @@ PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6
 PLEX_MEDIA_SERVER_MAX_STACK_SIZE=3000
 
 # uncomment to set it to something else
-PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/data/configs/plex/Library/Application Support"
+PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config"
 
 # the user that PMS should run as, defaults to 'plex'
 # note that if you change this you might need to move
