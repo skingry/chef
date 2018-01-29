@@ -17,7 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe 'directories'
 include_recipe 'python'
 
 git '/plex-cleaner' do
