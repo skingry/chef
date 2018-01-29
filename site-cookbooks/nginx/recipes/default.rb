@@ -17,17 +17,9 @@
 # limitations under the License.
 #
 
-include_recipe 'directories'
-config_dir = '/data/configs/nginx'
-
-include_recipe 'nginx::config_files'
+directory '/config'
 
 package 'nginx'
 package 'nginx-core'
 package 'nginx-extras'
-
-template '/sbin/nginx' do
-  mode 0755
-  variables :config_dir => "#{config_dir}"
-end
 
