@@ -26,7 +26,7 @@ docker_container "#{name}" do
   repo "#{name}"
   memory '8589934592'
   port '32400:32400'
-  volumes [ '/data/configs/plex:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ '/data/configs/plex:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro', '/tmp:/tmp' ]
   restart_policy 'always'
 end
 
