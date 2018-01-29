@@ -7,6 +7,9 @@ dbus-daemon --system
 
 # Initialize avahi-daemon
 sed -i '/rlimit-nproc/d' /etc/avahi/avahi-daemon.conf
+if [ -f /var/run/avahi-daemon/pid ]; then
+  rm /var/run/avahi-daemon/pid
+fi
 avahi-daemon -D
 
 # Start netatalk
