@@ -24,6 +24,7 @@ port = '9091'
 
 docker_container "#{name}" do
   repo "#{name}"
+  memory '536870912'
   network_mode 'container:openvpn'
   volumes [ '/data/configs/transmission:/config', '/data/shares/Downloads:/download', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'

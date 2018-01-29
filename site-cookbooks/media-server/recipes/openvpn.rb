@@ -23,6 +23,7 @@ include_recipe 'directories'
 
 docker_container "#{name}" do
   repo "#{name}"
+  memory '536870912'
   cap_add 'NET_ADMIN'
   devices [{ "PathOnHost"=>"/dev/net/tun", "PathInContainer"=>"/dev/net/tun", "CgroupPermissions"=>"mrw"}]
   dns [ '8.8.8.8', '8.8.4.4' ]
