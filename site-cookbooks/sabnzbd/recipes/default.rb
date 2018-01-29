@@ -17,7 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe 'directories'
 include_recipe 'python'
 
 package 'p7zip-full'
@@ -27,6 +26,16 @@ package 'python-lxml'
 package 'python-openssl'
 package 'python-yenc'
 package 'unzip'
+
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/download' do
+  owner 'nobody'
+  group 'nogroup'
+end
 
 python_pip 'sabyenc'
 
@@ -43,11 +52,6 @@ git '/sabnzbd' do
   enable_checkout false
   checkout_branch 'master'
   action :sync
-end
-
-directory '/data/configs/sabnzbd' do
-  owner 'nobody'
-  group 'nogroup'
 end
 
 cookbook_file '/sbin/sabnzbd' do
