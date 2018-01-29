@@ -20,9 +20,6 @@
 name = 'netatalk'
 repo = "skingry/#{name}"
 
-include_recipe 'directories'
-include_recipe 'netatalk::config_files'
-
 docker_image "#{name}" do
   repo "#{repo}"
   action :pull
@@ -32,7 +29,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '2147483648'
   network_mode 'host'
-  volumes [ '/data:/data' ]
+  volumes [ '/data/configs/netatalk:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 

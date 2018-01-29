@@ -17,12 +17,10 @@
 # limitations under the License.
 #
 
-include_recipe 'directories'
 include_recipe 'netatalk::prerequisites'
-include_recipe 'netatalk::config_files'
 
 netatalk_version = '3.1.8'
-config_dir = '/data/configs/netatalk'
+config_dir = '/config'
 
 directory "#{config_dir}"
 
