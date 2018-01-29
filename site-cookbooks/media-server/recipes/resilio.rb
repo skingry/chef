@@ -26,7 +26,7 @@ docker_container "#{name}" do
   repo "#{name}"
   memory '1073741824'
   port '55541:55541'
-  volumes [ '/data/configs/resilio:/config', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ '/data/configs/resilio:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end
 
