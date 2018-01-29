@@ -23,3 +23,6 @@ package 'nginx'
 package 'nginx-core'
 package 'nginx-extras'
 
+cookbook_file '/sbin/nginx' do
+  mode 0755
+end
