@@ -33,9 +33,9 @@ docker_container "#{name}" do
   cap_add 'NET_ADMIN'
   devices [{ "PathOnHost"=>"/dev/net/tun", "PathInContainer"=>"/dev/net/tun", "CgroupPermissions"=>"mrw"}]
   dns [ '8.8.8.8', '8.8.4.4' ]
-  volumes [ '/data:/data' ]
+  volumes [ '/data/configs/openvpn:/config' ]
   privileged true
-  command '/usr/sbin/openvpn --config /data/configs/openvpn/newshosting.ovpn'
+  command '/usr/sbin/openvpn --config /config/newshosting.ovpn'
   restart_policy 'always'
 end
 
