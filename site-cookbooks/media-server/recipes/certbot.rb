@@ -29,7 +29,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '536870912'
   network_mode 'host'
-  volumes [ '/data:/data' ]
+  volumes [ '/data/configs/nginx/ssl:/config', '/data/configs/nginx/webroot:/webroot' ]
   action :create
 end
 

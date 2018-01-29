@@ -10,4 +10,4 @@ else
   exit 127
 fi
 
-/certbot/certbot-auto -n --config-dir /data/configs/nginx/ssl renew
+/certbot/certbot-auto -n --config-dir /config renew

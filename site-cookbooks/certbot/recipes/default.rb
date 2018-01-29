@@ -17,8 +17,17 @@
 # limitations under the License.
 #
 
-include_recipe 'directories'
 include_recipe 'python'
+
+directory '/config' do
+  owner 'nobody'
+  group 'nogroup'
+end
+
+directory '/webroot' do
+  owner 'nobody'
+  group 'nogroup'
+end
 
 git '/certbot' do
   repository 'https://github.com/certbot/certbot.git'
