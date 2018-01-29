@@ -52,6 +52,7 @@ end
 docker_container "#{name}" do
   repo "#{repo}"
   memory '8589934592'
+  devices [{ "PathOnHost"=>"/dev/dri", "PathInContainer"=>"/dev/dri", "CgroupPermissions"=>"mrw"}]
   port '32400:32400'
   volumes [ '/data:/data' ]
   restart_policy 'always'
