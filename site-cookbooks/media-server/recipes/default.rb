@@ -17,6 +17,11 @@
 # limitations under the License.
 #
 
+docker_installation_package 'default' do
+  version '17.12.0~ce-0~ubuntu'
+  action :create
+end
+
 docker_service 'default' do
   ipv6 false
   ipv6_forward false
