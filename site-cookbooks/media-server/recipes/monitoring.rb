@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+package 'apcupsd'
 package 'smartmontools'
 package 'snmp'
 package 'snmp-mibs-downloader'
@@ -28,6 +29,9 @@ package 'fancontrol'
 
 cookbook_file '/etc/fancontrol'
 cookbook_file '/etc/modules'
+cookbook_file '/etc/defaults/apcupsd'
+cookbook_file '/etc/apcupsd/apcupsd.conf'
+
 
 cron "Monitoring" do
   command "/data/configs/monitoring/monolith.sh"
