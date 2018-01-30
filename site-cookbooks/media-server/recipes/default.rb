@@ -18,7 +18,7 @@
 #
 
 docker_installation_package 'default' do
-  version '17.12.0~ce-0~ubuntu'
+  version '17.12.0'
   action :create
 end
 
