@@ -29,7 +29,7 @@ package 'fancontrol'
 
 cookbook_file '/etc/fancontrol'
 cookbook_file '/etc/modules'
-cookbook_file '/etc/defaults/apcupsd'
+cookbook_file '/etc/default/apcupsd'
 cookbook_file '/etc/apcupsd/apcupsd.conf'
 
 
