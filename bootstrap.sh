@@ -28,7 +28,7 @@ if [ ! -d "/data" ]; then
 fi
 
 # Install Chef
-sudo apt-get -y install build-essential curl dialog git python ruby ruby-dev wget
+sudo apt-get -y install build-essential curl dialog git python ruby ruby-dev ruby-shadow wget
 sudo gem install --no-ri --no-rdoc chef -v 12.9.38
 sudo gem install --no-ri --no-rdoc berkshelf -v 4.3.2
 sudo gem install --no-ri --no-rdoc bundler
