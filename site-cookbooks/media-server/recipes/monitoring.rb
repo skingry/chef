@@ -21,6 +21,8 @@ package 'smartmontools'
 package 'snmp'
 package 'snmp-mibs-downloader'
 package 'jq'
+package 'ipmitool'
+package 'openipmi'
 package 'lm-sensors'
 package 'fancontrol'
 
