@@ -26,6 +26,8 @@ end
 
 include_recipe 'directories'
 
+include_recipe 'media-server::monitoring'
+
 include_recipe 'media-server::openvpn'
 include_recipe 'media-server::backup'
 include_recipe 'media-server::certbot'
