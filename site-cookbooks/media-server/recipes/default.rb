@@ -22,19 +22,19 @@ include_recipe 'apt'
 apt_repository 'libnvidia-container' do
   uri 'https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64'
   key 'https://nvidia.github.io/nvidia-docker/gpgkey'
-  components [ '/' ]
+  distribution '/'
 end
 
 apt_repository 'nvidia-container-runtime' do
   uri 'https://nvidia.github.io/nvidia-container-runtime/ubuntu16.04/amd64'
   key 'https://nvidia.github.io/nvidia-docker/gpgkey'
-  components [ '/' ]
+  distribution '/'
 end
 
 apt_repository 'nvidia-docker' do
   uri 'https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64'
   key 'https://nvidia.github.io/nvidia-docker/gpgkey'
-  components [ '/' ]
+  distribution '/'
 end
 
 apt_repository 'nvidia-key' do
