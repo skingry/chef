@@ -51,7 +51,6 @@
   },
   "chef_type": "role",
   "run_list": [
-    "recipe[awscli]",
     "recipe[chef-solo-search]",
     "recipe[hostnames]",
     "recipe[ntp]",
