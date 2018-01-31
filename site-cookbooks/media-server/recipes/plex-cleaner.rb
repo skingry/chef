@@ -21,7 +21,7 @@ name = 'plex-cleaner'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '536870912'
+  memory '256M'
   network_mode 'host'
   volumes [ '/data/configs/plex-cleaner:/config', '/data/shares:/shares' ]
   action :create

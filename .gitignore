@@ -1,12 +1,9 @@
-.vagrant
 cookbooks/*
 cache/*
 backup/*
+nodes/*
 .ruby-version
 Berksfile.lock
 Gemfile.lock
-encrypted_data_bag_secret
 data_bags/users/*
 data_bags/passwords/*
-environments/*
-solo/config/*

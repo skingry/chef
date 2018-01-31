@@ -21,7 +21,7 @@ name = 'certbot'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '536870912'
+  memory '256M'
   network_mode 'host'
   volumes [ '/data/configs/nginx/ssl:/config', '/data/configs/nginx/webroot:/webroot' ]
   action :create

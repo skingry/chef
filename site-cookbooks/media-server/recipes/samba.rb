@@ -21,7 +21,7 @@ name = 'samba'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '1073741824'
+  memory '1024M'
   network_mode 'host'
   volumes [ '/data/shares:/shares', '/data/configs/samba/smb.conf:/etc/samba/smb.conf' ]
   restart_policy 'always'

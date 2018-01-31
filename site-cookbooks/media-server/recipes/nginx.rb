@@ -23,7 +23,7 @@ name = 'nginx'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '536870912'
+  memory '512M'
   links [ 'openvpn:couchpotato', 'openvpn:sabnzbd', 'openvpn:sonarr', 'openvpn:transmission', 'grafana:grafana', 'plexpy:plexpy', 'resilio:resilio' ]
   port [ '80:80', '443:443' ]
   volumes [ '/data/configs/nginx:/config' ]
