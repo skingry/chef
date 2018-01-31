@@ -24,7 +24,7 @@ port = '8181'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '512M'
+  memory '128M'
   volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Plex Media Server/Logs:/logs', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
 end

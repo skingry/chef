@@ -24,7 +24,7 @@ port = '32400'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '3G'
+  memory '2048M'
   network_mode 'host'
   runtime 'nvidia'
   volumes [ '/data/configs/plex:/config', '/data/shares:/shares', '/usr/lib/nvidia-384:/usr/lib/nvidia-384:ro', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro', '/tmp:/tmp' ]

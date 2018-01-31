@@ -24,7 +24,7 @@ port = '5050'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '512M'
+  memory '128M'
   network_mode 'container:openvpn'
   volumes [ '/data/configs/couchpotato:/config', '/data/shares/Downloads:/download', '/data/shares/Media/Movies:/movies', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
