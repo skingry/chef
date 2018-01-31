@@ -4,7 +4,7 @@ cookbook 'apt', '~> 6.1.4'
 cookbook 'awscli', '~> 1.1.2'
 cookbook 'build-essential', '~> 8.0.4'
 cookbook 'chef-solo-search', '~> 0.5.1'
-cookbook "docker", github: "skingry/docker"
+cookbook 'docker', github: "chef-cookbooks/docker"
 cookbook 'hostnames', '~> 0.4.2'
 cookbook 'hostsfile', '~> 3.0.1'
 cookbook 'iptables', '~> 4.3.1'
