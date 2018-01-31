@@ -37,10 +37,6 @@ apt_repository 'nvidia-docker' do
   distribution '/'
 end
 
-apt_repository 'nvidia-key' do
-  key 'https://nvidia.github.io/nvidia-docker/gpgkey'
-end
-
 docker_installation_package 'default' do
   version '17.12.0'
   action :create
