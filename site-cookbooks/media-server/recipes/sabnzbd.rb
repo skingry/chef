@@ -24,7 +24,7 @@ port = '8080'
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '256M'
+  memory '512M'
   network_mode 'container:openvpn'
   volumes [ '/data/configs/sabnzbd:/config', '/data/shares/Downloads:/download', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
