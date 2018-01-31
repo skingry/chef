@@ -17,10 +17,36 @@
 # limitations under the License.
 #
 
+include_recipe 'apt'
+
+apt_repository 'libnvidia-container' do
+  uri 'https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64'
+  key 'https://nvidia.github.io/nvidia-docker/gpgkey'
+  components [ '/' ]
+end
+
+apt_repository 'nvidia-container-runtime' do
+  uri 'https://nvidia.github.io/nvidia-container-runtime/ubuntu16.04/amd64'
+  key 'https://nvidia.github.io/nvidia-docker/gpgkey'
+  components [ '/' ]
+end
+
+apt_repository 'nvidia-docker' do
+  uri 'https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64'
+  key 'https://nvidia.github.io/nvidia-docker/gpgkey'
+  components [ '/' ]
+end
+
+apt_repository 'nvidia-key' do
+  key 'https://nvidia.github.io/nvidia-docker/gpgkey'
+end
+
 docker_installation_package 'default' do
   version '17.12.0'
   action :create
 end
+
+package 'nvidia-docker2'
 
 docker_service 'default' do
   ipv6 false
