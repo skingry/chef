@@ -19,6 +19,8 @@
 
 include_recipe 'apt'
 
+package 'nvidia-384'
+
 apt_repository 'libnvidia-container' do
   uri 'https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64'
   key 'https://nvidia.github.io/nvidia-docker/gpgkey'
@@ -67,11 +69,13 @@ include_recipe 'media-server::influxdb'
 include_recipe 'media-server::grafana'
 
 include_recipe 'media-server::couchpotato'
-include_recipe 'media-server::plex'
-include_recipe 'media-server::plexpy'
-include_recipe 'media-server::resilio'
 include_recipe 'media-server::sabnzbd'
 include_recipe 'media-server::sonarr'
 include_recipe 'media-server::transmission'
+
+include_recipe 'media-server::plex'
+
+include_recipe 'media-server::plexpy'
+include_recipe 'media-server::resilio'
 
 include_recipe 'media-server::nginx'
