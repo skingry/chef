@@ -58,7 +58,7 @@
     "recipe[openssh]",
     "recipe[postfix::server]",
     "recipe[postfix::transports]",
-    "recipe[python]",
+    "recipe[poise-python]",
     "recipe[sudo]",
     "recipe[timezone-ii]",
     "recipe[users::sysadmins]"
