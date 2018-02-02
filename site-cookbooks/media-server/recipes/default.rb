@@ -46,6 +46,12 @@ end
 
 package 'nvidia-docker2'
 
+git '/root/Dockerfiles' do
+  repository 'git://github.com/skingry/Dockerfiles.git'
+  revision 'master'
+  action :sync
+end
+
 docker_service 'default' do
   ipv6 false
   ipv6_forward false
