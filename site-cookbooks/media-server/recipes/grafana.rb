@@ -33,7 +33,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '128M'
   links [ 'influxdb:influxdb.local' ]
-  volumes [ '/data/configs/grafana/grafana.ini:/etc/grafana/grafana.ini', '/data/configs/grafana:/var/lib/grafana' ]
+  volumes [ '/data/configs/grafana:/config' ]
   restart_policy 'always'
 end
 
