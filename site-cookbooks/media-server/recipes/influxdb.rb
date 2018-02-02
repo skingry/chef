@@ -21,8 +21,8 @@ name = 'influxdb'
 repo = "#{name}"
 
 docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
+  source "/root/Dockerfiles/#{name}"
+  action :build_if_missing
 end
 
 docker_container "#{name}" do
