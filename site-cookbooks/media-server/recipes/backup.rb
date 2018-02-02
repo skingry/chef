@@ -23,7 +23,6 @@ docker_container "#{name}" do
   repo "#{name}"
   memory '512M'
   network_mode 'host'
-  env [ "HOSTNAME=#{node[:media_server][:domain]}", "S3_BUCKET=#{node[:media_server][:s3_bucket]}" ]
   volumes [ '/data:/data', '/data/configs/backup/backup.sh:/sbin/backup' ]
   action :create
 end
