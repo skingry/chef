@@ -61,11 +61,15 @@ end
 
 docker_image 'base' do
   source '/root/Dockerfiles/base'
+  read_timeout 600
+  write_timeout 600
   action :build_if_missing
 end
 
 docker_image 'cuda' do
   source '/root/Dockerfiles/cuda'
+  read_timeout 600
+  write_timeout 600
   action :build_if_missing
 end
 

@@ -21,6 +21,8 @@ name = 'netatalk'
 
 docker_image "#{name}" do
   source "/root/Dockerfiles/#{name}"
+  read_timeout 600
+  write_timeout 600
   action :build_if_missing
 end
 
