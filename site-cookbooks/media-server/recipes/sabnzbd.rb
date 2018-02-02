@@ -22,6 +22,11 @@ name = 'sabnzbd'
 host = "#{name}"
 port = '8080'
 
+docker_image "#{name}" do
+  source "/root/Dockerfiles/#{name}"
+  action :build_if_missing
+end
+
 docker_container "#{name}" do
   repo "#{name}"
   memory '512M'

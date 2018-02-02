@@ -59,6 +59,16 @@ docker_service 'default' do
   action [:create, :start]
 end
 
+docker_image 'base' do
+  source '/root/Dockerfiles/base'
+  action :build_if_missing
+end
+
+docker_image 'cuda' do
+  source '/root/Dockerfiles/cuda'
+  action :build_if_missing
+end
+
 include_recipe 'media-server::monitoring'
 
 include_recipe 'media-server::openvpn'
