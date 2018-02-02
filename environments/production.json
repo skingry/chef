@@ -10,16 +10,8 @@
     "set_fqdn": "*.robotozon.com",
     "media_server": {
       "domain": "robotozon.com",
-      "s3_bucket": "s3.robotozon.com",
       "host": {
-        "couchpotato": "localhost",
-        "grafana": "monolith.robotozon.com",
         "plex": "monolith.robotozon.com",
-        "plexpy": "monolith.robotozon.com",
-        "resilio": "monolith.robotozon.com",
-        "sabnzbd": "localhost",
-        "sonarr": "localhost",
-        "transmission": "localhost"
       }
     }
   },

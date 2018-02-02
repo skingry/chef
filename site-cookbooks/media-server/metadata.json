@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "apt": ">= 0.0.0",
-    "directories": ">= 0.1.0",
     "docker": ">= 0.0.0"
   },
   "recommendations": {
@@ -27,17 +26,6 @@
   "groupings": {
   },
   "recipes": {
-    "backup": "Installs config backup",
-    "couchpotato": "Installs Couchpotato Docker Container",
-    "letsencrypt": "Installs letsencrypt components",
-    "netatalk": "Installs Netatalk Docker Container",
-    "nginx": "Installs Nginx Docker Container",
-    "plex": "Installs Plex Media Server Docker Container",
-    "plexpy": "Installs PlexPy Docker Container",
-    "plexrequests": "Installs Plex Requests Docker Container",
-    "sabnzbd": "Installs SABnzbd Docker Container",
-    "sonarr": "Installs Sonarr Docker Container",
-    "transmission": "Installs Transmission Docker Container"
   },
   "version": "0.1.0"
 }

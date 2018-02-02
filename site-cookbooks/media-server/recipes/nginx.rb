@@ -20,7 +20,6 @@
 domain = node[:media_server][:domain]
 name = 'nginx'
 
-
 docker_container "#{name}" do
   repo "#{name}"
   memory '32M'

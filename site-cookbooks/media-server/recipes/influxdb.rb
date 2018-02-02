@@ -20,10 +20,6 @@
 name = 'influxdb'
 repo = "#{name}"
 
-include_recipe 'directories'
-
-directory "/data/configs/#{name}"
-
 docker_image "#{name}" do
   repo "#{repo}"
   action :pull

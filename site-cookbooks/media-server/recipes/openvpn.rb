@@ -19,8 +19,6 @@
 
 name = 'openvpn'
 
-include_recipe 'directories'
-
 docker_container "#{name}" do
   repo "#{name}"
   memory '32M'

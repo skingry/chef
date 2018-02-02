@@ -53,8 +53,6 @@ docker_service 'default' do
   action [:create, :start]
 end
 
-include_recipe 'directories'
-
 include_recipe 'media-server::monitoring'
 
 include_recipe 'media-server::openvpn'

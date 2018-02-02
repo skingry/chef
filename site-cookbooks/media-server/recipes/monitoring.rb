@@ -32,8 +32,8 @@ cookbook_file '/etc/modules'
 cookbook_file '/etc/default/apcupsd'
 cookbook_file '/etc/apcupsd/apcupsd.conf'
 
-
 cron "Monitoring" do
+  mailto "#{node[:cron_mailto]}"
   command "/data/configs/monitoring/monolith.sh"
 end
 

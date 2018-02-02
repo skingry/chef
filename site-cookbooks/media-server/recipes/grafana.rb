@@ -23,10 +23,6 @@ host = "#{name}"
 port = '3000'
 repo = "grafana/#{name}"
 
-include_recipe 'directories'
-
-directory "/data/configs/#{name}"
-
 docker_image "#{name}" do
   repo "#{repo}"
   action :pull
