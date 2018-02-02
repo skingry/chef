@@ -11,7 +11,7 @@
     "media_server": {
       "domain": "robotozon.com",
       "host": {
-        "plex": "monolith.robotozon.com",
+        "plex": "monolith.robotozon.com"
       }
     }
   },
