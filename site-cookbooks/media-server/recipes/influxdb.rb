@@ -29,7 +29,7 @@ docker_container "#{name}" do
   repo "#{repo}"
   memory '512M'
   port '127.0.0.1:8086:8086'
-  volumes [ '/data/configs/influxdb:/var/lib/influxdb', '/data/configs/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro' ]
+  volumes [ '/data/configs/influxdb:/config' ]
   restart_policy 'always'
 end
 
