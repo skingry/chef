@@ -21,16 +21,14 @@ domain = node[:media_server][:domain]
 name = 'grafana'
 host = "#{name}"
 port = '3000'
-repo = "grafana/#{name}"
 
 docker_image "#{name}" do
-  repo "#{repo}"
-  action :pull
-  notifies :redeploy, "docker_container[#{name}]"
+  source "/root/Dockerfiles/#{name}"
+  action :build_if_missing
 end
 
 docker_container "#{name}" do
-  repo "#{repo}"
+  repo "#{name}"
   memory '128M'
   links [ 'influxdb:influxdb.local' ]
   volumes [ '/data/configs/grafana:/config' ]
