@@ -28,7 +28,7 @@ end
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '256M'
+  memory '512M'
   network_mode 'host'
   volumes [ '/data/configs/netatalk:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
