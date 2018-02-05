@@ -29,7 +29,7 @@ end
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '512M'
+  memory '1024M'
   network_mode 'container:openvpn'
   volumes [ '/data/configs/sabnzbd:/config', '/data/shares/Downloads:/download', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
