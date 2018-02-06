@@ -26,7 +26,7 @@ end
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '256M'
+  memory '512M'
   network_mode 'host'
   volumes [ '/data/shares:/shares', '/data/configs/samba/smb.conf:/etc/samba/smb.conf' ]
   restart_policy 'always'
