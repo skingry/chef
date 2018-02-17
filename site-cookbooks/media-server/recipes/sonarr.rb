@@ -29,7 +29,7 @@ end
 
 docker_container "#{name}" do
   repo "#{name}"
-  memory '512M'
+  memory '768M'
   network_mode 'container:openvpn'
   volumes [ '/data/configs/sonarr:/config', '/data/shares/Media/TV:/tv', '/data/shares/Downloads:/download', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
   restart_policy 'always'
