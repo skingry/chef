@@ -22,8 +22,8 @@ sudo modprobe zfs
 
 # Install Chef
 sudo apt-get -y install build-essential curl dialog git python ruby ruby-dev ruby-shadow wget
-sudo gem install --no-ri --no-rdoc chef -v 12.10.24
-sudo gem install --no-ri --no-rdoc berkshelf -v 4.3.2
+sudo gem install --no-ri --no-rdoc chef
+sudo gem install --no-ri --no-rdoc berkshelf
 sudo gem install --no-ri --no-rdoc bundler
 
 berks vendor cookbooks
