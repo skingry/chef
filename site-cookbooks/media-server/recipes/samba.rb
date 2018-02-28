@@ -17,18 +17,18 @@
 # limitations under the License.
 #
 
-name = 'samba'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'samba' do
+  source '/root/Dockerfiles/samba'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'samba' do
+  repo 'samba'
   memory '512M'
   network_mode 'host'
-  volumes [ '/data/shares:/shares', '/data/configs/samba/smb.conf:/etc/samba/smb.conf' ]
+  volumes [ 
+            '/data/shares:/shares', 
+            '/data/configs/samba/smb.conf:/etc/samba/smb.conf' 
+          ]
   restart_policy 'always'
 end
-
