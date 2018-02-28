@@ -7,7 +7,7 @@
   },
   "default_attributes": {
     "cron_mailto": "sjkingry@gmail.com",
-    "set_fqdn": "*.robotozon.com",
+    "set_fqdn": "*.robotozon.com"
   },
   "override_attributes": {
   }
