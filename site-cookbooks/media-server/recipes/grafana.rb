@@ -17,30 +17,15 @@
 # limitations under the License.
 #
 
-domain = node[:media_server][:domain]
-name = 'grafana'
-host = "#{name}"
-port = '3000'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'grafana' do
+  source '/root/Dockerfiles/grafana'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'grafana' do
+  repo 'grafana'
   memory '128M'
   links [ 'influxdb:influxdb.local' ]
   volumes [ '/data/configs/grafana:/config' ]
   restart_policy 'always'
 end
-
-template "/data/configs/nginx/sites/#{name}.conf" do
-  source 'proxy_site.erb'
-  variables :domain => "#{domain}",
-            :host => "#{host}",
-            :name => "#{name}",
-            :port => "#{port}",
-            :auth => true
-end
-
