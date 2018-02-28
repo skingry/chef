@@ -8,12 +8,6 @@
   "default_attributes": {
     "cron_mailto": "sjkingry@gmail.com",
     "set_fqdn": "*.robotozon.com",
-    "media_server": {
-      "domain": "robotozon.com",
-      "host": {
-        "plex": "monolith.robotozon.com"
-      }
-    }
   },
   "override_attributes": {
   }
