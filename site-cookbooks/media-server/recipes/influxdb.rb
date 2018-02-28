@@ -17,19 +17,15 @@
 # limitations under the License.
 #
 
-name = 'influxdb'
-repo = "#{name}"
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'influxdb' do
+  source '/root/Dockerfiles/influxdb'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{repo}"
+docker_container 'influxdb' do
+  repo 'influxdb'
   memory '512M'
   port '127.0.0.1:8086:8086'
   volumes [ '/data/configs/influxdb:/config' ]
   restart_policy 'always'
 end
-
