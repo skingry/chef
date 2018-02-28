@@ -17,22 +17,25 @@
 # limitations under the License.
 #
 
-name = 'openvpn'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'openvpn' do
+  source '/root/Dockerfiles/openvpn'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'openvpn' do
+  repo 'openvpn'
   memory '32M'
   cap_add 'NET_ADMIN'
-  devices [{ "PathOnHost"=>"/dev/net/tun", "PathInContainer"=>"/dev/net/tun", "CgroupPermissions"=>"mrw"}]
+  devices [
+            { 
+              "PathOnHost"=>"/dev/net/tun", 
+              "PathInContainer"=>"/dev/net/tun", 
+              "CgroupPermissions"=>"mrw"
+            }
+          ]
   dns [ '8.8.8.8', '8.8.4.4' ]
   volumes [ '/data/configs/openvpn:/config' ]
   privileged true
   command '/usr/sbin/openvpn --config /config/newshosting.ovpn'
   restart_policy 'always'
 end
-
