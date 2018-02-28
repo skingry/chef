@@ -17,30 +17,23 @@
 # limitations under the License.
 #
 
-domain = node[:media_server][:domain]
 name = 'couchpotato'
-host = "#{name}"
-port = '5050'
 
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'couchpotato' do
+  source '/root/Dockerfiles/couchpotato'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'couchpotato' do
+  repo 'couchpotato'
   memory '1024M'
   network_mode 'container:openvpn'
-  volumes [ '/data/configs/couchpotato:/config', '/data/shares/Downloads:/download', '/data/shares/Media/Movies:/movies', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ 
+            '/data/configs/couchpotato:/config', 
+            '/data/shares/Downloads:/download', 
+            '/data/shares/Media/Movies:/movies', 
+            '/dev/rtc:/dev/rtc:ro', 
+            '/etc/localtime:/etc/localtime:ro' 
+          ]
   restart_policy 'always'
 end
-
-template "/data/configs/nginx/sites/#{name}.conf" do
-  source 'proxy_site.erb'
-  variables :domain => "#{domain}",
-            :host => "#{host}",
-            :name => "#{name}",
-            :port => "#{port}",
-            :auth => true
-end
-
