@@ -17,25 +17,25 @@
 # limitations under the License.
 #
 
-name = 'plex-cleaner'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'plex-cleaner' do
+  source '/root/Dockerfiles/plex-cleaner'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'plex-cleaner' do
+  repo 'plex-cleaner'
   memory '64M'
   network_mode 'host'
-  volumes [ '/data/configs/plex-cleaner:/config', '/data/shares:/shares' ]
+  volumes [ 
+            '/data/configs/plex-cleaner:/config', 
+            '/data/shares:/shares' 
+          ]
   action :create
 end
 
-cron "Plex Cleaner" do
-  minute "0"
-  hour "3"
+cron 'Plex Cleaner' do
+  minute '0'
+  hour '3'
   mailto "#{node[:cron_mailto]}"
-  command "docker start -i #{name} >> /dev/null"
+  command 'docker start -i plex-cleaner >> /dev/null'
 end
-
