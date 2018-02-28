@@ -17,29 +17,19 @@
 # limitations under the License.
 #
 
-domain = node[:media_server][:domain]
-name = 'plexpy'
-host = "#{name}"
-port = '8181'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'plexpy' do
+  source '/root/Dockerfiles/plexpy'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'plexpy' do
+  repo 'plexpy'
   memory '256M'
-  volumes [ '/data/configs/plexpy:/config', '/data/configs/plex/Plex Media Server/Logs:/logs', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ 
+            '/data/configs/plexpy:/config', 
+            '/data/configs/plex/Plex Media Server/Logs:/logs', 
+            '/dev/rtc:/dev/rtc:ro', 
+            '/etc/localtime:/etc/localtime:ro' 
+          ]
   restart_policy 'always'
 end
-
-template "/data/configs/nginx/sites/#{name}.conf" do
-  source 'proxy_site.erb'
-  variables :domain => "#{domain}",
-            :host => "#{host}",
-            :name => "#{name}",
-            :port => "#{port}",
-            :auth => true
-end
-
