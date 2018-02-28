@@ -17,20 +17,24 @@
 # limitations under the License.
 #
 
-domain = node[:media_server][:domain]
-name = 'nginx'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'nginx' do
+  source '/root/Dockerfiles/nginx'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'nginx' do
+  repo 'nginx'
   memory '32M'
-  links [ 'openvpn:couchpotato', 'openvpn:sabnzbd', 'openvpn:sonarr', 'openvpn:transmission', 'grafana:grafana', 'plexpy:plexpy', 'resilio:resilio' ]
+  links [ 
+          'openvpn:couchpotato', 
+          'openvpn:sabnzbd', 
+          'openvpn:sonarr', 
+          'openvpn:transmission', 
+          'grafana:grafana', 
+          'plexpy:plexpy', 
+          'resilio:resilio' 
+        ]
   port [ '80:80', '443:443' ]
   volumes [ '/data/configs/nginx:/config' ]
   restart_policy 'always'
 end
-
