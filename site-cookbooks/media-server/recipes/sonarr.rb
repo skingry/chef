@@ -17,30 +17,21 @@
 # limitations under the License.
 #
 
-domain = node[:media_server][:domain]
-name = 'sonarr'
-host = "#{name}"
-port = '8989'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'sonarr' do
+  source '/root/Dockerfiles/sonarr'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'sonarr' do
+  repo 'sonarr'
   memory '768M'
   network_mode 'container:openvpn'
-  volumes [ '/data/configs/sonarr:/config', '/data/shares/Media/TV:/tv', '/data/shares/Downloads:/download', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ 
+            '/data/configs/sonarr:/config', 
+            '/data/shares/Media/TV:/tv', 
+            '/data/shares/Downloads:/download', 
+            '/dev/rtc:/dev/rtc:ro', 
+            '/etc/localtime:/etc/localtime:ro' 
+          ]
   restart_policy 'always'
 end
-
-template "/data/configs/nginx/sites/#{name}.conf" do
-  source 'proxy_site.erb'
-  variables :domain => "#{domain}",
-            :host => "#{host}",
-            :name => "#{name}",
-            :port => "#{port}",
-            :auth => true
-end
-
