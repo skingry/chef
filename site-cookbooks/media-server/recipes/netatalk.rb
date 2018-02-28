@@ -17,20 +17,23 @@
 # limitations under the License.
 #
 
-name = 'netatalk'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'netatalk' do
+  source '/root/Dockerfiles/netatalk'
   read_timeout 600
   write_timeout 600
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'netatalk' do
+  repo 'netatalk'
   memory '512M'
   network_mode 'host'
-  volumes [ '/data/configs/netatalk:/config', '/data/shares:/shares', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro' ]
+  volumes [ 
+            '/data/configs/netatalk:/config', 
+            '/data/shares:/shares', 
+            '/dev/rtc:/dev/rtc:ro', 
+            '/etc/localtime:/etc/localtime:ro' 
+          ]
   restart_policy 'always'
 end
 
