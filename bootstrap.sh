@@ -27,4 +27,4 @@ sudo gem install --no-ri --no-rdoc berkshelf -v 4.3.2
 sudo gem install --no-ri --no-rdoc bundler
 
 berks vendor cookbooks
-chef-solo -c /root/chef/solo/config/production.rb -j /root/chef/solo/json/server.json
+chef-solo -c /data/configs/chef/solo/config/production.rb -j /data/configs/chef/solo/json/server.json
