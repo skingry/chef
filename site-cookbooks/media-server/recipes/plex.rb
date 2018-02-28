@@ -17,31 +17,24 @@
 # limitations under the License.
 #
 
-domain = node[:media_server][:domain]
-name = 'plex'
-host = node[:media_server][:host][:plex]
-port = '32400'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'plex' do
+  source '/root/Dockerfiles/plex'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'plex' do
+  repo 'plex'
   memory '2048M'
   network_mode 'host'
   runtime 'nvidia'
-  volumes [ '/data/configs/plex:/config', '/data/shares/Media:/media', '/usr/lib/nvidia-384:/usr/lib/nvidia-384:ro', '/dev/rtc:/dev/rtc:ro', '/etc/localtime:/etc/localtime:ro', '/tmp:/tmp' ]
+  volumes [ 
+            '/data/configs/plex:/config', 
+            '/data/shares/Media:/media', 
+            '/usr/lib/nvidia-384:/usr/lib/nvidia-384:ro', 
+            '/dev/rtc:/dev/rtc:ro', 
+            '/etc/localtime:/etc/localtime:ro', 
+            '/tmp:/tmp' 
+          ]
   privileged true
   restart_policy 'always'
 end
-
-template "/data/configs/nginx/sites/#{name}.conf" do
-  source 'plex_proxy_site.erb'
-  variables :domain => "#{domain}",
-            :host => "#{host}",
-            :name => "#{name}",
-            :port => "#{port}"
-end
-
