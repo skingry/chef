@@ -24,7 +24,7 @@ end
 
 docker_container 'radarr' do
   repo 'radarr'
-  memory '768M'
+  memory '1536M'
   network_mode 'container:openvpn'
   volumes [ 
             '/data/configs/radarr:/config', 
