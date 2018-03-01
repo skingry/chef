@@ -26,7 +26,7 @@ docker_container 'nginx' do
   repo 'nginx'
   memory '32M'
   links [ 
-          'openvpn:couchpotato', 
+          'openvpn:radarr', 
           'openvpn:sabnzbd', 
           'openvpn:sonarr', 
           'openvpn:transmission', 
