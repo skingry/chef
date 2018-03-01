@@ -28,7 +28,7 @@ docker_container 'radarr' do
   network_mode 'container:openvpn'
   volumes [ 
             '/data/configs/radarr:/config', 
-            '/data/shares/Media/Movies:/movies', 
+            '/data/shares/Media:/media', 
             '/data/shares/Downloads:/download', 
             '/dev/rtc:/dev/rtc:ro', 
             '/etc/localtime:/etc/localtime:ro' 
