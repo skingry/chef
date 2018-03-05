@@ -27,7 +27,7 @@ docker_container 'nginx' do
   memory '32M'
   links [ 
           'openvpn:radarr', 
-          'openvpn:sabnzbd', 
+          'openvpn:nzbget', 
           'openvpn:sonarr', 
           'openvpn:transmission', 
           'grafana:grafana', 
