@@ -35,5 +35,6 @@ docker_container 'transcoder' do
             '/dev/rtc:/dev/rtc:ro', 
             '/etc/localtime:/etc/localtime:ro' 
           ]
+  privileged true
   restart_policy 'always'
 end
