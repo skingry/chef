@@ -26,6 +26,7 @@ docker_container 'transcoder' do
   repo 'transcoder'
   memory '1024M'
   network_mode 'host'
+  runtime 'nvidia'
   volumes [ 
             '/usr/lib/nvidia-384:/usr/lib/nvidia-384',
             '/data/configs/transcoder/config:/config',
