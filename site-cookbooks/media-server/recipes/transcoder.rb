@@ -23,7 +23,7 @@ docker_image 'transcoder' do
 end
 
 docker_container 'transcoder' do
-  repo 'radarr'
+  repo 'transcoder'
   memory '1024M'
   network_mode 'host'
   volumes [ 
