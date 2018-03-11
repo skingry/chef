@@ -36,5 +36,11 @@ docker_container 'transcoder' do
             '/etc/localtime:/etc/localtime:ro' 
           ]
   privileged true
-  restart_policy 'always'
+  action :create
+end
+
+cron "Media Transcoder" do
+  minute "*/10"
+  mailto "#{node[:cron_mailto]}"
+  command "docker start -i transcoder"
 end
