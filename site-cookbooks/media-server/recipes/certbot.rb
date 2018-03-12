@@ -22,7 +22,7 @@ docker_image 'certbot' do
   action :build_if_missing
 end
 
-docker_container "#{name}" do
+docker_container 'certbot' do
   repo 'certbot'
   memory '256M'
   network_mode 'host'
