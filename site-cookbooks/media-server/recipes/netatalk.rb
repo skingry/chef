@@ -28,11 +28,11 @@ docker_container 'netatalk' do
   repo 'netatalk'
   memory '512M'
   network_mode 'host'
-  volumes [ 
-            '/data/configs/netatalk:/config', 
-            '/data/shares:/shares', 
-            '/dev/rtc:/dev/rtc:ro', 
-            '/etc/localtime:/etc/localtime:ro' 
+  volumes [
+            '/data/configs/netatalk:/config',
+            '/data/shares:/shares',
+            '/dev/rtc:/dev/rtc:ro',
+            '/etc/localtime:/etc/localtime:ro'
           ]
   restart_policy 'always'
 end

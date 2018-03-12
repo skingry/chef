@@ -28,12 +28,12 @@ docker_container 'couchpotato' do
   repo 'couchpotato'
   memory '1024M'
   network_mode 'container:openvpn'
-  volumes [ 
-            '/data/configs/couchpotato:/config', 
-            '/data/shares/Downloads:/download', 
-            '/data/shares/Media/Movies:/movies', 
-            '/dev/rtc:/dev/rtc:ro', 
-            '/etc/localtime:/etc/localtime:ro' 
+  volumes [
+            '/data/configs/couchpotato:/config',
+            '/data/shares/Downloads:/download',
+            '/data/shares/Media/Movies:/movies',
+            '/dev/rtc:/dev/rtc:ro',
+            '/etc/localtime:/etc/localtime:ro'
           ]
   restart_policy 'always'
 end

@@ -27,9 +27,9 @@ docker_container 'openvpn' do
   memory '32M'
   cap_add 'NET_ADMIN'
   devices [
-            { 
-              "PathOnHost"=>"/dev/net/tun", 
-              "PathInContainer"=>"/dev/net/tun", 
+            {
+              "PathOnHost"=>"/dev/net/tun",
+              "PathInContainer"=>"/dev/net/tun",
               "CgroupPermissions"=>"mrw"
             }
           ]

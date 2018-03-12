@@ -26,12 +26,12 @@ docker_container 'radarr' do
   repo 'radarr'
   memory '1536M'
   network_mode 'container:openvpn'
-  volumes [ 
-            '/data/configs/radarr:/config', 
-            '/data/shares/Media:/media', 
-            '/data/shares/Downloads:/download', 
-            '/dev/rtc:/dev/rtc:ro', 
-            '/etc/localtime:/etc/localtime:ro' 
+  volumes [
+            '/data/configs/radarr:/config',
+            '/data/shares/Media:/media',
+            '/data/shares/Downloads:/download',
+            '/dev/rtc:/dev/rtc:ro',
+            '/etc/localtime:/etc/localtime:ro'
           ]
   restart_policy 'always'
 end

@@ -26,11 +26,11 @@ docker_container 'sabnzbd' do
   repo 'sabnzbd'
   memory '1536M'
   network_mode 'container:openvpn'
-  volumes [ 
-            '/data/configs/sabnzbd:/config', 
-            '/data/shares/Downloads:/download', 
-            '/dev/rtc:/dev/rtc:ro', 
-            '/etc/localtime:/etc/localtime:ro' 
+  volumes [
+            '/data/configs/sabnzbd:/config',
+            '/data/shares/Downloads:/download',
+            '/dev/rtc:/dev/rtc:ro',
+            '/etc/localtime:/etc/localtime:ro'
           ]
   restart_policy 'always'
 end

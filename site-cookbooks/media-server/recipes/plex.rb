@@ -27,13 +27,13 @@ docker_container 'plex' do
   memory '2048M'
   network_mode 'host'
   runtime 'nvidia'
-  volumes [ 
-            '/data/configs/plex:/config', 
-            '/data/shares/Media:/media', 
-            '/usr/lib/nvidia-384:/usr/lib/nvidia-384:ro', 
-            '/dev/rtc:/dev/rtc:ro', 
-            '/etc/localtime:/etc/localtime:ro', 
-            '/tmp:/tmp' 
+  volumes [
+            '/data/configs/plex:/config',
+            '/data/shares/Media:/media',
+            '/usr/lib/nvidia-384:/usr/lib/nvidia-384:ro',
+            '/dev/rtc:/dev/rtc:ro',
+            '/etc/localtime:/etc/localtime:ro',
+            '/tmp:/tmp'
           ]
   privileged true
   restart_policy 'always'

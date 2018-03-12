@@ -26,11 +26,11 @@ docker_container 'resilio' do
   repo 'resilio'
   memory '128M'
   port '55541:55541'
-  volumes [ 
-            '/data/configs/resilio:/config', 
-            '/data/shares:/shares', 
-            '/dev/rtc:/dev/rtc:ro', 
-            '/etc/localtime:/etc/localtime:ro' 
+  volumes [
+            '/data/configs/resilio:/config',
+            '/data/shares:/shares',
+            '/dev/rtc:/dev/rtc:ro',
+            '/etc/localtime:/etc/localtime:ro'
           ]
   restart_policy 'always'
 end

@@ -26,11 +26,11 @@ docker_container 'transmission' do
   repo 'transmission'
   memory '128M'
   network_mode 'container:openvpn'
-  volumes [ 
-            '/data/configs/transmission:/config', 
-            '/data/shares/Downloads:/download', 
-            '/dev/rtc:/dev/rtc:ro', 
-            '/etc/localtime:/etc/localtime:ro' 
+  volumes [
+            '/data/configs/transmission:/config',
+            '/data/shares/Downloads:/download',
+            '/dev/rtc:/dev/rtc:ro',
+            '/etc/localtime:/etc/localtime:ro'
           ]
   restart_policy 'always'
 end

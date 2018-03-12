@@ -25,14 +25,14 @@ end
 docker_container 'nginx' do
   repo 'nginx'
   memory '32M'
-  links [ 
-          'openvpn:radarr', 
-          'openvpn:nzbget', 
-          'openvpn:sonarr', 
-          'openvpn:transmission', 
-          'grafana:grafana', 
-          'plexpy:plexpy', 
-          'resilio:resilio' 
+  links [
+          'openvpn:radarr',
+          'openvpn:nzbget',
+          'openvpn:sonarr',
+          'openvpn:transmission',
+          'grafana:grafana',
+          'plexpy:plexpy',
+          'resilio:resilio'
         ]
   port [ '80:80', '443:443' ]
   volumes [ '/data/configs/nginx:/config' ]
