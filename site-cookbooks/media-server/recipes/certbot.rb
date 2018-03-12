@@ -17,26 +17,23 @@
 # limitations under the License.
 #
 
-name = 'certbot'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'certbot' do
+  source '/root/Dockerfiles/certbot'
   action :build_if_missing
 end
 
 docker_container "#{name}" do
-  repo "#{name}"
+  repo 'certbot'
   memory '256M'
   network_mode 'host'
   volumes [ '/data/configs/nginx/ssl:/config', '/data/configs/nginx/webroot:/webroot' ]
   action :create
 end
 
-cron "Certbot Certificate Renewal" do
-  minute "0"
-  hour "3"
-  weekday "1"
+cron 'Certbot Certificate Renewal' do
+  minute '0'
+  hour '3'
+  weekday '1'
   mailto "#{node[:cron_mailto]}"
-  command "docker start #{name} && docker restart nginx"
+  command 'docker start certbot && docker restart nginx'
 end
-

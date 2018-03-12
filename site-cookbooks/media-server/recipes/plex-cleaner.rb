@@ -26,9 +26,9 @@ docker_container 'plex-cleaner' do
   repo 'plex-cleaner'
   memory '64M'
   network_mode 'host'
-  volumes [ 
-            '/data/configs/plex-cleaner:/config', 
-            '/data/shares:/shares' 
+  volumes [
+            '/data/configs/plex-cleaner:/config',
+            '/data/shares:/shares'
           ]
   action :create
 end
@@ -37,9 +37,5 @@ cron 'Plex Cleaner' do
   minute '0'
   hour '3'
   mailto "#{node[:cron_mailto]}"
-<<<<<<< Updated upstream
-  command 'docker start -i plex-cleaner >> /dev/null'
-=======
-  command "docker start #{name}"
->>>>>>> Stashed changes
+  command 'docker start plex-cleaner'
 end

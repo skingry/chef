@@ -17,26 +17,23 @@
 # limitations under the License.
 #
 
-name = 'backup'
-
-docker_image "#{name}" do
-  source "/root/Dockerfiles/#{name}"
+docker_image 'backup' do
+  source '/root/Dockerfiles/backup'
   action :build_if_missing
 end
 
-docker_container "#{name}" do
-  repo "#{name}"
+docker_container 'backup' do
+  repo 'backup'
   memory '512M'
   network_mode 'host'
   volumes [ '/data:/data', '/data/configs/backup/backup.sh:/sbin/backup' ]
   action :create
 end
 
-cron "Config Backup" do
-  minute "30"
-  hour "3"
-  weekday "1"
+cron 'Config Backup' do
+  minute '30'
+  hour '3'
+  weekday '1'
   mailto "#{node[:cron_mailto]}"
-  command "docker start #{name}"
+  command 'docker start backup'
 end
-

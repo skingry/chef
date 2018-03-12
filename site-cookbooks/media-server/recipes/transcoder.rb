@@ -27,20 +27,20 @@ docker_container 'transcoder' do
   memory '1024M'
   network_mode 'host'
   runtime 'nvidia'
-  volumes [ 
+  volumes [
             '/usr/lib/nvidia-384:/usr/lib/nvidia-384',
             '/data/configs/transcoder/config:/config',
             '/data/configs/transcoder/logs:/logs',
             '/data/shares/Media:/media',
-            '/dev/rtc:/dev/rtc:ro', 
-            '/etc/localtime:/etc/localtime:ro' 
+            '/dev/rtc:/dev/rtc:ro',
+            '/etc/localtime:/etc/localtime:ro'
           ]
   privileged true
   action :create
 end
 
-cron "Media Transcoder" do
-  minute "*/10"
+cron 'Media Transcoder' do
+  minute '*/10'
   mailto "#{node[:cron_mailto]}"
-  command "docker start transcoder"
+  command 'docker start transcoder'
 end
