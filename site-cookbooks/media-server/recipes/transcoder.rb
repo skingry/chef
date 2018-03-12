@@ -42,5 +42,5 @@ end
 cron "Media Transcoder" do
   minute "*/10"
   mailto "#{node[:cron_mailto]}"
-  command "docker start -i transcoder"
+  command "docker start transcoder"
 end

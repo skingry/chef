@@ -37,5 +37,9 @@ cron 'Plex Cleaner' do
   minute '0'
   hour '3'
   mailto "#{node[:cron_mailto]}"
+<<<<<<< Updated upstream
   command 'docker start -i plex-cleaner >> /dev/null'
+=======
+  command "docker start #{name}"
+>>>>>>> Stashed changes
 end

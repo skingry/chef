@@ -37,6 +37,6 @@ cron "Config Backup" do
   hour "3"
   weekday "1"
   mailto "#{node[:cron_mailto]}"
-  command "docker start -i #{name}"
+  command "docker start #{name}"
 end
 
