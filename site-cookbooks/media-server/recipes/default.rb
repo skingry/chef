@@ -39,10 +39,10 @@ apt_repository 'nvidia-docker' do
   distribution '/'
 end
 
-docker_installation_package 'default' do
-  version '17.12.0'
-  action :create
-end
+#docker_installation_package 'default' do
+#  version '17.12.0'
+#  action :create
+#end
 
 package 'nvidia-docker2'
 
