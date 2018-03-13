@@ -82,17 +82,17 @@ include_recipe 'media-server::plex-cleaner'
 #include_recipe 'media-server::transcoder'
 
 include_recipe 'media-server::samba'
-#include_recipe 'media-server::netatalk'
+include_recipe 'media-server::netatalk'
 
 include_recipe 'media-server::influxdb'
 include_recipe 'media-server::grafana'
 
 include_recipe 'media-server::radarr'
-#include_recipe 'media-server::nzbget'
+include_recipe 'media-server::nzbget'
 include_recipe 'media-server::sonarr'
 include_recipe 'media-server::transmission'
 
-#include_recipe 'media-server::plex'
+include_recipe 'media-server::plex'
 
 include_recipe 'media-server::plexpy'
 include_recipe 'media-server::resilio'
