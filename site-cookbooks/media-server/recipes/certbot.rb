@@ -35,5 +35,5 @@ cron 'Certbot Certificate Renewal' do
   hour '3'
   weekday '1'
   mailto "#{node[:cron_mailto]}"
-  command 'docker start certbot && docker restart nginx'
+  command 'docker start certbot  2>&1 >> /dev/null && docker restart nginx 2>&1 >> /dev/null'
 end

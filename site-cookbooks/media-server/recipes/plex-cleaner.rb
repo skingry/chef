@@ -37,5 +37,5 @@ cron 'Plex Cleaner' do
   minute '0'
   hour '3'
   mailto "#{node[:cron_mailto]}"
-  command 'docker start plex-cleaner'
+  command 'docker start plex-cleaner 2>&1 >> /dev/null'
 end

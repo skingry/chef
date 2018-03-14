@@ -26,7 +26,10 @@ docker_container 'backup' do
   repo 'backup'
   memory '512M'
   network_mode 'host'
-  volumes [ '/data:/data', '/data/configs/backup/backup.sh:/sbin/backup' ]
+  volumes [
+            '/data:/data',
+            '/data/configs/backup/backup.sh:/sbin/backup'
+          ]
   action :create
 end
 
@@ -35,5 +38,5 @@ cron 'Config Backup' do
   hour '3'
   weekday '1'
   mailto "#{node[:cron_mailto]}"
-  command 'docker start backup'
+  command 'docker start backup 2>&1 >> /dev/null'
 end
