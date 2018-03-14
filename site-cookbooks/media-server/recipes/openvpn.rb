@@ -18,7 +18,7 @@
 #
 
 docker_image 'openvpn' do
-  source '/root/Dockerfiles/openvpn'
+  source '/data/configs/dockerfiles/openvpn'
   action :build_if_missing
 end
 

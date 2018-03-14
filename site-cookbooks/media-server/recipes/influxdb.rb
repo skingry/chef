@@ -18,7 +18,7 @@
 #
 
 docker_image 'influxdb' do
-  source '/root/Dockerfiles/influxdb'
+  source '/data/configs/dockerfiles/influxdb'
   action :build_if_missing
 end
 

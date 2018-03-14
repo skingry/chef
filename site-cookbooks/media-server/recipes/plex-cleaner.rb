@@ -18,7 +18,7 @@
 #
 
 docker_image 'plex-cleaner' do
-  source '/root/Dockerfiles/plex-cleaner'
+  source '/data/configs/dockerfiles/plex-cleaner'
   action :build_if_missing
 end
 

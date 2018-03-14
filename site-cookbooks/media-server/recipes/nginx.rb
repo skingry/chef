@@ -18,7 +18,7 @@
 #
 
 docker_image 'nginx' do
-  source '/root/Dockerfiles/nginx'
+  source '/data/configs/dockerfiles/nginx'
   action :build_if_missing
 end
 

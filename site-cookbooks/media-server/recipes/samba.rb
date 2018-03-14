@@ -18,7 +18,7 @@
 #
 
 docker_image 'samba' do
-  source '/root/Dockerfiles/samba'
+  source '/data/configs/dockerfiles/samba'
   action :build_if_missing
 end
 

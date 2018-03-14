@@ -18,7 +18,7 @@
 #
 
 docker_image 'backup' do
-  source '/root/Dockerfiles/backup'
+  source '/data/configs/dockerfiles/backup'
   action :build_if_missing
 end
 

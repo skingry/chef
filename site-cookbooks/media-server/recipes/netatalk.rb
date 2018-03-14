@@ -18,7 +18,7 @@
 #
 
 docker_image 'netatalk' do
-  source '/root/Dockerfiles/netatalk'
+  source '/data/configs/dockerfiles/netatalk'
   read_timeout 600
   write_timeout 600
   action :build_if_missing

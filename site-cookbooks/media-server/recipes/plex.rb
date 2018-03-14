@@ -18,7 +18,7 @@
 #
 
 docker_image 'plex' do
-  source '/root/Dockerfiles/plex'
+  source '/data/configs/dockerfiles/plex'
   action :build_if_missing
 end
 

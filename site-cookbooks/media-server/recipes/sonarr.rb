@@ -18,7 +18,7 @@
 #
 
 docker_image 'sonarr' do
-  source '/root/Dockerfiles/sonarr'
+  source '/data/configs/dockerfiles/sonarr'
   action :build_if_missing
 end
 

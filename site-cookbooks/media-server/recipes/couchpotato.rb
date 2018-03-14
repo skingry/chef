@@ -20,7 +20,7 @@
 name = 'couchpotato'
 
 docker_image 'couchpotato' do
-  source '/root/Dockerfiles/couchpotato'
+  source '/data/configs/dockerfiles/couchpotato'
   action :build_if_missing
 end
 

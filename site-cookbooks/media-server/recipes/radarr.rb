@@ -18,7 +18,7 @@
 #
 
 docker_image 'radarr' do
-  source '/root/Dockerfiles/radarr'
+  source '/data/configs/dockerfiles/radarr'
   action :build_if_missing
 end
 

@@ -18,7 +18,7 @@
 #
 
 docker_image 'sabnzbd' do
-  source '/root/Dockerfiles/sabnzbd'
+  source '/data/configs/dockerfiles/sabnzbd'
   action :build_if_missing
 end
 
