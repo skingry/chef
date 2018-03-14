@@ -33,6 +33,5 @@ docker_container 'plex' do
             '/etc/localtime:/etc/localtime:ro',
             '/tmp:/tmp'
           ]
-  privileged true
   restart_policy 'always'
 end
