@@ -76,7 +76,7 @@ include_recipe 'media-server::monitoring'
 #include_recipe 'media-server::samba'
 #include_recipe 'media-server::netatalk'
 
-#include_recipe 'media-server::influxdb'
+include_recipe 'media-server::influxdb'
 #include_recipe 'media-server::grafana'
 
 #include_recipe 'media-server::radarr'
