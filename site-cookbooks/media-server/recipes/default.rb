@@ -21,30 +21,10 @@ include_recipe 'apt'
 
 package 'nvidia-384'
 
-#apt_repository 'libnvidia-container' do
-#  uri 'https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64'
-#  key 'https://nvidia.github.io/nvidia-docker/gpgkey'
-#  distribution '/'
-#end
-
-#apt_repository 'nvidia-container-runtime' do
-#  uri 'https://nvidia.github.io/nvidia-container-runtime/ubuntu16.04/amd64'
-#  key 'https://nvidia.github.io/nvidia-docker/gpgkey'
-#  distribution '/'
-#end
-
-#apt_repository 'nvidia-docker' do
-#  uri 'https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64'
-#  key 'https://nvidia.github.io/nvidia-docker/gpgkey'
-#  distribution '/'
-#end
-
 docker_installation_package 'default' do
   version '17.03.1'
   action :create
 end
-
-#package 'nvidia-docker2'
 
 git '/root/Dockerfiles' do
   repository 'git://github.com/skingry/Dockerfiles.git'
@@ -68,25 +48,25 @@ end
 
 include_recipe 'media-server::monitoring'
 
-#include_recipe 'media-server::openvpn'
-#include_recipe 'media-server::backup'
-#include_recipe 'media-server::certbot'
-#include_recipe 'media-server::plex-cleaner'
+include_recipe 'media-server::openvpn'
+include_recipe 'media-server::backup'
+include_recipe 'media-server::certbot'
+include_recipe 'media-server::plex-cleaner'
 
-#include_recipe 'media-server::samba'
-#include_recipe 'media-server::netatalk'
+include_recipe 'media-server::samba'
+include_recipe 'media-server::netatalk'
 
 include_recipe 'media-server::influxdb'
-#include_recipe 'media-server::grafana'
+include_recipe 'media-server::grafana'
 
-#include_recipe 'media-server::radarr'
-#include_recipe 'media-server::nzbget'
-#include_recipe 'media-server::sonarr'
-#include_recipe 'media-server::transmission'
+include_recipe 'media-server::radarr'
+include_recipe 'media-server::nzbget'
+include_recipe 'media-server::sonarr'
+include_recipe 'media-server::transmission'
 
-#include_recipe 'media-server::plex'
+include_recipe 'media-server::plex'
 
-#include_recipe 'media-server::plexpy'
-#include_recipe 'media-server::resilio'
+include_recipe 'media-server::plexpy'
+include_recipe 'media-server::resilio'
 
-#include_recipe 'media-server::nginx'
+include_recipe 'media-server::nginx'
