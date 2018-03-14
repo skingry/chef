@@ -17,8 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe 'apt'
-
 package 'nvidia-384'
 
 docker_installation_package 'default' do
@@ -47,6 +45,7 @@ docker_image 'base' do
 end
 
 include_recipe 'media-server::monitoring'
+include_recipe 'media-server::transcoder'
 
 include_recipe 'media-server::openvpn'
 include_recipe 'media-server::backup'
