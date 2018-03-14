@@ -24,7 +24,7 @@ end
 
 docker_container 'plex' do
   repo 'plex'
-  memory '2048M'
+  memory '4096M'
   network_mode 'host'
   volumes [
             '/data/configs/plex:/config',
