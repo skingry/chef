@@ -17,8 +17,6 @@
 # limitations under the License.
 #
 
-package 'nvidia-384'
-
 docker_service 'default' do
   ipv6 false
   ipv6_forward false
