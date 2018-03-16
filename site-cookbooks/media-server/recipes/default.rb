@@ -19,17 +19,6 @@
 
 package 'nvidia-384'
 
-docker_installation_package 'default' do
-  version '17.03.1'
-  action :create
-end
-
-git '/root/Dockerfiles' do
-  repository 'git://github.com/skingry/Dockerfiles.git'
-  revision 'master'
-  action :sync
-end
-
 docker_service 'default' do
   ipv6 false
   ipv6_forward false
@@ -38,7 +27,7 @@ docker_service 'default' do
 end
 
 docker_image 'base' do
-  source '/root/Dockerfiles/base'
+  source '/data/configs/dockerfiles/base'
   read_timeout 600
   write_timeout 600
   action :build_if_missing
