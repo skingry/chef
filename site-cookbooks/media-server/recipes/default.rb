@@ -17,6 +17,10 @@
 # limitations under the License.
 #
 
+docker_installation_package 'default' do
+  version '17.03.1'
+end
+
 docker_service 'default' do
   ipv6 false
   ipv6_forward false
