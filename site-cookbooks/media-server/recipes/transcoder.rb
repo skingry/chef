@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-apt_repository 'jonathonf_ffmpeg-3' do
-  uri 'ppa:jonathonf/ffmpeg-3'
-end
-
 python_package 'ffmpeg-normalize'
 
 package 'jq'
