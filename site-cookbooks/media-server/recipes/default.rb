@@ -21,6 +21,10 @@ apt_repository 'graphics_drivers' do
   uri 'ppa:graphics-drivers/ppa'
 end
 
+package 'nvidia-390' do
+  options '--no-install-recommends'
+end
+
 docker_installation_package 'default' do
   version '17.03.1'
 end
