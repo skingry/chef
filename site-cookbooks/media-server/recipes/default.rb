@@ -17,6 +17,10 @@
 # limitations under the License.
 #
 
+apt_repository 'graphics_drivers' do
+  uri 'ppa:graphics-drivers/ppa'
+end
+
 docker_installation_package 'default' do
   version '17.03.1'
 end
