@@ -33,5 +33,13 @@ docker_container 'plex' do
             '/etc/localtime:/etc/localtime:ro',
             '/tmp:/tmp'
           ]
+  devices [
+            {
+              "PathOnHost"=>"/dev/dri",
+              "PathInContainer"=>"/dev/dri",
+              "CgroupPermissions"=>"mrw"
+            }
+          ]
+  privileged true
   restart_policy 'always'
 end
