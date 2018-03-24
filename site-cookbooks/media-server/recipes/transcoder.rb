@@ -21,8 +21,16 @@ apt_repository 'jonathonf_ffmpeg-3' do
   uri 'ppa:jonathonf/ffmpeg-3'
 end
 
+apt_repository 'mkvtoolnix' do
+  uri 'https://mkvtoolnix.download/ubuntu/xenial/'
+  distribution '/'
+  key 'https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt'
+  action :add
+end
+
 python_package 'ffmpeg-normalize'
 
 package 'jq'
 package 'sqlite3'
 package 'ffmpeg'
+package 'mkvtoolnix'
