@@ -25,6 +25,8 @@ package 'jq'
 package 'lm-sensors'
 
 cookbook_file '/etc/modules'
+cookbook_file '/etc/modprobe.d/lm_sensors.conf'
+cookbook_file '/etc/sensors.d/it8728.conf'
 cookbook_file '/etc/default/apcupsd'
 cookbook_file '/etc/apcupsd/apcupsd.conf'
 
