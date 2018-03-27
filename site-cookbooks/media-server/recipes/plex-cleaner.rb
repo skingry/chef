@@ -28,7 +28,7 @@ docker_container 'plex-cleaner' do
   network_mode 'host'
   volumes [
             '/data/configs/plex-cleaner:/config',
-            '/data/shares:/shares'
+            '/data/shares/Media:/media'
           ]
   action :create
 end
