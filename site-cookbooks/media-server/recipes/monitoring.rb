@@ -18,6 +18,7 @@
 #
 
 package 'apcupsd'
+package 'bc'
 package 'smartmontools'
 package 'snmp'
 package 'snmp-mibs-downloader'
