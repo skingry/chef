@@ -28,16 +28,11 @@ apt_repository 'mkvtoolnix' do
   action :add
 end
 
-apt_repository 'tovid' do
-  uri 'ppa:grepper/ppa'
-end
-
 python_package 'ffmpeg-normalize'
 
 package 'dvdauthor'
 package 'genisoimage'
 package 'growisofs'
-package 'tovid'
 package 'jq'
 package 'sqlite3'
 package 'ffmpeg'
