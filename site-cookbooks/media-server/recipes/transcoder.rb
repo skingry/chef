@@ -30,7 +30,11 @@ end
 
 python_package 'ffmpeg-normalize'
 
+package 'dvdauthor'
+package 'genisoimage'
+package 'growisofs'
 package 'jq'
 package 'sqlite3'
 package 'ffmpeg'
 package 'mkvtoolnix'
+
