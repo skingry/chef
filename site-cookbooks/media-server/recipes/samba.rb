@@ -17,6 +17,16 @@
 # limitations under the License.
 #
 
+package 'avahi-daemon'
+
+service 'avahi-daemon' do
+  action :start
+end
+
+cookbook_file '/etc/avahi/services/timemachine.service' do
+  notifies :restart, 'service[avahi-daemon]', :delayed
+end
+
 docker_image 'samba' do
   source '/data/configs/dockerfiles/samba'
   action :build_if_missing
