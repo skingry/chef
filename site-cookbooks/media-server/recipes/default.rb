@@ -52,6 +52,7 @@ include_recipe 'media-server::certbot'
 include_recipe 'media-server::plex-cleaner'
 
 include_recipe 'media-server::samba'
+include_recipe 'media-server::netatalk'
 
 include_recipe 'media-server::influxdb'
 include_recipe 'media-server::grafana'
