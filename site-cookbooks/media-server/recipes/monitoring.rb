@@ -24,6 +24,7 @@ package 'snmp'
 package 'snmp-mibs-downloader'
 package 'jq'
 package 'lm-sensors'
+package 'fancontrol'
 
 cookbook_file '/etc/modules'
 cookbook_file '/etc/modprobe.d/lm_sensors.conf'
