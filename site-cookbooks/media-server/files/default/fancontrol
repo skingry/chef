@@ -3,7 +3,7 @@ DEVPATH=hwmon2=devices/platform/it87.2624
 DEVNAME=hwmon2=it8728
 FCTEMPS=hwmon2/device/pwm1=hwmon2/device/temp3_input hwmon2/device/pwm2=hwmon2/device/temp1_input
 FCFANS=hwmon2/device/pwm1=hwmon2/device/fan1_input hwmon2/device/pwm2=hwmon2/device/fan2_input
-MINTEMP=hwmon2/device/pwm1=20 hwmon2/device/pwm2=20
-MAXTEMP=hwmon2/device/pwm1=65 hwmon2/device/pwm2=50
-MINSTART=hwmon2/device/pwm1=110 hwmon2/device/pwm2=80
-MINSTOP=hwmon2/device/pwm1=100 hwmon2/device/pwm2=60
+MINTEMP=hwmon2/device/pwm1=25 hwmon2/device/pwm2=25
+MAXTEMP=hwmon2/device/pwm1=65 hwmon2/device/pwm2=40
+MINSTART=hwmon2/device/pwm1=110 hwmon2/device/pwm2=90
+MINSTOP=hwmon2/device/pwm1=100 hwmon2/device/pwm2=70
