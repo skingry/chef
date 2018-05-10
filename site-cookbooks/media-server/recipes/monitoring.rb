@@ -24,12 +24,22 @@ package 'snmp'
 package 'snmp-mibs-downloader'
 package 'jq'
 package 'lm-sensors'
+package 'fancontrol'
+
+service 'fancontrol' do
+  action :start
+end
 
 cookbook_file '/etc/modules'
 cookbook_file '/etc/modprobe.d/lm_sensors.conf'
 cookbook_file '/etc/sensors.d/it8728.conf'
 cookbook_file '/etc/default/apcupsd'
 cookbook_file '/etc/apcupsd/apcupsd.conf'
+cookbook_file '/etc/rc.local'
+
+cookbook_file '/etc/fancontrol' do
+  notifies :restart, 'service[fancontrol]', :delayed
+end
 
 cron "Monitoring" do
   mailto "#{node[:cron_mailto]}"
