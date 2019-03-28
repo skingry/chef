@@ -1,3 +1,4 @@
+solo/config/chef_guid
 cookbooks/*
 cache/*
 backup/*
