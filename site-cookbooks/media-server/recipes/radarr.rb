@@ -17,15 +17,15 @@
 # limitations under the License.
 #
 
-docker_image 'radarr' do
-  source '/data/configs/dockerfiles/radarr'
-  action :build_if_missing
+docker_image 'linuxserver/radarr' do
+  action :pull
 end
 
 docker_container 'radarr' do
-  repo 'radarr'
+  repo 'linuxserver/radarr'
   memory '1536M'
   network_mode 'container:openvpn'
+  env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
             '/data/configs/radarr:/config',
             '/data/shares/Media:/media',
