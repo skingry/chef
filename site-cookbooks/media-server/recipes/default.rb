@@ -44,7 +44,7 @@ docker_image 'base' do
 end
 
 include_recipe 'media-server::monitoring'
-include_recipe 'media-server::transcoder'
+#include_recipe 'media-server::transcoder'
 
 include_recipe 'media-server::openvpn'
 include_recipe 'media-server::backup'
