@@ -554,17 +554,12 @@ function UpdateFanSpeeds
 		  pwmval="(${tval}-${mint})*(${maxpwm}-${minso})/(${maxt}-${mint})+${minso}"
 		  if [ $pwmpval -eq 0 -o $min_fanval -eq 0 ]
 		  then # if fan was stopped start it using a safe value
-        # FIXUP - Fan PWM is reversed....
-        minsa="(255-$minsa)"
 		  	echo $minsa > $pwmo
 			# Sleep while still handling signals
 			sleep 1 &
 			wait
 		  fi
 		fi
-
-    # FIXUP - Fan PWM is reversed....
-    pwmval="(255-$pwmval)"
 
 		echo $pwmval > $pwmo # write new value to pwm output
 		if [ $? -ne 0 ]
