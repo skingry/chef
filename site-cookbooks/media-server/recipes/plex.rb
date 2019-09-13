@@ -26,6 +26,7 @@ docker_container 'plex' do
   repo 'plex'
   memory '4096M'
   network_mode 'host'
+  env [ 'PLEX_MEDIA_SERVER_USER=nobody' ]
   volumes [
             '/data/configs/plex:/config',
             '/data/shares/Media:/media',
