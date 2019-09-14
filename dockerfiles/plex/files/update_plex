@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Grab the current installed version...
+INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
+echo "Installed version: $INSTALLED"
+
+# Grab the latest version...
+LATEST=$(curl -s "https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu"| cut -d "/" -f 5 )
+echo "Target version: $LATEST"
+
+# Update
+last=130
+if [ "$LATEST" != "$INSTALLED" ]; then
+  echo "Upgrading from version: $INSTALLED to version: $LATEST"
+  if [ ! -f "/tmp/plexmediaserver_${LATEST}_amd64.deb" ]; then
+    while [[ $last -ne "0" ]]; do
+      rm -f /tmp/plexmediaserver_*.deb
+      wget -P /tmp "https://downloads.plex.tv/plex-media-server-new/$LATEST/debian/plexmediaserver_${LATEST}_amd64.deb"
+      last=$?
+    done
+  fi
+  apt-get remove --purge -y plexmediaserver
+  dpkg -i /tmp/plexmediaserver_"${LATEST}"_amd64.deb
+else
+ echo "No need to update!"
+fi
+
+cp -v /defaults/plexmediaserver /etc/default/plexmediaserver

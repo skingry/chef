@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec setuser nobody influxd -config /config/influxdb.conf

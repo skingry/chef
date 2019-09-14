@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ ! -f /sabnzbd/SABnzbd.py ]; then
+  git clone https://github.com/sabnzbd/sabnzbd.git
+elif [ -f /sabnzbd/SABnzbd.py ]; then
+  pip install sabyenc --upgrade
+  cd /sabnzbd
+  git pull
+else
+  echo "I don't know what to do."
+  exit 127
+fi
+
+exec setuser nobody python /sabnzbd/SABnzbd.py --config-file /config

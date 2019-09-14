@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec setuser nobody /opt/nzbget/nzbget -s -c /config/nzbget.conf

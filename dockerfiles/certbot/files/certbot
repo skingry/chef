@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ ! -f /certbot/certbot-auto ]; then
+  git clone https://github.com/certbot/certbot.git
+elif [ -f /certbot/certbot-auto ]; then
+  cd /certbot
+  git pull
+else
+  echo "I don't know what to do."
+  exit 127
+fi
+
+/certbot/certbot-auto -n --config-dir /config renew

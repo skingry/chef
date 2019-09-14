@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Update transmission if needed...
+apt-get update
+apt-get upgrade -y transmission-daemon
+
+exec setuser nobody /usr/bin/transmission-daemon -g /config -f
