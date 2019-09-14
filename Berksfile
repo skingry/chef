@@ -1,6 +1,6 @@
 source 'https://supermarket.getchef.com'
 
-cookbook 'apt', '~> 6.1.4'
+cookbook 'apt', '~> 7.2.0'
 cookbook 'chef-solo-search', '~> 0.5.1'
 cookbook 'docker', github: "chef-cookbooks/docker"
 cookbook 'hostnames', '~> 0.4.2'
