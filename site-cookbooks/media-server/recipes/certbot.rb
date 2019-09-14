@@ -18,7 +18,7 @@
 #
 
 docker_image 'certbot' do
-  source '/data/configs/dockerfiles/certbot'
+  source '/data/configs/chef/dockerfiles/certbot'
   action :build_if_missing
 end
 

@@ -18,7 +18,7 @@
 #
 
 docker_image 'resilio' do
-  source '/data/configs/dockerfiles/resilio'
+  source '/data/configs/chef/dockerfiles/resilio'
   action :build_if_missing
 end
 

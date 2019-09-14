@@ -21,10 +21,6 @@ apt_repository 'graphics_drivers' do
   uri 'ppa:graphics-drivers/ppa'
 end
 
-package 'nvidia-390' do
-  options '--no-install-recommends'
-end
-
 docker_installation_package 'default' do
   version '18.09.3'
 end
@@ -37,7 +33,7 @@ docker_service 'default' do
 end
 
 docker_image 'base' do
-  source '/data/configs/dockerfiles/base'
+  source '/data/configs/chef/dockerfiles/base'
   read_timeout 600
   write_timeout 600
   action :build_if_missing

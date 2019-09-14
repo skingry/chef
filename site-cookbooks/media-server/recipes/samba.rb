@@ -28,7 +28,7 @@ cookbook_file '/etc/avahi/services/timemachine.service' do
 end
 
 docker_image 'samba' do
-  source '/data/configs/dockerfiles/samba'
+  source '/data/configs/chef/dockerfiles/samba'
   action :build_if_missing
 end
 

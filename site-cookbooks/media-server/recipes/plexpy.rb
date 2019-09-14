@@ -18,7 +18,7 @@
 #
 
 docker_image 'plexpy' do
-  source '/data/configs/dockerfiles/plexpy'
+  source '/data/configs/chef/dockerfiles/plexpy'
   action :build_if_missing
 end
 

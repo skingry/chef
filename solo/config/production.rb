@@ -1,5 +1,7 @@
 node_name                  "monolith.robotozon.com"
 
+root                       "/data/configs/chef"
+
 file_cache_path            "/data/configs/chef/cache"
 file_backup_path           "/data/configs/chef/backup"
 

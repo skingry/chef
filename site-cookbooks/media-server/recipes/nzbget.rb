@@ -18,7 +18,7 @@
 #
 
 docker_image 'nzbget' do
-  source '/data/configs/dockerfiles/nzbget'
+  source '/data/configs/chef/dockerfiles/nzbget'
   action :build_if_missing
 end
 

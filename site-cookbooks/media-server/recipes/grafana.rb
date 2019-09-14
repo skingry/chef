@@ -18,7 +18,7 @@
 #
 
 docker_image 'grafana' do
-  source '/data/configs/dockerfiles/grafana'
+  source '/data/configs/chef/dockerfiles/grafana'
   action :build_if_missing
 end
 

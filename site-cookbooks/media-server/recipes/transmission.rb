@@ -18,7 +18,7 @@
 #
 
 docker_image 'transmission' do
-  source '/data/configs/dockerfiles/transmission'
+  source '/data/configs/chef/dockerfiles/transmission'
   action :build_if_missing
 end
 
