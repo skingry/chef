@@ -36,11 +36,15 @@ docker_container 'plex' do
           ]
   devices [
             {
-              "PathOnHost"=>"/dev/dri",
-              "PathInContainer"=>"/dev/dri",
+              "PathOnHost"=>"/dev/dri/card0",
+              "PathInContainer"=>"/dev/dri/card0",
+              "CgroupPermissions"=>"mrw"
+            },
+            {
+              "PathOnHost"=>"/dev/dri/renderD128",
+              "PathInContainer"=>"/dev/dri/renderD128",
               "CgroupPermissions"=>"mrw"
             }
           ]
-  privileged true
   restart_policy 'always'
 end
