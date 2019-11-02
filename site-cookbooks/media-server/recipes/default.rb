@@ -22,7 +22,7 @@ apt_repository 'graphics_drivers' do
 end
 
 docker_installation_package 'default' do
-  version '18.09.3'
+  version '19.03.4'
 end
 
 docker_service 'default' do
