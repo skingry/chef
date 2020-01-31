@@ -17,21 +17,23 @@
 # limitations under the License.
 #
 
-docker_image 'plex' do
-  source "/data/configs/chef/dockerfiles/plex"
-  action :build_if_missing
+docker_image 'plexinc/pms-docker' do
+  action :pull
 end
 
 docker_container 'plex' do
-  repo 'plex'
+  repo 'plexinc/pms-docker'
   memory '4096M'
   network_mode 'host'
-  env [ 'PLEX_MEDIA_SERVER_USER=nobody' ]
+  env [
+        'TZ=America/New_York',
+        'CHANGE_CONFIG_DIR_OWNERSHIP=false',
+        'PLEX_UID=65534',
+        'PLEX_GID=65534'
+      ]
   volumes [
             '/data/configs/plex:/config',
             '/data/shares/Media:/media',
-            '/dev/rtc:/dev/rtc:ro',
-            '/etc/localtime:/etc/localtime:ro',
             '/tmp:/tmp'
           ]
   devices [
