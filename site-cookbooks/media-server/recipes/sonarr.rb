@@ -17,13 +17,12 @@
 # limitations under the License.
 #
 
-docker_image 'sonarr' do
-  source '/data/configs/chef/dockerfiles/sonarr'
-  action :build_if_missing
+docker_image 'linuxserver/sonarr' do
+  action :pull
 end
 
 docker_container 'sonarr' do
-  repo 'sonarr'
+  repo 'linuxserver/sonarr'
   memory '768M'
   network_mode 'container:openvpn'
   volumes [

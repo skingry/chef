@@ -36,6 +36,6 @@ docker_container 'openvpn' do
   dns [ '8.8.8.8', '8.8.4.4' ]
   volumes [ '/data/configs/openvpn:/config' ]
   privileged true
-  command '/usr/sbin/openvpn --config /config/newshosting.ovpn'
+  command '/usr/sbin/openvpn --config /config/privado.ovpn'
   restart_policy 'always'
 end

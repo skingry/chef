@@ -19,10 +19,12 @@
 
 docker_image 'plexinc/pms-docker' do
   action :pull
+  tag 'plexpass'
 end
 
 docker_container 'plex' do
   repo 'plexinc/pms-docker'
+  tag 'plexpass'
   memory '4096M'
   network_mode 'host'
   env [

@@ -10,5 +10,6 @@ cookbook 'postfix', '~> 5.2.1'
 cookbook 'poise-python', '~> 1.7.0'
 cookbook 'sudo', '~> 5.4.4'
 cookbook 'timezone_iii', '~> 1.1.6'
+cookbook 'udev', '~> 0.2.0'
 cookbook 'users', '~> 5.3.1'
 
