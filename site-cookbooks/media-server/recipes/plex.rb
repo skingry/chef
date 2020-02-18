@@ -38,17 +38,5 @@ docker_container 'plex' do
             '/data/shares/Media:/media',
             '/tmp:/tmp'
           ]
-  devices [
-            {
-              "PathOnHost"=>"/dev/dri/card0",
-              "PathInContainer"=>"/dev/dri/card0",
-              "CgroupPermissions"=>"mrw"
-            },
-            {
-              "PathOnHost"=>"/dev/dri/renderD128",
-              "PathInContainer"=>"/dev/dri/renderD128",
-              "CgroupPermissions"=>"mrw"
-            }
-          ]
   restart_policy 'always'
 end
