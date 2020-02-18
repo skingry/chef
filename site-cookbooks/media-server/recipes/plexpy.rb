@@ -27,7 +27,7 @@ docker_container 'plexpy' do
   memory '256M'
   volumes [
             '/data/configs/plexpy:/config',
-            '/data/configs/plex/Plex Media Server/Logs:/logs',
+            '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs',
             '/dev/rtc:/dev/rtc:ro',
             '/etc/localtime:/etc/localtime:ro'
           ]

@@ -25,6 +25,7 @@ docker_container 'sonarr' do
   repo 'linuxserver/sonarr'
   memory '768M'
   network_mode 'container:openvpn'
+  env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
             '/data/configs/sonarr:/config',
             '/data/shares/Media/TV:/tv',
