@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: plexpy
+# Recipe:: tautulli
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,19 +17,17 @@
 # limitations under the License.
 #
 
-docker_image 'plexpy' do
-  source '/data/configs/chef/dockerfiles/plexpy'
-  action :build_if_missing
+docker_image 'linuxserver/tautulli' do
+  action :pull
 end
 
-docker_container 'plexpy' do
-  repo 'plexpy'
+docker_container 'tautulli' do
+  repo 'linuxserver/tautulli'
   memory '256M'
+  env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
-            '/data/configs/plexpy:/config',
-            '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs',
-            '/dev/rtc:/dev/rtc:ro',
-            '/etc/localtime:/etc/localtime:ro'
+            '/data/configs/tautulli:/config',
+            '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs'
           ]
   restart_policy 'always'
 end

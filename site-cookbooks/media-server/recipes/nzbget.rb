@@ -17,20 +17,18 @@
 # limitations under the License.
 #
 
-docker_image 'nzbget' do
-  source '/data/configs/chef/dockerfiles/nzbget'
-  action :build_if_missing
+docker_image 'linuxserver/nzbget' do
+  action :pull
 end
 
 docker_container 'nzbget' do
-  repo 'nzbget'
+  repo 'linuxserver/nzbget'
   memory '1024M'
   network_mode 'container:openvpn'
+  env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
             '/data/configs/nzbget:/config',
-            '/data/shares/Downloads:/download',
-            '/dev/rtc:/dev/rtc:ro',
-            '/etc/localtime:/etc/localtime:ro'
+            '/data/shares/Downloads:/download'
           ]
   restart_policy 'always'
 end

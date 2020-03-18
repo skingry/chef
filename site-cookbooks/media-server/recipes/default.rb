@@ -59,7 +59,7 @@ include_recipe 'media-server::transmission'
 
 include_recipe 'media-server::plex'
 
-include_recipe 'media-server::plexpy'
+include_recipe 'media-server::tautulli'
 include_recipe 'media-server::resilio'
 
 include_recipe 'media-server::nginx'

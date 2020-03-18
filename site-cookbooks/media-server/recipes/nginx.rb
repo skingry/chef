@@ -31,7 +31,7 @@ docker_container 'nginx' do
           'openvpn:sonarr',
           'openvpn:transmission',
           'grafana:grafana',
-          'plexpy:plexpy',
+          'tautulli:tautulli',
           'resilio:resilio'
         ]
   port [ '80:80', '443:443' ]
