@@ -29,6 +29,7 @@ docker_container 'sonarr' do
   volumes [
             '/data/configs/sonarr:/config',
             '/data/shares/Media/TV:/tv',
+            '/data/shares/Media/TV_Children:/children',
             '/data/shares/Downloads:/download',
             '/dev/rtc:/dev/rtc:ro',
             '/etc/localtime:/etc/localtime:ro'
