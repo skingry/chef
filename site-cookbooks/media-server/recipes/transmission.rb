@@ -17,15 +17,15 @@
 # limitations under the License.
 #
 
-docker_image 'transmission' do
-  source '/data/configs/chef/dockerfiles/transmission'
-  action :build_if_missing
+docker_image 'linuxserver/transmission' do
+  action :pull
 end
 
 docker_container 'transmission' do
-  repo 'transmission'
+  repo 'linuxserver/transmission'
   memory '128M'
   network_mode 'container:openvpn'
+  env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
             '/data/configs/transmission:/config',
             '/data/shares/Downloads:/download',
