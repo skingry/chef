@@ -23,7 +23,7 @@ end
 
 docker_container 'transmission' do
   repo 'linuxserver/transmission'
-  memory '128M'
+  memory '512M'
   network_mode 'container:openvpn'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
