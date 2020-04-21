@@ -27,6 +27,7 @@ docker_container 'plex' do
   tag 'plexpass'
   memory '4096M'
   network_mode 'host'
+  privileged true
   env [
         'TZ=America/New_York',
         'CHANGE_CONFIG_DIR_OWNERSHIP=false',
@@ -37,6 +38,18 @@ docker_container 'plex' do
             '/data/configs/plex:/config',
             '/data/shares/Media:/media',
             '/tmp:/tmp'
+          ]
+  devices [
+            {
+              "PathOnHost"=>"/dev/dri/card0",
+              "PathInContainer"=>"/dev/dri/card0",
+              "CgroupPermissions"=>"mrw"
+            },
+            {
+              "PathOnHost"=>"/dev/dri/renderD128",
+              "PathInContainer"=>"/dev/dri/renderD128",
+              "CgroupPermissions"=>"mrw"
+            }
           ]
   restart_policy 'always'
 end
