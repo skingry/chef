@@ -22,20 +22,8 @@ docker_image 'plex-cleaner' do
   action :build_if_missing
 end
 
-docker_container 'plex-cleaner' do
-  repo 'plex-cleaner'
-  memory '64M'
-  network_mode 'host'
-  volumes [
-            '/data/configs/plex-cleaner:/config',
-            '/data/shares/Media:/media'
-          ]
-  action :create
-end
-
 cron 'Plex Cleaner' do
   minute '0'
   hour '3'
-  mailto "#{node[:cron_mailto]}"
-  command 'docker start plex-cleaner 2>&1 >> /dev/null'
+  command "docker run --rm -v '/data/configs/plex-cleaner:/config' -v '/data/shares/Media:/media' plex-cleaner 2>&1 >> /dev/null"
 end

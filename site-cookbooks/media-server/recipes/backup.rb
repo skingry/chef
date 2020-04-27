@@ -22,21 +22,9 @@ docker_image 'backup' do
   action :build_if_missing
 end
 
-docker_container 'backup' do
-  repo 'backup'
-  memory '512M'
-  network_mode 'host'
-  volumes [
-            '/data:/data',
-            '/data/configs/backup/backup.sh:/sbin/backup'
-          ]
-  action :create
-end
-
 cron 'Config Backup' do
   minute '30'
   hour '3'
   weekday '1'
-  mailto "#{node[:cron_mailto]}"
-  command 'docker start backup 2>&1 >> /dev/null'
+  command "docker run --rm -v '/data:/data' -v '/data/configs/backup/backup.sh:/sbin/backup' backup 2>&1 >> /dev/null"
 end

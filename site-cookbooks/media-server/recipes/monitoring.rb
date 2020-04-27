@@ -46,8 +46,7 @@ cookbook_file '/etc/fancontrol' do
   notifies :restart, 'service[fancontrol]', :delayed
 end
 
-cron "Monitoring" do
-  mailto "#{node[:cron_mailto]}"
+cron 'Monitoring' do
   command "/data/configs/monitoring/monolith.sh 2>&1 >> /dev/null"
 end
 

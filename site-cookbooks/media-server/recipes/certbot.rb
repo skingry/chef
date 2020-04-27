@@ -17,23 +17,13 @@
 # limitations under the License.
 #
 
-docker_image 'certbot' do
-  source '/data/configs/chef/dockerfiles/certbot'
-  action :build_if_missing
-end
-
-docker_container 'certbot' do
-  repo 'certbot'
-  memory '256M'
-  network_mode 'host'
-  volumes [ '/data/configs/nginx/ssl:/config', '/data/configs/nginx/webroot:/webroot' ]
-  action :create
+docker_image 'certbot/dns-route53' do
+  action :pull
 end
 
 cron 'Certbot Certificate Renewal' do
   minute '0'
   hour '3'
   weekday '1'
-  mailto "#{node[:cron_mailto]}"
-  command 'docker start certbot  2>&1 >> /dev/null && docker restart nginx 2>&1 >> /dev/null'
+  command "docker run --rm -v '/data/configs/nginx/ssl:/config' -v '/data/configs/aws:/root/.aws' certbot/dns-route53 -n --dns-route53 --config-dir /config renew >> /dev/null"
 end

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-exec setuser nobody mono /opt/Radarr/Radarr.exe -nobrowser -data=/config
