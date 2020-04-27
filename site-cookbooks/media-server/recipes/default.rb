@@ -51,6 +51,7 @@ include_recipe 'media-server::samba'
 include_recipe 'media-server::influxdb'
 include_recipe 'media-server::grafana'
 
+include_recipe 'media-server::qbittorrent'
 include_recipe 'media-server::radarr'
 include_recipe 'media-server::nzbget'
 include_recipe 'media-server::sonarr'

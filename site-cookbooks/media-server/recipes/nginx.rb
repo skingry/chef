@@ -29,7 +29,7 @@ docker_container 'nginx' do
           'openvpn:radarr',
           'openvpn:nzbget',
           'openvpn:sonarr',
-          'openvpn:transmission',
+          'openvpn:qbittorrent',
           'grafana:grafana',
           'tautulli:tautulli',
           'resilio:resilio'

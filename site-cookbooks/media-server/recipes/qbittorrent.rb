@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: transmission
+# Recipe:: qbittorrent
 #
-# Copyright 2014, Seth Kingry
+# Copyright 2020, Seth Kingry
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,20 +17,18 @@
 # limitations under the License.
 #
 
-docker_image 'linuxserver/transmission' do
+docker_image 'linuxserver/qbittorrent' do
   action :pull
 end
 
-docker_container 'transmission' do
-  repo 'linuxserver/transmission'
+docker_container 'qbittorrent' do
+  repo 'linuxserver/qbittorrent'
   memory '512M'
   network_mode 'container:openvpn'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
-            '/data/configs/transmission:/config',
-            '/data/shares/Downloads:/download',
-            '/dev/rtc:/dev/rtc:ro',
-            '/etc/localtime:/etc/localtime:ro'
+            '/data/configs/qbittorrent:/config',
+            '/data/shares/Downloads:/downloads'
           ]
   restart_policy 'always'
 end
