@@ -18,14 +18,13 @@
 #
 
 docker_image 'influxdb' do
-  source '/data/configs/chef/dockerfiles/influxdb'
-  action :build_if_missing
+  action :pull
 end
 
 docker_container 'influxdb' do
   repo 'influxdb'
   memory '512M'
   port '127.0.0.1:8086:8086'
-  volumes [ '/data/configs/influxdb:/config' ]
+  volumes [ '/data/configs/influxdb:/etc/influxdb' ]
   restart_policy 'always'
 end

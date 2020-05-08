@@ -18,8 +18,7 @@
 #
 
 docker_image 'nginx' do
-  source '/data/configs/chef/dockerfiles/nginx'
-  action :build_if_missing
+  action :pull
 end
 
 docker_container 'nginx' do
@@ -31,10 +30,9 @@ docker_container 'nginx' do
           'openvpn:sonarr',
           'openvpn:qbittorrent',
           'grafana:grafana',
-          'tautulli:tautulli',
-          'resilio:resilio'
+          'tautulli:tautulli'
         ]
   port [ '80:80', '443:443' ]
-  volumes [ '/data/configs/nginx:/config' ]
+  volumes [ '/data/configs/nginx:/etc/nginx' ]
   restart_policy 'always'
 end

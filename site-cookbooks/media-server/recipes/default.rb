@@ -46,8 +46,6 @@ include_recipe 'media-server::backup'
 include_recipe 'media-server::certbot'
 include_recipe 'media-server::plex-cleaner'
 
-include_recipe 'media-server::samba'
-
 include_recipe 'media-server::influxdb'
 include_recipe 'media-server::grafana'
 
@@ -57,8 +55,5 @@ include_recipe 'media-server::nzbget'
 include_recipe 'media-server::sonarr'
 
 include_recipe 'media-server::plex'
-
 include_recipe 'media-server::tautulli'
-include_recipe 'media-server::resilio'
-
 include_recipe 'media-server::nginx'

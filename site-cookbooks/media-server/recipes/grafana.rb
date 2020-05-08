@@ -17,15 +17,19 @@
 # limitations under the License.
 #
 
-docker_image 'grafana' do
-  source '/data/configs/chef/dockerfiles/grafana'
-  action :build_if_missing
+docker_image 'grafana/grafana' do
+  action :pull
 end
 
 docker_container 'grafana' do
-  repo 'grafana'
+  repo 'grafana/grafana'
   memory '128M'
   links [ 'influxdb:influxdb.local' ]
-  volumes [ '/data/configs/grafana:/config' ]
+  volumes [
+            '/data/configs/grafana:/etc/grafana',
+            '/data/configs/grafana/data:/var/lib/grafana',
+            '/data/configs/grafana/data/plugins:/var/lib/grafana/plugins',
+            '/data/configs/grafana/logs:/var/log/grafana'
+          ]
   restart_policy 'always'
 end

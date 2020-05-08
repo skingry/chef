@@ -1,3 +1,0 @@
-#!/bin/bash
-
-exec setuser nobody /rslsync --nodaemon --config /config/resilio.conf

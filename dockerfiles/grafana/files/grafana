@@ -1,9 +1,0 @@
-#!/bin/bash
-
-exec setuser nobody /usr/sbin/grafana-server \
-                    --homepath=/usr/share/grafana \
-                    --config=/config/grafana.ini \
-                    cfg:default.log.mode=console \
-                    cfg:default.paths.data=/config \
-                    cfg:default.paths.logs=/config/logs \
-                    cfg:default.paths.plugins=/config/plugins

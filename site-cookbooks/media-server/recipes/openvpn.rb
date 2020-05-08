@@ -17,13 +17,12 @@
 # limitations under the License.
 #
 
-docker_image 'openvpn' do
-  source '/data/configs/chef/dockerfiles/openvpn'
-  action :build_if_missing
+docker_image 'dperson/openvpn-client' do
+  action :pull
 end
 
 docker_container 'openvpn' do
-  repo 'openvpn'
+  repo 'dperson/openvpn-client'
   memory '32M'
   cap_add 'NET_ADMIN'
   devices [

@@ -5,6 +5,6 @@ MAINTAINER Seth Kingry <sjkingry@gmail.com>
 RUN apt-get -q update
 
 # Install awscli
-RUN pip install awscli
+RUN pip3 install awscli
 
 CMD ["/sbin/backup"]

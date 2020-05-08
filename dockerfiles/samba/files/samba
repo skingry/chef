@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Start Samba
-ionice -c 3 nmbd -D
-exec ionice -c 3 smbd --foreground --log-stdout --no-process-group < /dev/null
