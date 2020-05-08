@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-docker_image 'backup' do
-  source '/data/configs/chef/dockerfiles/backup'
+docker_image 'base' do
+  source '/data/configs/chef/dockerfiles/base'
   action :build_if_missing
 end
 
@@ -26,5 +26,5 @@ cron 'Config Backup' do
   minute '30'
   hour '3'
   weekday '1'
-  command "docker run --rm -v '/data:/data' -v '/data/configs/backup/backup.sh:/sbin/backup' backup 2>&1 >> /dev/null"
+  command "docker run --rm -it -v '/data:/data' -v '/data/configs/backup/backup.sh:/usr/sbin/backup' base backup 2>&1 >> /dev/null"
 end

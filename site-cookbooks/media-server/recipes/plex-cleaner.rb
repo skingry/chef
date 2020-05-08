@@ -17,13 +17,13 @@
 # limitations under the License.
 #
 
-docker_image 'plex-cleaner' do
-  source '/data/configs/chef/dockerfiles/plex-cleaner'
+docker_image 'base' do
+  source '/data/configs/chef/dockerfiles/base'
   action :build_if_missing
 end
 
 cron 'Plex Cleaner' do
   minute '0'
   hour '3'
-  command "docker run --rm -v '/data/configs/plex-cleaner:/config' -v '/data/shares/Media:/media' plex-cleaner 2>&1 >> /dev/null"
+  command "docker run --rm -it -v '/data/configs/plex-cleaner:/plex-cleaner' -v '/data/shares/Media:/media' base /plex-cleaner/PlexCleaner.py 2>&1 >> /dev/null"
 end
