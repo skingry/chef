@@ -23,8 +23,8 @@ docker_image 'base' do
 end
 
 cron 'Config Backup' do
-  minute '30'
+  minute '0'
   hour '3'
-  weekday '1'
+  day '1'
   command "docker run --rm -it -v '/data:/data' -v '/data/configs/backup/backup.sh:/usr/sbin/backup' base backup 2>&1 >> /dev/null"
 end
