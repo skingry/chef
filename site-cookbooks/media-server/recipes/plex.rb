@@ -26,6 +26,7 @@ docker_container 'plex' do
   repo 'plexinc/pms-docker'
   tag 'plexpass'
   memory '4096M'
+  memory_swap '-1'
   network_mode 'host'
   privileged true
   env [

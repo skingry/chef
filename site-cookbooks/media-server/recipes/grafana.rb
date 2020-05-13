@@ -24,6 +24,9 @@ end
 docker_container 'grafana' do
   repo 'grafana/grafana'
   memory '128M'
+  memory_swap '-1'
+  user 'grafana'
+  working_dir '/usr/share/grafana'
   links [ 'influxdb:influxdb.local' ]
   volumes [
             '/data/configs/grafana:/etc/grafana',

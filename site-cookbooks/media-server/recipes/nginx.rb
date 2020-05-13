@@ -24,6 +24,7 @@ end
 docker_container 'nginx' do
   repo 'nginx'
   memory '32M'
+  memory_swap '-1'
   links [
           'openvpn:radarr',
           'openvpn:nzbget',
