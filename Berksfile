@@ -1,15 +1,14 @@
 source 'https://supermarket.getchef.com'
 
-cookbook 'apt', '~> 7.2.0'
+cookbook 'apt', '~> 7.3.0'
 cookbook 'chef-solo-search', '~> 0.5.1'
-cookbook 'docker', github: "chef-cookbooks/docker"
+cookbook 'docker', '~> 6.0.0'
 cookbook 'hostnames', '~> 0.4.2'
-cookbook 'ntp', '~> 3.5.6'
-cookbook 'openssh', '~> 2.6.1'
-cookbook 'postfix', '~> 5.2.1'
+cookbook 'ntp', '~> 3.7.0'
+cookbook 'openssh', '~> 2.8.1'
+cookbook 'postfix', '~> 5.3.1'
 cookbook 'poise-python', '~> 1.7.0'
-cookbook 'sudo', '~> 5.4.4'
-cookbook 'timezone_iii', '~> 1.1.6'
+cookbook 'sudo', '~> 5.4.5'
+cookbook 'timezone_iii', '~> 1.1.7'
 cookbook 'udev', '~> 0.2.0'
-cookbook 'users', '~> 5.3.1'
-
+cookbook 'users', '~> 5.4.0'
