@@ -23,7 +23,7 @@ end
 
 docker_container 'radarr' do
   repo 'linuxserver/radarr'
-  memory '512M'
+  memory '256M'
   memory_swap '-1'
   network_mode 'container:openvpn'
   env [ 'PGID=65534', 'PUID=65534' ]

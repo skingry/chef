@@ -23,7 +23,7 @@ end
 
 docker_container 'tautulli' do
   repo 'linuxserver/tautulli'
-  memory '256M'
+  memory '128M'
   memory_swap '-1'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [

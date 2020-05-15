@@ -23,7 +23,7 @@ end
 
 docker_container 'openvpn' do
   repo 'dperson/openvpn-client'
-  memory '32M'
+  memory '8M'
   memory_swap '-1'
   cap_add 'NET_ADMIN'
   devices [
@@ -34,8 +34,7 @@ docker_container 'openvpn' do
             }
           ]
   dns [ '8.8.8.8', '8.8.4.4' ]
-  volumes [ '/data/configs/openvpn:/config' ]
+  volumes [ '/data/configs/openvpn:/vpn' ]
   privileged true
-  command '/usr/sbin/openvpn --config /config/privado.ovpn'
   restart_policy 'always'
 end
