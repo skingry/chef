@@ -23,7 +23,7 @@ end
 
 docker_container 'openvpn' do
   repo 'dperson/openvpn-client'
-  memory '8M'
+  memory '128M'
   memory_swap '-1'
   cap_add 'NET_ADMIN'
   devices [
