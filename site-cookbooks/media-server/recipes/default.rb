@@ -21,9 +21,7 @@ apt_repository 'graphics_drivers' do
   uri 'ppa:graphics-drivers/ppa'
 end
 
-docker_installation_package 'default' do
-  version '19.03.4'
-end
+docker_installation_package 'default'
 
 docker_service 'default' do
   ipv6 false
