@@ -22,7 +22,7 @@ docker_image 'itzg/minecraft-server' do
 end
 
 docker_container 'minecraft' do
-  repo 'docker'
+  repo 'itzg/minecraft-server'
   memory '4096M'
   memory_swap '-1'
   network_mode 'host'
@@ -30,5 +30,8 @@ docker_container 'minecraft' do
   env [
         'EULA=TRUE'
       ]
+  volumes [
+            '/data/configs/minecraft:/data'
+          ]
   restart_policy 'always'
 end
