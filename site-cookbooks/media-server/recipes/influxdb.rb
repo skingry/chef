@@ -18,11 +18,13 @@
 #
 
 docker_image 'influxdb' do
+  tag '1.8'
   action :pull
 end
 
 docker_container 'influxdb' do
   repo 'influxdb'
+  tag '1.8'
   memory '512M'
   memory_swap '-1'
   port '127.0.0.1:8086:8086'

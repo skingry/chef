@@ -29,7 +29,7 @@ docker_container 'nzbget' do
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
             '/data/configs/nzbget:/config',
-            '/data/shares/Downloads:/download'
+            '/data/shares/Downloads:/downloads'
           ]
   restart_policy 'always'
 end

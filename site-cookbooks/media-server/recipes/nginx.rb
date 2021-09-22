@@ -26,6 +26,7 @@ docker_container 'nginx' do
   memory '32M'
   memory_swap '-1'
   links [
+          'openvpn:lidarr',
           'openvpn:radarr',
           'openvpn:nzbget',
           'openvpn:sonarr',

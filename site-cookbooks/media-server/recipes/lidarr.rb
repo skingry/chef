@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: openvpn
+# Recipe:: lidarr
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,24 +17,20 @@
 # limitations under the License.
 #
 
-docker_image 'dperson/openvpn-client' do
+docker_image 'linuxserver/lidarr' do
   action :pull
 end
 
-docker_container 'openvpn' do
-  repo 'dperson/openvpn-client'
-  memory '16M'
+docker_container 'lidarr' do
+  repo 'linuxserver/lidarr'
+  memory '512M'
   memory_swap '-1'
-  cap_add 'NET_ADMIN'
-  devices [
-            {
-              "PathOnHost"=>"/dev/net/tun",
-              "PathInContainer"=>"/dev/net/tun",
-              "CgroupPermissions"=>"mrw"
-            }
+  network_mode 'container:openvpn'
+  env [ 'PGID=65534', 'PUID=65534' ]
+  volumes [
+            '/data/configs/lidarr:/config',
+            '/data/shares/Media/Music:/music',
+            '/data/shares/Downloads:/downloads'
           ]
-  dns [ '8.8.8.8', '8.8.4.4' ]
-  volumes [ '/data/configs/openvpn:/vpn' ]
-  privileged true
   restart_policy 'always'
 end

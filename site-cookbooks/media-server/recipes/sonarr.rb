@@ -31,7 +31,7 @@ docker_container 'sonarr' do
             '/data/configs/sonarr:/config',
             '/data/shares/Media/TV:/tv',
             '/data/shares/Media/TV_Children:/children',
-            '/data/shares/Downloads:/download'
+            '/data/shares/Downloads:/downloads'
           ]
   restart_policy 'always'
 end

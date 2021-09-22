@@ -18,8 +18,8 @@
 #
 
 nfs_export "/exports" do
-  directory "/data/shares/Documents/skingry"
-  network '192.168.77.43'
+  directory "/data/shares/Media/Music"
+  network '192.168.77.0/24'
   writeable true
   sync true
   options ['no_root_squash']

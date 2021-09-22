@@ -30,7 +30,7 @@ docker_container 'radarr' do
   volumes [
             '/data/configs/radarr:/config',
             '/data/shares/Media:/media',
-            '/data/shares/Downloads:/download'
+            '/data/shares/Downloads:/downloads'
           ]
   restart_policy 'always'
 end
