@@ -23,7 +23,7 @@ end
 
 docker_container 'lidarr' do
   repo 'linuxserver/lidarr'
-  memory '512M'
+  memory '1G'
   memory_swap '-1'
   network_mode 'container:openvpn'
   env [ 'PGID=65534', 'PUID=65534' ]
