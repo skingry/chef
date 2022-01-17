@@ -23,15 +23,14 @@ end
 
 docker_container 'minecraft' do
   repo 'itzg/minecraft-server'
-  memory '4096M'
+  memory '8192M'
   memory_swap '-1'
   network_mode 'host'
   env [
         'UID=65534',
         'GID=65534',
         'EULA=TRUE',
-        'FORGE_INSTALLER=forge-1.16.5-36.0.1-installer',
-        'MEMORY=4G'
+        'MEMORY=8G'
       ]
   volumes [
             '/data/configs/minecraft:/data'
