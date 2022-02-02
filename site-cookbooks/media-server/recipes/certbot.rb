@@ -24,5 +24,12 @@ end
 cron 'Certbot Certificate Renewal' do
   minute '0'
   hour '3'
-  command "docker run --rm -v '/data/configs/nginx/ssl:/config' -v '/data/configs/aws:/root/.aws' certbot/dns-route53 -n --dns-route53 --config-dir /config renew  && docker stop nginx && docker start nginx 2>&1 >> /var/log/certbot.log"
+  command "docker run --rm -v '/data/configs/nginx/ssl:/config' -v '/data/configs/aws:/root/.aws' certbot/dns-route53 -n --dns-route53 --config-dir /config renew > /var/log/certbot.log"
 end
+
+cron 'Restart nginx' do
+  minute '15'
+  hour '3'
+  command "docker stop nginx && docker start nginx >> /var/log/certbot.log"
+end
+
