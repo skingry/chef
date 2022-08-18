@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'dperson/openvpn-client' do
-  action :pull
-end
-
 docker_container 'openvpn' do
   repo 'dperson/openvpn-client'
   memory '16M'

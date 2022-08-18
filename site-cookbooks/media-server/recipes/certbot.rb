@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'certbot/dns-route53' do
-  action :pull
-end
-
 cron 'Certbot Certificate Renewal' do
   minute '0'
   hour '3'

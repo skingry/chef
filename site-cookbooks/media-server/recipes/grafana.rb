@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'grafana/grafana' do
-  action :pull
-end
-
 docker_container 'grafana' do
   repo 'grafana/grafana'
   memory '128M'

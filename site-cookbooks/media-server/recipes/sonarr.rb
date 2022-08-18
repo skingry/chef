@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'linuxserver/sonarr' do
-  action :pull
-end
-
 docker_container 'sonarr' do
   repo 'linuxserver/sonarr'
   memory '512M'

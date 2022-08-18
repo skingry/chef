@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'nginx' do
-  action :pull
-end
-
 docker_container 'nginx' do
   repo 'nginx'
   memory '32M'

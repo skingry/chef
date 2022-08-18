@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'linuxserver/lidarr' do
-  action :pull
-end
-
 docker_container 'lidarr' do
   repo 'linuxserver/lidarr'
   memory '1G'

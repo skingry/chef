@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'itzg/minecraft-server' do
-  action :pull
-end
-
 docker_container 'minecraft' do
   repo 'itzg/minecraft-server'
   memory '8192M'

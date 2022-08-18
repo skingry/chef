@@ -17,11 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'influxdb' do
-  tag '1.8'
-  action :pull
-end
-
 docker_container 'influxdb' do
   repo 'influxdb'
   tag '1.8'

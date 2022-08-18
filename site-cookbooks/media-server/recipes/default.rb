@@ -36,6 +36,7 @@ docker_image 'base' do
   action :build_if_missing
 end
 
+#include_recipe 'media-server::images'
 include_recipe 'media-server::monitoring'
 
 include_recipe 'media-server::openvpn'

@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'linuxserver/tautulli' do
-  action :pull
-end
-
 docker_container 'tautulli' do
   repo 'linuxserver/tautulli'
   memory '256M'

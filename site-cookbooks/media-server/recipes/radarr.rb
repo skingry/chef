@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'linuxserver/radarr' do
-  action :pull
-end
-
 docker_container 'radarr' do
   repo 'linuxserver/radarr'
   memory '512M'

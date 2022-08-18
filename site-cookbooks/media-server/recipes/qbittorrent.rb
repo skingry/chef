@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'linuxserver/qbittorrent' do
-  action :pull
-end
-
 docker_container 'qbittorrent' do
   repo 'linuxserver/qbittorrent'
   memory '2048M'

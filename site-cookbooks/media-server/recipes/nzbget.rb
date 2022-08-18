@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-docker_image 'linuxserver/nzbget' do
-  action :pull
-end
-
 docker_container 'nzbget' do
   repo 'linuxserver/nzbget'
   memory '512M'
