@@ -23,7 +23,7 @@ docker_image 'base' do
 end
 
 cron 'Plex Cleaner' do
-  minute '0'
+  minute '30'
   hour '3'
-  command "docker run --rm -it -v '/data/configs/plex-cleaner:/plex-cleaner' -v '/data/shares/Media:/media' base /plex-cleaner/PlexCleaner.py > /var/log/plex-cleaner.log"
+  command "docker run --rm -v '/data/configs/plex-cleaner:/plex-cleaner' -v '/data/shares/Media:/media' base /plex-cleaner/PlexCleaner.py >> /dev/null"
 end

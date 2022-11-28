@@ -24,7 +24,7 @@ end
 
 cron 'Config Backup' do
   minute '0'
-  hour '3'
+  hour '4'
   day '1'
-  command "docker run --rm -it -v '/data:/data' -v '/data/configs/backup/backup.sh:/usr/sbin/backup' base backup > /var/log/backup.log"
+  command "docker run --rm -v '/data:/data' -v '/data/configs/backup/backup.sh:/usr/sbin/backup' base backup > /var/log/backup.log"
 end
