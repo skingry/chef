@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: nfs
+# Recipe:: samba
 #
-# Copyright 2020, Seth Kingry
+# Copyright 2014, Seth Kingry
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,18 +17,18 @@
 # limitations under the License.
 #
 
-nfs_export "/exports" do
-  directory "/data/shares/Media/Movies"
-  network '192.168.77.0/24'
-  writeable true
-  sync true
-  options ['no_root_squash']
+docker_image 'dperson/samba' do
+  action :pull
 end
 
-nfs_export "/exports" do
-  directory "/data/shares/Media/Children"
-  network '192.168.77.0/24'
-  writeable true
-  sync true
-  options ['no_root_squash']
+docker_container 'samba' do
+  repo 'dperson/samba'
+  memory '512M'
+  network_mode 'host'
+  env [ 'NMBD=true' ]
+  volumes [
+            '/data/shares:/shares',
+            '/data/configs/samba/smb.conf:/etc/samba/smb.conf'
+          ]
+  restart_policy 'always'
 end

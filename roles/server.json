@@ -14,8 +14,7 @@
   "env_run_lists": {
     "production": [
       "role[base]",
-      "recipe[media-server]",
-      "recipe[nfs::server]"
+      "recipe[media-server]"
     ]
   }
 }

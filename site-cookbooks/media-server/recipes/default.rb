@@ -38,21 +38,18 @@ end
 
 #include_recipe 'media-server::images'
 include_recipe 'media-server::monitoring'
-
 include_recipe 'media-server::openvpn'
 include_recipe 'media-server::backup'
 include_recipe 'media-server::certbot'
 include_recipe 'media-server::plex-cleaner'
-include_recipe 'media-server::nfs'
-
+#include_recipe 'media-server::nfs'
+include_recipe 'media-server::samba'
 include_recipe 'media-server::influxdb'
 include_recipe 'media-server::grafana'
-
 include_recipe 'media-server::qbittorrent'
 include_recipe 'media-server::radarr'
 include_recipe 'media-server::nzbget'
 include_recipe 'media-server::sonarr'
-
 include_recipe 'media-server::plex'
 include_recipe 'media-server::tautulli'
 include_recipe 'media-server::nginx'
