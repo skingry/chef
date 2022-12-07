@@ -25,7 +25,6 @@ docker_installation_package 'default'
 docker_service 'default' do
   ipv6 false
   ipv6_forward false
-  storage_driver 'zfs'
   action [:create, :start]
 end
 
@@ -36,13 +35,11 @@ docker_image 'base' do
   action :build_if_missing
 end
 
-#include_recipe 'media-server::images'
 include_recipe 'media-server::monitoring'
 include_recipe 'media-server::openvpn'
 include_recipe 'media-server::backup'
 include_recipe 'media-server::certbot'
 include_recipe 'media-server::plex-cleaner'
-#include_recipe 'media-server::nfs'
 include_recipe 'media-server::samba'
 include_recipe 'media-server::influxdb'
 include_recipe 'media-server::grafana'
