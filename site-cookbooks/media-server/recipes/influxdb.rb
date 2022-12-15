@@ -23,6 +23,6 @@ docker_container 'influxdb' do
   memory '512M'
   memory_swap '-1'
   port '127.0.0.1:8086:8086'
-  volumes [ '/data/configs/influxdb:/etc/influxdb' ]
+  volumes [ '/opt/config/influxdb:/etc/influxdb' ]
   restart_policy 'always'
 end

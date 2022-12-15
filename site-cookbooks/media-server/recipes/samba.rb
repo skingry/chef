@@ -28,7 +28,7 @@ docker_container 'samba' do
   env [ 'NMBD=true' ]
   volumes [
             '/data/shares:/shares',
-            '/data/configs/samba/smb.conf:/etc/samba/smb.conf'
+            '/opt/config/samba/smb.conf:/etc/samba/smb.conf'
           ]
   restart_policy 'always'
 end

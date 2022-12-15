@@ -1,16 +1,16 @@
 node_name                  "monolith.robotozon.com"
 
-root                       "/data/configs/chef"
+root                       "/opt/config/chef"
 
-file_cache_path            "/data/configs/chef/cache"
-file_backup_path           "/data/configs/chef/backup"
+file_cache_path            "/opt/config/chef/cache"
+file_backup_path           "/opt/config/chef/backup"
 
 log_level                  :info
 verbose_logging            false
 
 environment                "production"
 
-cookbook_path              [ "/data/configs/chef/cookbooks", "/data/configs/chef/site-cookbooks" ]
-environment_path           "/data/configs/chef/environments"
-role_path                  "/data/configs/chef/roles"
-data_bag_path              "/data/configs/chef/data_bags"
+cookbook_path              [ "/opt/config/chef/cookbooks", "/opt/config/chef/site-cookbooks" ]
+environment_path           "/opt/config/chef/environments"
+role_path                  "/opt/config/chef/roles"
+data_bag_path              "/opt/config/chef/data_bags"

@@ -23,8 +23,8 @@ docker_container 'tautulli' do
   memory_swap '-1'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
-            '/data/configs/tautulli:/config',
-            '/data/configs/plex/Library/Application Support/Plex Media Server/Logs:/logs'
+            '/opt/config/tautulli:/config',
+            '/opt/config/plex/Library/Application Support/Plex Media Server/Logs:/logs'
           ]
   restart_policy 'always'
 end

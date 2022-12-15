@@ -29,7 +29,7 @@ docker_container 'minecraft' do
         'MEMORY=8G'
       ]
   volumes [
-            '/data/configs/minecraft:/data'
+            '/opt/config/minecraft:/data'
           ]
   restart_policy 'always'
 end

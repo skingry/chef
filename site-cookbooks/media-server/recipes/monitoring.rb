@@ -48,6 +48,6 @@ end
 
 cron 'Monitoring' do
   minute '*/5'
-  command "/data/configs/monitoring/monolith.sh 2>&1 >> /dev/null"
+  command "/opt/config/monitoring/monolith.sh 2>&1 >> /dev/null"
 end
 

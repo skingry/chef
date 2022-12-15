@@ -25,10 +25,10 @@ docker_container 'grafana' do
   working_dir '/usr/share/grafana'
   links [ 'influxdb:influxdb.local' ]
   volumes [
-            '/data/configs/grafana:/etc/grafana',
-            '/data/configs/grafana/data:/var/lib/grafana',
-            '/data/configs/grafana/data/plugins:/var/lib/grafana/plugins',
-            '/data/configs/grafana/logs:/var/log/grafana'
+            '/opt/config/grafana:/etc/grafana',
+            '/opt/config/grafana/data:/var/lib/grafana',
+            '/opt/config/grafana/data/plugins:/var/lib/grafana/plugins',
+            '/opt/config/grafana/logs:/var/log/grafana'
           ]
   restart_policy 'always'
 end

@@ -24,7 +24,7 @@ docker_container 'lidarr' do
   network_mode 'container:openvpn'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
-            '/data/configs/lidarr:/config',
+            '/opt/config/lidarr:/config',
             '/data/shares/Media/Music:/music',
             '/data/shares/Downloads:/downloads'
           ]

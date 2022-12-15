@@ -30,7 +30,7 @@ docker_container 'openvpn' do
             }
           ]
   dns [ '8.8.8.8', '8.8.4.4' ]
-  volumes [ '/data/configs/openvpn:/vpn' ]
+  volumes [ '/opt/config/openvpn:/vpn' ]
   privileged true
   restart_policy 'always'
 end

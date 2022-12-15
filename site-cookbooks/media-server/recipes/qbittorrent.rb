@@ -24,7 +24,7 @@ docker_container 'qbittorrent' do
   network_mode 'container:openvpn'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
-            '/data/configs/qbittorrent:/config',
+            '/opt/config/qbittorrent:/config',
             '/data/shares/Downloads:/downloads'
           ]
   restart_policy 'always'

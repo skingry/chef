@@ -29,7 +29,7 @@ docker_service 'default' do
 end
 
 docker_image 'base' do
-  source '/data/configs/chef/dockerfiles/base'
+  source '/opt/config/chef/dockerfiles/base'
   read_timeout 600
   write_timeout 600
   action :build_if_missing

@@ -24,7 +24,7 @@ docker_container 'radarr' do
   network_mode 'container:openvpn'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
-            '/data/configs/radarr:/config',
+            '/opt/config/radarr:/config',
             '/data/shares/Media:/media',
             '/data/shares/Downloads:/downloads'
           ]

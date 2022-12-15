@@ -31,6 +31,6 @@ docker_container 'nginx' do
           'tautulli:tautulli'
         ]
   port [ '80:80', '443:443' ]
-  volumes [ '/data/configs/nginx:/etc/nginx' ]
+  volumes [ '/opt/config/nginx:/etc/nginx' ]
   restart_policy 'always'
 end

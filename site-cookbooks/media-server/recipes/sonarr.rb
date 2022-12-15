@@ -24,7 +24,7 @@ docker_container 'sonarr' do
   network_mode 'container:openvpn'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
-            '/data/configs/sonarr:/config',
+            '/opt/config/sonarr:/config',
             '/data/shares/Media/TV:/tv',
             '/data/shares/Media/TV_Children:/children',
             '/data/shares/Downloads:/downloads'

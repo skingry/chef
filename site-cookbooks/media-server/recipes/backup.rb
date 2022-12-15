@@ -18,7 +18,7 @@
 #
 
 docker_image 'base' do
-  source '/data/configs/chef/dockerfiles/base'
+  source '/opt/config/chef/dockerfiles/base'
   action :build_if_missing
 end
 
@@ -26,5 +26,5 @@ cron 'Config Backup' do
   minute '0'
   hour '4'
   day '1'
-  command "docker run --rm -v '/data:/data' -v '/data/configs/backup/backup.sh:/usr/sbin/backup' base backup > /var/log/backup.log"
+  command "docker run --rm -v '/data:/data' -v '/opt/config/backup/backup.sh:/usr/sbin/backup' base backup > /var/log/backup.log"
 end

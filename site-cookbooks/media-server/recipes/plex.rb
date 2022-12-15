@@ -31,7 +31,7 @@ docker_container 'plex' do
         'PLEX_GID=65534'
       ]
   volumes [
-            '/data/configs/plex:/config',
+            '/opt/config/plex:/config',
             '/data/shares/Media:/media',
             '/tmp:/tmp'
           ]

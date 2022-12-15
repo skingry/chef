@@ -18,12 +18,12 @@
 #
 
 docker_image 'base' do
-  source '/data/configs/chef/dockerfiles/base'
+  source '/opt/config/chef/dockerfiles/base'
   action :build_if_missing
 end
 
 cron 'Plex Cleaner' do
   minute '30'
   hour '3'
-  command "docker run --rm -v '/data/configs/plex-cleaner:/plex-cleaner' -v '/data/shares/Media:/media' base /plex-cleaner/PlexCleaner.py >> /dev/null"
+  command "docker run --rm -v '/opt/config/plex-cleaner:/plex-cleaner' -v '/data/shares/Media:/media' base /plex-cleaner/PlexCleaner.py >> /dev/null"
 end
