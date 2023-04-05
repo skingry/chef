@@ -37,11 +37,6 @@ cookbook_file '/etc/default/apcupsd'
 cookbook_file '/etc/apcupsd/apcupsd.conf'
 cookbook_file '/etc/rc.local'
 
-cookbook_file '/usr/sbin/fancontrol' do
-  source 'fancontrol.sbin'
-  notifies :restart, 'service[fancontrol]', :delayed
-end
-
 cookbook_file '/etc/fancontrol' do
   notifies :restart, 'service[fancontrol]', :delayed
 end

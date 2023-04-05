@@ -30,7 +30,6 @@ docker_container 'nginx' do
           'grafana:grafana',
           'tautulli:tautulli'
         ]
-  port [ '80:80', '443:443' ]
   volumes [ '/opt/config/nginx:/etc/nginx' ]
   restart_policy 'always'
 end

@@ -2,7 +2,7 @@ source 'https://supermarket.getchef.com'
 
 cookbook 'apt', '~> 7.4.0'
 cookbook 'chef-solo-search', '~> 0.5.1'
-cookbook 'docker', '~> 8.2.4'
+cookbook 'docker', '~> 9.11.0'
 cookbook 'hostnames', '~> 0.4.2'
 cookbook 'nfs', '~> 5.0.0'
 cookbook 'ntp', '~> 3.12.0'
