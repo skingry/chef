@@ -16,10 +16,6 @@
 # limitations under the License.
 #
 
-apt_repository 'graphics_drivers' do
-  uri 'ppa:graphics-drivers/ppa'
-end
-
 docker_installation_package 'default'
 
 docker_service 'default' do
