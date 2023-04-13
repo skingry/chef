@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: nginx
+# Recipe:: makemkv
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,24 +17,12 @@
 # limitations under the License.
 #
 
-docker_container 'nginx' do
-  repo 'nginx'
-  memory '32M'
-  memory_swap '-1'
-  links [
-          'openvpn:lidarr',
-          'openvpn:radarr',
-          'openvpn:nzbget',
-          'openvpn:sonarr',
-          'openvpn:qbittorrent',
-          'grafana:grafana',
-          'tautulli:tautulli',
-          'makemkv:makemkv'
-        ]
-  port [
-         '80:80',
-         '443:443'
-       ]
-  volumes [ '/opt/config/nginx:/etc/nginx' ]
+docker_container 'makemkv' do
+  repo 'jlesage/makemkv'
+  volumes [
+            '/opt/config/makemkv:/config',
+            '/data/shares/Downloads:/storage',
+            '/data/shares/Media:/output'
+          ]
   restart_policy 'always'
 end
