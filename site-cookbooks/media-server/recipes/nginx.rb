@@ -35,6 +35,6 @@ docker_container 'nginx' do
          '80:80',
          '443:443'
        ]
-  volumes [ '/opt/config/nginx:/etc/nginx' ]
+  volumes [ '/opt/config/nginx:/etc/nginx', '/data/shares/Code:/code' ]
   restart_policy 'always'
 end
