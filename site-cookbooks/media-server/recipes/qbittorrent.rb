@@ -21,7 +21,7 @@ docker_container 'qbittorrent' do
   repo 'linuxserver/qbittorrent'
   memory '2048M'
   memory_swap '-1'
-  network_mode 'container:openvpn'
+  network_mode 'container:openvpn-client'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
             '/opt/config/qbittorrent:/config',

@@ -19,14 +19,14 @@
 
 docker_container 'nginx' do
   repo 'nginx'
-  memory '32M'
+  memory '512M'
   memory_swap '-1'
   links [
-          'openvpn:lidarr',
-          'openvpn:radarr',
-          'openvpn:nzbget',
-          'openvpn:sonarr',
-          'openvpn:qbittorrent',
+          'openvpn-client:lidarr',
+          'openvpn-client:radarr',
+          'openvpn-client:nzbget',
+          'openvpn-client:sonarr',
+          'openvpn-client:qbittorrent',
           'grafana:grafana',
           'tautulli:tautulli',
           'makemkv:makemkv'

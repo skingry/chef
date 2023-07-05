@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: media-server
-# Recipe:: openvpn
+# Recipe:: openvpn-client
 #
 # Copyright 2014, Seth Kingry
 #
@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-docker_container 'openvpn' do
+docker_container 'openvpn-client' do
   repo 'dperson/openvpn-client'
   memory '16M'
   memory_swap '-1'
@@ -30,7 +30,7 @@ docker_container 'openvpn' do
             }
           ]
   dns [ '8.8.8.8', '8.8.4.4' ]
-  volumes [ '/opt/config/openvpn:/vpn' ]
+  volumes [ '/opt/config/openvpn/client:/vpn' ]
   privileged true
   restart_policy 'always'
 end

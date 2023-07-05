@@ -21,7 +21,7 @@ docker_container 'lidarr' do
   repo 'linuxserver/lidarr'
   memory '1G'
   memory_swap '-1'
-  network_mode 'container:openvpn'
+  network_mode 'container:openvpn-client'
   env [ 'PGID=65534', 'PUID=65534' ]
   volumes [
             '/opt/config/lidarr:/config',
