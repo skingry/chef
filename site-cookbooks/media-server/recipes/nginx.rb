@@ -27,7 +27,6 @@ docker_container 'nginx' do
           'openvpn-client:nzbget',
           'openvpn-client:sonarr',
           'openvpn-client:qbittorrent',
-          'grafana:grafana',
           'tautulli:tautulli',
           'makemkv:makemkv'
         ]
