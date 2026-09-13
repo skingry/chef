@@ -44,6 +44,12 @@
     state: present
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID86YyPyCCNXvPMh3SOrTWsPr5eEqSsyHThnJXLAVISL skingry@iPad"
 
+- name: SSH Key - skingry@Phoenix
+  authorized_key:
+    user: skingry
+    state: present
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINk6nIjht8A7tigU8MU/TGPs2O6qQ2KE5cYJERYa6qv2 skingry@Phoenix"
+
 - name: hush login - skingry
   file:
     path: "/home/skingry/.hushlogin"
